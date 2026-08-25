@@ -23,6 +23,15 @@
 - [ ] Criar direcional virtual de quatro direções com suporte a toque contínuo.
 - [ ] Adicionar botões móveis para atacar, técnica, absorver, curar, interagir e abrir menus.
 - [ ] Manter atalhos de teclado para PC e testar os dois métodos no mesmo link.
+- [ ] Adicionar minimapa com jogador, vila, NPCs, inimigos, recursos e entrada de dungeon.
+- [ ] Ajustar escala e posição do minimapa para desktop e controles móveis.
+- [ ] Transformar a Vila de Musgo em hub central com praça, construções, NPCs, portal e água.
+- [ ] Organizar HUD de perfil, missões, minimapa, atalhos e moedas como moldura da cena central.
+- [ ] Adaptar o hub para manter legibilidade e controles em celular.
+- [ ] Adicionar saída de sessão local com confirmação e limpeza de perfil e progresso salvos.
+- [ ] Configurar autenticação externa compatível com o GitHub Pages.
+- [ ] Criar cadastro, login, logout e restauração de sessão.
+- [ ] Sincronizar perfil, escolhas, inventário e progresso do RPG entre dispositivos.
 - [ ] Definir as missões principais, etapas opcionais, bifurcações e condições de fracasso ou aliança.
 - [ ] Implementar estado persistente de campanha, objetivos, decisões e reputação por facção.
 - [ ] Conectar escolhas de NPCs, construções, dungeon e evolução a passos de missão concretos.

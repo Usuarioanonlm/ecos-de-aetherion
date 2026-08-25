@@ -5,6 +5,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { classes, origins, races, type ClassId, type OriginId, type RaceId, type Stats } from "../game/content";
 import RpgWorldCanvas from "./RpgWorldCanvas";
+import AuthGate from "./AuthGate";
+import { supabase } from "../lib/supabase";
 
 export type CharacterProfile = { raceId: RaceId; classId: ClassId; originId: OriginId; name: string };
 
@@ -63,6 +65,7 @@ function StatLine({ label, value }: { label: string; value: number }) {
 const defaultProfile: CharacterProfile = { raceId: "slime", classId: "arcanist", originId: "rupture-born", name: "Eco Sem Nome" };
 
 export default function RpgGame() {
+  const [accountEmail, setAccountEmail] = useState<string | null>(null);
   const [stage, setStage] = useState<"create" | "world">(() => localStorage.getItem("aetherion-profile") || new URLSearchParams(window.location.search).has("world") ? "world" : "create");
   const [profile, setProfile] = useState<CharacterProfile>(() => {
     try { return JSON.parse(localStorage.getItem("aetherion-profile") ?? "null") ?? defaultProfile; } catch { return defaultProfile; }
@@ -76,16 +79,21 @@ export default function RpgGame() {
   useEffect(() => {
     if (!compatibleOrigins.some((item) => item.id === profile.originId)) setProfile((old) => ({ ...old, originId: compatibleOrigins[0].id }));
   }, [compatibleOrigins, profile.originId]);
+  useEffect(() => { supabase.auth.getSession().then(({ data }) => setAccountEmail(data.session?.user.email ?? null)); const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => setAccountEmail(session?.user.email ?? null)); return () => listener.subscription.unsubscribe(); }, []);
 
-  const begin = () => {
+  const begin = async () => {
     const nextProfile = { ...profile, originId: origin.id };
     const priorProfile = localStorage.getItem("aetherion-profile");
     if (priorProfile !== JSON.stringify(nextProfile)) localStorage.removeItem("aetherion-world-v2");
     localStorage.setItem("aetherion-profile", JSON.stringify(nextProfile));
+    const { data: account } = await supabase.auth.getUser();
+    if (account.user) await supabase.from("game_saves").upsert({ user_id: account.user.id, profile: nextProfile, world: JSON.parse(localStorage.getItem("aetherion-world-v2") ?? "{}"), updated_at: new Date().toISOString() });
     setStage("world");
   };
 
-  if (stage === "world") return <RpgWorldCanvas profile={{ ...profile, originId: origin.id }} onReturnToCreation={() => setStage("create")} />;
+  const logout = async () => { if (!window.confirm("Sair da conta? O perfil local será removido deste dispositivo; o progresso online permanece salvo.")) return; await supabase.auth.signOut(); localStorage.removeItem("aetherion-profile"); localStorage.removeItem("aetherion-world-v2"); setProfile(defaultProfile); setStage("create"); };
+  if (!accountEmail) return <AuthGate onAuthenticated={setAccountEmail} />;
+  if (stage === "world") return <RpgWorldCanvas profile={{ ...profile, originId: origin.id }} onReturnToCreation={() => setStage("create")} onLogout={logout} />;
 
   return <main className="creation-shell">
     <div className="creation-noise" aria-hidden="true" />
