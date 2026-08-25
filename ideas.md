@@ -82,3 +82,14 @@ O wordmark deve ter serifa afiada e variação de peso, como uma inscrição nas
 - A primeira tela deve manter uma leitura imediata de cartografia: contornos topográficos, borda gravada ou rosa dos ventos aparecem sobre a área de exploração desde o início.
 - O Ouro de Éter (`#E7BD58`) é reservado a destino, descoberta, evolução, objetivos e ações primárias; não é usado como enfeite indiferenciado.
 - O wordmark permanece em serifa gravada no espírito de Cinzel e é acompanhado pelo símbolo de uma gota de slime atravessada por uma fissura de Éter.
+- Placas, cartas e registros usam metal verde escuro e latão gasto para estrutura; Ouro de Éter aparece apenas na escolha ativa, na ação primária, na evolução, em fissuras e em marcadores de destino.
+- Todas as superfícies principais devem carregar ao menos um sinal de cartografia: quebra chanfrada, rota fraturada, linha de contorno, margem gravada ou padrão de tinta desgastada.
+- Personagens e criaturas precisam manter corpo, sombra, direção e materialidade de sprite 2D; símbolos são reservados a menus, nunca substituem entidades do mundo.
+
+## Reconstrução 2D: Linha dos Ecos
+
+O jogo deixa de usar uma ilustração de cenário como fundo. A floresta será uma área **2D construída em tiles**, com chão, água rasa, raízes, pedras, árvores, trilhas e pontos de interesse desenhados em camadas. O cenário deve se comportar como lugar navegável: o jogador enxerga limites, caminhos, colisões, inimigos, NPCs e objetos de coleta.
+
+Personagens não serão círculos, hexágonos, botões ou cartões deslocados. Cada raça recebe um **sprite corporal reconhecível**, com cabeça, corpo, pernas ou forma gelatinosa, sombra, direção e uma pequena animação de caminhada. Criaturas usam a mesma linguagem: silhueta de lobo, goblin, espírito ou slime; não símbolos abstratos.
+
+A interface preserva o ouro de Éter, as placas chanfradas e o tom de crônica, mas o foco visual migra para a ação. Tela de criação é um altar de escolha: raça à esquerda, classe à direita, origem abaixo e uma prévia do personagem no centro. Durante a exploração, a HUD ocupa uma faixa compacta; o mapa 2D fica livre e legível.
