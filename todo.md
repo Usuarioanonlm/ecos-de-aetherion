@@ -32,6 +32,7 @@
 - [ ] Configurar autenticação externa compatível com o GitHub Pages.
 - [ ] Criar cadastro, login, logout e restauração de sessão.
 - [ ] Sincronizar perfil, escolhas, inventário e progresso do RPG entre dispositivos.
+- [ ] Diagnosticar e corrigir a criação de conta por e-mail no GitHub Pages.
 - [ ] Definir as missões principais, etapas opcionais, bifurcações e condições de fracasso ou aliança.
 - [ ] Implementar estado persistente de campanha, objetivos, decisões e reputação por facção.
 - [ ] Conectar escolhas de NPCs, construções, dungeon e evolução a passos de missão concretos.
