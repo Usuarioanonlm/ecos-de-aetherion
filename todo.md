@@ -14,3 +14,14 @@
 - [ ] Implementar facções, reputação, NPCs, diálogo ramificado, missões e escolhas de aliança ou conflito.
 - [ ] Criar o núcleo de vila com construção, população, recursos, especializações de NPC e progresso territorial.
 - [ ] Criar menus de personagem, mapa, missões, inventário, evolução, construções, codex e salvamento local.
+- [ ] Fixar tiles de 16×16 px e aplicar as escalas de personagem, NPC, inimigos, chefes e dragões especificadas.
+- [ ] Modelar Cidade 100×100, Floresta 200×200, Deserto 300×200, Montanhas 250×250 e Dungeon 80×80 por setores carregáveis.
+- [ ] Implementar iluminação dinâmica, partículas e clima no renderizador de pixel art 2D.
+- [ ] Definir missões principais, etapas opcionais, bifurcações e requisitos de cada final.
+- [ ] Persistir campanha, objetivos, decisões e reputação por facção.
+- [ ] Conectar escolhas, construções, dungeons e evolução aos finais do Herói, Rei dos Monstros, Imperador, Senhor do Vazio, Novo Deus e Fragmento da Árvore.
+- [ ] Definir as missões principais, etapas opcionais, bifurcações e condições de fracasso ou aliança.
+- [ ] Implementar estado persistente de campanha, objetivos, decisões e reputação por facção.
+- [ ] Conectar escolhas de NPCs, construções, dungeon e evolução a passos de missão concretos.
+- [ ] Desbloquear e apresentar os finais do Herói, Rei dos Monstros, Imperador, Senhor do Vazio, Novo Deus e Fragmento da Árvore.
+- [ ] Validar ao menos duas rotas completas, incluindo carregamento do progresso salvo e reinício de campanha.
