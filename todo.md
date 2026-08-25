@@ -20,6 +20,9 @@
 - [ ] Definir missões principais, etapas opcionais, bifurcações e requisitos de cada final.
 - [ ] Persistir campanha, objetivos, decisões e reputação por facção.
 - [ ] Conectar escolhas, construções, dungeons e evolução aos finais do Herói, Rei dos Monstros, Imperador, Senhor do Vazio, Novo Deus e Fragmento da Árvore.
+- [ ] Criar direcional virtual de quatro direções com suporte a toque contínuo.
+- [ ] Adicionar botões móveis para atacar, técnica, absorver, curar, interagir e abrir menus.
+- [ ] Manter atalhos de teclado para PC e testar os dois métodos no mesmo link.
 - [ ] Definir as missões principais, etapas opcionais, bifurcações e condições de fracasso ou aliança.
 - [ ] Implementar estado persistente de campanha, objetivos, decisões e reputação por facção.
 - [ ] Conectar escolhas de NPCs, construções, dungeon e evolução a passos de missão concretos.
