@@ -26,6 +26,17 @@ const getWorldSprite = (raceId: string) => {
   if (!sprite) { sprite = new Image(); sprite.src = raceSpriteArt[id]; worldSpriteCache.set(id, sprite); }
   return sprite;
 };
+const entitySpriteArt = {
+  "npc-guardian": "/manus-storage/aetherion-npc-guardian_0c3e7ee7.png",
+  "npc-emissary": "/manus-storage/aetherion-npc-emissary_31fc1aac.png",
+  "npc-merchant": "/manus-storage/aetherion-npc-merchant_78f82ff5.png",
+  wolf: "/manus-storage/aetherion-enemy-wolf_92e41028.png",
+  boar: "/manus-storage/aetherion-enemy-boar_caf84c92.png",
+  goblin: "/manus-storage/aetherion-enemy-goblin_dca0c9bb.png",
+} as const;
+type EntitySpriteId = keyof typeof entitySpriteArt;
+const entitySpriteCache = new Map<EntitySpriteId, HTMLImageElement>();
+const getEntitySprite = (id: EntitySpriteId) => { let sprite = entitySpriteCache.get(id); if (!sprite) { sprite = new Image(); sprite.src = entitySpriteArt[id]; entitySpriteCache.set(id, sprite); } return sprite; };
 const Npcs: Npc[] = [
   { id: "mira", name: "Mira de Musgo", role: "Guardião da vila", visual: "guardian", x: 28.5, y: 20.1, race: "human", line: "Os lobos foram tocados pela Ruptura. A vila não quer caçadores: quer alguém que entenda o Éter.", quest: "Expulse os Lobos Primordiais da trilha norte." },
   { id: "thalion", name: "Thalion", role: "Emissário élfico", visual: "emissary", x: 19.7, y: 8.4, race: "elf", line: "A Árvore Primordial ainda sonha. Não confunda silêncio com paz.", quest: "Escute os espíritos da raiz antiga." },
@@ -101,7 +112,8 @@ function drawPerson(ctx: CanvasRenderingContext2D, x: number, y: number, s: numb
 
 function drawNpc(ctx: CanvasRenderingContext2D, x: number, y: number, npc: Npc, phase: number) {
   const accent = npc.visual === "guardian" ? "#e7bd58" : npc.visual === "emissary" ? "#98d7c0" : "#df9351";
-  drawPerson(ctx, x, y, 48, npc.race, accent, phase, 1);
+  const sprite = getEntitySprite(`npc-${npc.visual}` as EntitySpriteId);
+  if (sprite.complete && sprite.naturalWidth > 0) { ctx.save(); ctx.imageSmoothingEnabled = false; const size = 74; const bob = Math.round(Math.sin(phase) * 1.5); ctx.drawImage(sprite, Math.round(x - size / 2), Math.round(y - size * .84 + bob), size, size); ctx.restore(); } else drawPerson(ctx, x, y, 48, npc.race, accent, phase, 1);
   ctx.save(); ctx.imageSmoothingEnabled = false;
   if (npc.visual === "guardian") { ctx.fillStyle = "#223944"; ctx.fillRect(x + 16, y - 23, 4, 34); ctx.fillStyle = "#d7bd66"; ctx.fillRect(x + 12, y - 25, 12, 4); ctx.fillRect(x + 10, y - 21, 4, 11); }
   if (npc.visual === "emissary") { ctx.fillStyle = "#91d7c0"; ctx.fillRect(x - 21, y - 24, 3, 32); ctx.fillStyle = "#d9f2d1"; ctx.fillRect(x - 25, y - 27, 11, 5); ctx.fillRect(x - 20, y - 31, 3, 8); }
@@ -111,7 +123,7 @@ function drawNpc(ctx: CanvasRenderingContext2D, x: number, y: number, npc: Npc, 
 
 function drawCreature(ctx: CanvasRenderingContext2D, x: number, y: number, s: number, kind: EnemyKind, phase: number, hurt: number, attack = 0, guard = 0) {
   const u = s / 48; const bob = Math.round(Math.sin(phase * 4) * 1.5); const lunge = attack > 0 ? Math.round((attack / .35) * 7) : 0; const p = (px: number, py: number, w: number, h: number, color: string) => { ctx.fillStyle = color; ctx.fillRect(Math.round(x + px * u + lunge), Math.round(y + py * u + bob), Math.ceil(w * u), Math.ceil(h * u)); }; const base = hurt > 0 ? "#f2d3ac" : kind === "wolf" ? "#596b70" : kind === "boar" ? "#774b38" : "#4d754d";
-  p(-19, 16, 38, 5, "rgba(3,15,17,.48)"); if (kind === "wolf") { p(-18, -2, 35, 17, "#27393d"); p(-16, -7, 29, 19, base); p(-13, -17, 7, 12, "#3c5051"); p(5, -17, 7, 12, "#3c5051"); p(10, -4, 10, 9, "#40575a"); p(14, -3, 3, 3, "#e4c65b"); p(-12, 10, 5, 10, "#223137"); p(8, 10, 5, 10, "#223137"); } else if (kind === "boar") { p(-18, -5, 37, 20, "#402a29"); p(-16, -8, 34, 22, base); p(13, -3, 9, 9, "#a26f54"); p(19, 1, 7, 3, "#e8d6ae"); p(-11, 10, 5, 10, "#302226"); p(7, 10, 5, 10, "#302226"); } else { p(-13, -11, 26, 18, "#25452e"); p(-11, -13, 22, 17, base); p(-17, -10, 8, 7, "#5b9253"); p(9, -10, 8, 7, "#5b9253"); p(-14, 5, 28, 15, "#65412f"); p(3, -8, 3, 3, "#f0d15a"); }
+  p(-19, 16, 38, 5, "rgba(3,15,17,.48)"); const sprite = getEntitySprite(kind); if (sprite.complete && sprite.naturalWidth > 0) { ctx.save(); ctx.imageSmoothingEnabled = false; const size = Math.round(s * 1.55); if (hurt > 0) ctx.globalAlpha = .78; ctx.drawImage(sprite, Math.round(x - size / 2 + lunge), Math.round(y - size * .73 + bob), size, size); ctx.restore(); } else if (kind === "wolf") { p(-18, -2, 35, 17, "#27393d"); p(-16, -7, 29, 19, base); p(-13, -17, 7, 12, "#3c5051"); p(5, -17, 7, 12, "#3c5051"); p(10, -4, 10, 9, "#40575a"); p(14, -3, 3, 3, "#e4c65b"); p(-12, 10, 5, 10, "#223137"); p(8, 10, 5, 10, "#223137"); } else if (kind === "boar") { p(-18, -5, 37, 20, "#402a29"); p(-16, -8, 34, 22, base); p(13, -3, 9, 9, "#a26f54"); p(19, 1, 7, 3, "#e8d6ae"); p(-11, 10, 5, 10, "#302226"); p(7, 10, 5, 10, "#302226"); } else { p(-13, -11, 26, 18, "#25452e"); p(-11, -13, 22, 17, base); p(-17, -10, 8, 7, "#5b9253"); p(9, -10, 8, 7, "#5b9253"); p(-14, 5, 28, 15, "#65412f"); p(3, -8, 3, 3, "#f0d15a"); }
   if (attack > 0) { p(18, -13, 12, 4, "#d7c78e"); p(24, -9, 8, 4, "#d7c78e"); } if (guard > 0) { ctx.globalAlpha = Math.min(1, guard * 3); p(-24, -21, 6, 38, "#8bcfb2"); p(-20, -25, 20, 4, "#8bcfb2"); p(-20, 17, 20, 4, "#8bcfb2"); ctx.globalAlpha = 1; }
 }
 

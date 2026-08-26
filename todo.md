@@ -61,3 +61,5 @@
 - [ ] Fazer o herói no mundo usar o mesmo sprite da raça selecionada durante a criação.
 - [ ] Dar silhuetas, equipamentos, animações e identificação visual mais detalhados a NPCs e inimigos.
 - [ ] Substituir o minimapa simples por um mapa detalhado no canto superior direito, mostrando terreno, estradas, construções, NPCs, inimigos e posição do jogador.
+- [ ] Criar sprites de NPCs detalhados por função, com vestimenta, arma ou ferramenta, mochila e marcador de diálogo próprios.
+- [ ] Criar sprites de inimigos detalhados por espécie, com anatomia, materiais, olhos, garras ou presas e poses de combate reconhecíveis.
