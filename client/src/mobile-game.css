@@ -1,0 +1,26 @@
+/* Cartografia Viva no celular: o mapa ocupa o quadro inteiro; HUD e comandos ficam nas bordas sem cruzar o herói. */
+@media (max-width: 768px) and (orientation: portrait) {
+  .rpg-shell { top: 0; left: 0; width: 100vw; height: 100dvh; min-height: 100svh; transform: none; box-shadow: none; }
+  .rpg-topbar { min-height: 3.25rem; padding: .35rem .5rem; }
+  .world-brand { gap: .35rem; } .world-brand > span { font-size: 1rem; } .world-brand small { font-size: .39rem; letter-spacing: .07em; } .world-brand b { font-size: .62rem; }
+  .world-resources { gap: .24rem; font-size: .46rem; } .topbar-actions { display: none; }
+  .player-hud { top: 3.75rem; left: .45rem; width: 9.25rem; padding: .42rem; } .hud-name small { width: 1.55rem; height: 1.55rem; font-size: .38rem; } .hud-name b { font-size: .6rem; } .hud-name span { font-size: .42rem; } .life-bar { margin-top: .38rem; } .hud-numbers { font-size: .38rem; }
+  .minimap { top: 3.75rem; right: .45rem; width: 6.15rem; padding: .22rem; } .minimap-land { height: 4.15rem; } .minimap header small { font-size: .34rem; }
+  .quest-hud { top: 8.45rem; right: .45rem; width: 6.15rem; padding: .38rem; } .quest-hud b { margin: .08rem 0; font-size: .43rem; line-height: 1.2; } .quest-hud p { display: none; }
+  .rpg-actions { bottom: 7.65rem; right: 50%; display: grid; grid-template-columns: repeat(4, 2.45rem); gap: .15rem; transform: translateX(50%); } .rpg-actions button { min-width: 2.45rem; min-height: 2.05rem; padding: .18rem .1rem; } .rpg-actions span { font-size: .33rem; } .rpg-actions kbd { font-size: .45rem; }
+  .touch-controls { inset: auto .45rem calc(env(safe-area-inset-bottom) + .45rem) .45rem; } .touch-controls button { width: 3rem; height: 3rem; font-size: .52rem; } .touch-dpad { grid-template-columns: repeat(3, 3rem); grid-template-rows: repeat(2, 3rem); } .touch-actions { grid-template-columns: repeat(2, 3rem); gap: .22rem; }
+  .touch-dpad .touch-run { grid-column: 1; grid-row: 1; font-size: .37rem; } .touch-dpad .touch-up { grid-column: 2; grid-row: 1; } .touch-dpad .touch-left { grid-column: 1; grid-row: 2; } .touch-dpad .touch-down { grid-column: 2; grid-row: 2; } .touch-dpad .touch-right { grid-column: 3; grid-row: 2; } .touch-run.active { border-color: #d8f0b1; background: #3f7957; color: #fff4c9; box-shadow: inset 0 0 0 2px rgba(231,189,88,.2); }
+  .world-controls { display: none; } .rpg-menu-window { width: calc(100vw - 1rem); max-height: calc(100dvh - 1rem); }
+}
+
+@media (pointer: coarse) and (orientation: landscape) and (max-height: 600px) {
+  .rpg-shell { width: min(100vw, 177.777vh); height: min(100dvh, 56.25vw); }
+  .rpg-topbar { min-height: 3.1rem; padding: .32rem .55rem; } .world-brand > span { font-size: 1rem; } .world-brand small { font-size: .4rem; } .world-brand b { font-size: .62rem; } .world-resources { gap: .3rem; font-size: .46rem; } .topbar-actions { display: none; }
+  .player-hud { top: 3.65rem; left: .5rem; width: 10.5rem; padding: .42rem; } .quest-hud { display: none; }
+  .rpg-actions { top: 3.65rem; right: .45rem; bottom: auto; display: grid; grid-template-columns: repeat(4, 2.3rem); gap: .12rem; } .rpg-actions button { min-width: 2.3rem; min-height: 1.9rem; padding: .14rem .08rem; } .rpg-actions span { font-size: .31rem; } .rpg-actions kbd { font-size: .42rem; }
+  .minimap { top: 7.9rem; right: .45rem; width: 6rem; padding: .2rem; } .minimap-land { height: 3.8rem; }
+  .touch-controls { inset: auto .45rem calc(env(safe-area-inset-bottom) + .3rem) .45rem; } .touch-controls button { width: 2.7rem; height: 2.7rem; font-size: .46rem; } .touch-dpad { grid-template-columns: repeat(3, 2.7rem); grid-template-rows: repeat(2, 2.7rem); } .touch-actions { grid-template-columns: repeat(3, 2.7rem); gap: .16rem; } .touch-dpad .touch-run { grid-column: 1; grid-row: 1; font-size: .33rem; } .touch-dpad .touch-up { grid-column: 2; grid-row: 1; } .touch-dpad .touch-left { grid-column: 1; grid-row: 2; } .touch-dpad .touch-down { grid-column: 2; grid-row: 2; } .touch-dpad .touch-right { grid-column: 3; grid-row: 2; } .touch-run.active { border-color: #d8f0b1; background: #3f7957; color: #fff4c9; }
+  .world-controls { display: none; }
+}
+
+.rpg-actions .run-mode.active { border-color: #d8f0b1; background: #3f7957; color: #fff4c9; box-shadow: inset 0 0 0 2px rgba(231,189,88,.18); }

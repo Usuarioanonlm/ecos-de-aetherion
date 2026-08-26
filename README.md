@@ -33,6 +33,8 @@
 
 O botão **Teclas** abre o painel de remapeamento. Cada Eco pode definir, sem repetir teclas, movimento, ataque, habilidade, inventário, mapa, interação, esquiva e abertura de menu; as preferências acompanham o personagem. **Restaurar controles padrão** retorna ao esquema exibido acima. No celular, os botões de direção, ataque, Éter, interação e esquiva acionam as mesmas ações configuráveis.
 
+O botão **Anda/Corre** alterna o ritmo do Eco e é salvo com o personagem. Caminhar mantém a velocidade padrão; correr aumenta a velocidade e também acelera a cadência visual dos passos. A moldura adapta o campo de jogo para ocupar a tela inteira em retrato, enquanto em paisagem reposiciona mapa, HUD e botões para não encobrirem o personagem.
+
 ## Conta e personagens
 
 Após entrar com e-mail e senha, o jogador chega ao **Arquivo de Ecos**. A tela apresenta cinco slots fixos: slots ocupados permitem continuar o respectivo personagem e slots vazios abrem a criação de um novo eco. O banco limita cada conta aos índices de `1` a `5` e aplica uma regra de acesso que permite ao usuário ler e alterar somente os seus próprios personagens.
