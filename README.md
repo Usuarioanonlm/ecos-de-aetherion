@@ -15,7 +15,7 @@
 | Narrativa | NPCs, diálogos ramificados, reputação de facções, origem pessoal, missões e caminhos de final. |
 | Mundo | Oito regiões, sete Dragões Primordiais, primeira dungeon e codex. |
 | Civilização | Construções, recursos, efeitos de vila e renderização das estruturas na Vila de Musgo. |
-| Persistência | Personagem e progresso local salvos no navegador. |
+| Persistência | Até cinco personagens por conta; cada slot preserva perfil e progresso separadamente no navegador e no banco online ao trocar de personagem ou sair. |
 
 ## Controles
 
@@ -28,6 +28,12 @@
 | `H` | Consumir poção de musgo. |
 | `E` | Conversar com NPCs ou entrar na fissura de dungeon. |
 | `C`, `I`, `M`, `Q`, `B`, `J` | Abrir personagem, bolsa, mapa, crônicas, vila e codex. |
+
+## Conta e personagens
+
+Após entrar com e-mail e senha, o jogador chega ao **Arquivo de Ecos**. A tela apresenta cinco slots fixos: slots ocupados permitem continuar o respectivo personagem e slots vazios abrem a criação de um novo eco. O banco limita cada conta aos índices de `1` a `5` e aplica uma regra de acesso que permite ao usuário ler e alterar somente os seus próprios personagens.
+
+Use **Trocar Eco** durante a partida para voltar ao arquivo sem apagar o personagem atual. Use **Sair** para encerrar a sessão: o mundo ativo é salvo antes do logout e continua disponível no próximo acesso à conta.
 
 ## Desenvolvimento local
 
@@ -47,11 +53,11 @@ pnpm build
 
 Durante desenvolvimento, `/?world` abre o mapa 2D diretamente. O fluxo normal sempre inicia na criação de personagem.
 
-## GitHub Pages
+## Publicação
 
-O workflow em `.github/workflows/deploy-pages.yml` cria o build e publica `dist/public` depois de cada envio para `main`. Para ativar a primeira publicação, abra **Settings → Pages** no repositório e selecione **GitHub Actions** como fonte de publicação.
+O endereço de compartilhamento principal é **[ecos-de-aetherion-rpg.netlify.app](https://ecos-de-aetherion-rpg.netlify.app/)**. A Netlify recebe a distribuição estática gerada em `dist/public`, enquanto o repositório público no GitHub preserva o código-fonte e o histórico de alterações.
 
-O build usa caminhos relativos e é adequado a uma página hospedada dentro do próprio repositório.
+O workflow de GitHub Pages continua no repositório como alternativa técnica, mas não é o canal recomendado enquanto sua propagação não estiver confiável.
 
 ## Próxima expansão
 

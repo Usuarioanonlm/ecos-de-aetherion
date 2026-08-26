@@ -9,6 +9,7 @@ import AuthGate from "./AuthGate";
 import { supabase } from "../lib/supabase";
 
 export type CharacterProfile = { raceId: RaceId; classId: ClassId; originId: OriginId; name: string };
+type CharacterSlot = { id: string; slot_index: number; profile: CharacterProfile; world: Record<string, unknown> };
 
 const emptyStats: Stats = { vitality: 0, power: 0, ether: 0, agility: 0, resolve: 0 };
 
@@ -66,7 +67,9 @@ const defaultProfile: CharacterProfile = { raceId: "slime", classId: "arcanist",
 
 export default function RpgGame() {
   const [accountEmail, setAccountEmail] = useState<string | null>(null);
-  const [stage, setStage] = useState<"create" | "world">(() => localStorage.getItem("aetherion-profile") || new URLSearchParams(window.location.search).has("world") ? "world" : "create");
+  const [stage, setStage] = useState<"select" | "create" | "world">("select");
+  const [slots, setSlots] = useState<CharacterSlot[]>([]);
+  const [activeSlotId, setActiveSlotId] = useState<string | null>(null);
   const [profile, setProfile] = useState<CharacterProfile>(() => {
     try { return JSON.parse(localStorage.getItem("aetherion-profile") ?? "null") ?? defaultProfile; } catch { return defaultProfile; }
   });
@@ -80,20 +83,26 @@ export default function RpgGame() {
     if (!compatibleOrigins.some((item) => item.id === profile.originId)) setProfile((old) => ({ ...old, originId: compatibleOrigins[0].id }));
   }, [compatibleOrigins, profile.originId]);
   useEffect(() => { supabase.auth.getSession().then(({ data }) => setAccountEmail(data.session?.user.email ?? null)); const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => setAccountEmail(session?.user.email ?? null)); return () => listener.subscription.unsubscribe(); }, []);
+  useEffect(() => { if (!accountEmail) return; supabase.from("character_slots").select("id,slot_index,profile,world").order("slot_index").then(({ data }) => { setSlots((data ?? []) as CharacterSlot[]); setStage("select"); }); }, [accountEmail]);
 
   const begin = async () => {
     const nextProfile = { ...profile, originId: origin.id };
-    const priorProfile = localStorage.getItem("aetherion-profile");
-    if (priorProfile !== JSON.stringify(nextProfile)) localStorage.removeItem("aetherion-world-v2");
-    localStorage.setItem("aetherion-profile", JSON.stringify(nextProfile));
     const { data: account } = await supabase.auth.getUser();
-    if (account.user) await supabase.from("game_saves").upsert({ user_id: account.user.id, profile: nextProfile, world: JSON.parse(localStorage.getItem("aetherion-world-v2") ?? "{}"), updated_at: new Date().toISOString() });
+    if (!account.user) return;
+    const active = slots.find((slot) => slot.id === activeSlotId);
+    const slotIndex = active?.slot_index ?? [1, 2, 3, 4, 5].find((index) => !slots.some((slot) => slot.slot_index === index));
+    if (!slotIndex) return;
+    const { data } = await supabase.from("character_slots").upsert({ user_id: account.user.id, slot_index: slotIndex, profile: nextProfile, world: active?.world ?? {} }, { onConflict: "user_id,slot_index" }).select("id,slot_index,profile,world").single();
+    if (data) { const slot = data as CharacterSlot; setSlots((old) => [...old.filter((item) => item.id !== slot.id), slot].sort((a, b) => a.slot_index - b.slot_index)); setActiveSlotId(slot.id); localStorage.setItem(`aetherion-profile:${slot.id}`, JSON.stringify(nextProfile)); }
     setStage("world");
   };
 
-  const logout = async () => { if (!window.confirm("Sair da conta? O perfil local será removido deste dispositivo; o progresso online permanece salvo.")) return; await supabase.auth.signOut(); localStorage.removeItem("aetherion-profile"); localStorage.removeItem("aetherion-world-v2"); setProfile(defaultProfile); setStage("create"); };
+  const chooseSlot = (slot: CharacterSlot) => { setActiveSlotId(slot.id); setProfile(slot.profile); if (Object.keys(slot.world ?? {}).length) localStorage.setItem(`aetherion-world-v2:${slot.id}`, JSON.stringify(slot.world)); setStage("world"); };
+  const returnToSelector = async () => { const active = slots.find((slot) => slot.id === activeSlotId); if (active) { const world = JSON.parse(localStorage.getItem(`aetherion-world-v2:${active.id}`) ?? "{}"); await supabase.from("character_slots").update({ world, updated_at: new Date().toISOString() }).eq("id", active.id); setSlots((old) => old.map((slot) => slot.id === active.id ? { ...slot, world } : slot)); } setActiveSlotId(null); setStage("select"); };
+  const logout = async () => { if (!window.confirm("Sair da conta? Todos os seus personagens permanecem salvos.")) return; const active = slots.find((slot) => slot.id === activeSlotId); if (active) { const saved = JSON.parse(localStorage.getItem(`aetherion-world-v2:${active.id}`) ?? "{}"); await supabase.from("character_slots").update({ world: saved, updated_at: new Date().toISOString() }).eq("id", active.id); } await supabase.auth.signOut(); setActiveSlotId(null); setStage("select"); };
   if (!accountEmail) return <AuthGate onAuthenticated={setAccountEmail} />;
-  if (stage === "world") return <RpgWorldCanvas profile={{ ...profile, originId: origin.id }} onReturnToCreation={() => setStage("create")} onLogout={logout} />;
+  if (stage === "world" && activeSlotId) return <RpgWorldCanvas profile={{ ...profile, originId: origin.id }} slotId={activeSlotId} onReturnToCreation={returnToSelector} onLogout={logout} />;
+  if (stage === "select") return <main className="creation-shell slot-shell"><header className="creation-header"><div className="brand-symbol"><i /><span>✦</span></div><p>ECOS DE AETHERION · ARQUIVO DE ECOS</p><h1>ESCOLHA QUEM<br /><em>RETORNARÁ À RUPTURA</em></h1><span>{accountEmail} · {slots.length}/5 personagens</span></header><section className="slot-grid">{[1,2,3,4,5].map((index) => { const slot = slots.find((item) => item.slot_index === index); return slot ? <button key={index} className="slot-card occupied" onClick={() => chooseSlot(slot)}><CharacterPreview profile={slot.profile} size="small" /><div><small>SLOT {index}</small><b>{slot.profile.name}</b><span>{races.find((race) => race.id === slot.profile.raceId)?.name} · {classes.find((item) => item.id === slot.profile.classId)?.name}</span><em>CONTINUAR ↗</em></div></button> : <button key={index} className="slot-card empty" onClick={() => { setActiveSlotId(null); setProfile(defaultProfile); setStage("create"); }}><span>+</span><b>CRIAR NOVO ECO</b><small>SLOT {index} DISPONÍVEL</small></button>; })}</section><button className="logout-button slot-logout" onClick={logout}>SAIR DA CONTA</button></main>;
 
   return <main className="creation-shell">
     <div className="creation-noise" aria-hidden="true" />

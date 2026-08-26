@@ -37,6 +37,9 @@
 - [ ] Substituir o redirecionamento localhost da confirmação pelo endereço público do GitHub Pages.
 - [ ] Publicar o jogo na Netlify e validar um link público alternativo ao GitHub Pages.
 - [ ] Diagnosticar o erro 404 da implantação atual no GitHub Pages.
+- [ ] Criar até cinco slots de personagem por conta de e-mail.
+- [ ] Isolar perfil, inventário, escolhas, vila, missões e salvamento de cada personagem.
+- [ ] Exibir seleção de personagem após o login e permitir criar novos slots até o limite.
 - [ ] Definir as missões principais, etapas opcionais, bifurcações e condições de fracasso ou aliança.
 - [ ] Implementar estado persistente de campanha, objetivos, decisões e reputação por facção.
 - [ ] Conectar escolhas de NPCs, construções, dungeon e evolução a passos de missão concretos.
