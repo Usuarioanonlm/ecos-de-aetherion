@@ -1,26 +1,22 @@
-/* Cartografia Viva no celular: o mapa ocupa o quadro inteiro; HUD e comandos ficam nas bordas sem cruzar o herói. */
-@media (max-width: 768px) and (orientation: portrait) {
-  .rpg-shell { top: 0; left: 0; width: 100vw; height: 100dvh; min-height: 100svh; transform: none; box-shadow: none; }
-  .rpg-topbar { min-height: 3.25rem; padding: .35rem .5rem; }
-  .world-brand { gap: .35rem; } .world-brand > span { font-size: 1rem; } .world-brand small { font-size: .39rem; letter-spacing: .07em; } .world-brand b { font-size: .62rem; }
-  .world-resources { gap: .24rem; font-size: .46rem; } .topbar-actions { display: none; }
-  .player-hud { top: 3.75rem; left: .45rem; width: 9.25rem; padding: .42rem; } .hud-name small { width: 1.55rem; height: 1.55rem; font-size: .38rem; } .hud-name b { font-size: .6rem; } .hud-name span { font-size: .42rem; } .life-bar { margin-top: .38rem; } .hud-numbers { font-size: .38rem; }
-  .minimap { top: 3.75rem; right: .45rem; width: 6.15rem; padding: .22rem; } .minimap-land { height: 4.15rem; } .minimap header small { font-size: .34rem; }
-  .quest-hud { top: 8.45rem; right: .45rem; width: 6.15rem; padding: .38rem; } .quest-hud b { margin: .08rem 0; font-size: .43rem; line-height: 1.2; } .quest-hud p { display: none; }
-  .rpg-actions { bottom: 7.65rem; right: 50%; display: grid; grid-template-columns: repeat(4, 2.45rem); gap: .15rem; transform: translateX(50%); } .rpg-actions button { min-width: 2.45rem; min-height: 2.05rem; padding: .18rem .1rem; } .rpg-actions span { font-size: .33rem; } .rpg-actions kbd { font-size: .45rem; }
-  .touch-controls { inset: auto .45rem calc(env(safe-area-inset-bottom) + .45rem) .45rem; } .touch-controls button { width: 3rem; height: 3rem; font-size: .52rem; } .touch-dpad { grid-template-columns: repeat(3, 3rem); grid-template-rows: repeat(2, 3rem); } .touch-actions { grid-template-columns: repeat(2, 3rem); gap: .22rem; }
-  .touch-dpad .touch-run { grid-column: 1; grid-row: 1; font-size: .37rem; } .touch-dpad .touch-up { grid-column: 2; grid-row: 1; } .touch-dpad .touch-left { grid-column: 1; grid-row: 2; } .touch-dpad .touch-down { grid-column: 2; grid-row: 2; } .touch-dpad .touch-right { grid-column: 3; grid-row: 2; } .touch-run.active { border-color: #d8f0b1; background: #3f7957; color: #fff4c9; box-shadow: inset 0 0 0 2px rgba(231,189,88,.2); }
-  .world-controls { display: none; } .rpg-menu-window { width: calc(100vw - 1rem); max-height: calc(100dvh - 1rem); }
-}
-
-@media (pointer: coarse) and (orientation: landscape) and (max-height: 600px) {
-  .rpg-shell { width: min(100vw, 177.777vh); height: min(100dvh, 56.25vw); }
-  .rpg-topbar { min-height: 3.1rem; padding: .32rem .55rem; } .world-brand > span { font-size: 1rem; } .world-brand small { font-size: .4rem; } .world-brand b { font-size: .62rem; } .world-resources { gap: .3rem; font-size: .46rem; } .topbar-actions { display: none; }
-  .player-hud { top: 3.65rem; left: .5rem; width: 10.5rem; padding: .42rem; } .quest-hud { display: none; }
-  .rpg-actions { top: 3.65rem; right: .45rem; bottom: auto; display: grid; grid-template-columns: repeat(4, 2.3rem); gap: .12rem; } .rpg-actions button { min-width: 2.3rem; min-height: 1.9rem; padding: .14rem .08rem; } .rpg-actions span { font-size: .31rem; } .rpg-actions kbd { font-size: .42rem; }
-  .minimap { top: 7.9rem; right: .45rem; width: 6rem; padding: .2rem; } .minimap-land { height: 3.8rem; }
-  .touch-controls { inset: auto .45rem calc(env(safe-area-inset-bottom) + .3rem) .45rem; } .touch-controls button { width: 2.7rem; height: 2.7rem; font-size: .46rem; } .touch-dpad { grid-template-columns: repeat(3, 2.7rem); grid-template-rows: repeat(2, 2.7rem); } .touch-actions { grid-template-columns: repeat(3, 2.7rem); gap: .16rem; } .touch-dpad .touch-run { grid-column: 1; grid-row: 1; font-size: .33rem; } .touch-dpad .touch-up { grid-column: 2; grid-row: 1; } .touch-dpad .touch-left { grid-column: 1; grid-row: 2; } .touch-dpad .touch-down { grid-column: 2; grid-row: 2; } .touch-dpad .touch-right { grid-column: 3; grid-row: 2; } .touch-run.active { border-color: #d8f0b1; background: #3f7957; color: #fff4c9; }
-  .world-controls { display: none; }
-}
-
+/* Cartografia Viva mobile: o telefone usa toda a área disponível; menus nunca atravessam a rota do herói. */
+.action-cluster { display: flex; gap: .25rem; }.mobile-actions-toggle { display: none; }
 .rpg-actions .run-mode.active { border-color: #d8f0b1; background: #3f7957; color: #fff4c9; box-shadow: inset 0 0 0 2px rgba(231,189,88,.18); }
+
+@media (pointer: coarse) and (max-width: 900px) {
+  .rpg-shell { position: fixed; inset: 0; width: 100vw; height: 100dvh; min-height: 100svh; transform: none; box-shadow: none; }
+  .rpg-topbar { min-height: 2.75rem; padding: .24rem .5rem; } .world-brand { gap: .3rem; } .world-brand > span { font-size: .86rem; } .world-brand small { font-size: .34rem; letter-spacing: .05em; } .world-brand b { font-size: .56rem; } .world-resources { gap: .26rem; font-size: .42rem; } .topbar-actions { display: none; }
+  .player-hud { top: 3.15rem; left: .38rem; width: 8.6rem; padding: .34rem; } .hud-name small { width: 1.35rem; height: 1.35rem; font-size: .34rem; } .hud-name b { font-size: .52rem; } .hud-name span { font-size: .36rem; } .life-bar { height: .28rem; margin-top: .28rem; } .focus-bar { height: .17rem; margin-top: .18rem; } .hud-numbers { margin-top: .22rem; font-size: .33rem; }
+  .quest-hud { display: none; } .world-controls { display: none; }
+  .minimap { top: 3.15rem; right: .38rem; width: 5.55rem; padding: .18rem; } .minimap header { display: none; } .minimap-land { height: 3.6rem; } .minimap footer { display: none; }
+  .rpg-actions { top: 3.15rem; right: .38rem; bottom: auto; display: block; transform: none; } .mobile-actions-toggle { display: grid; width: 2.45rem; min-width: 2.45rem; min-height: 2.2rem; padding: .12rem; border: 1px solid rgba(231,189,88,.62); background: rgba(5,24,26,.9); color: var(--gold); } .mobile-actions-toggle span { font-size: .3rem; } .mobile-actions-toggle kbd { font-size: .64rem; }
+  .action-cluster { position: absolute; top: 0; right: 2.7rem; display: none; width: 7.6rem; grid-template-columns: repeat(3, 2.42rem); gap: .16rem; padding: .18rem; border: 1px solid rgba(231,189,88,.48); background: rgba(5,24,26,.94); box-shadow: 0 .6rem 1.5rem rgba(0,0,0,.35); } .action-cluster.is-open { display: grid; } .action-cluster button { min-width: 2.42rem; min-height: 2.1rem; padding: .12rem .06rem; } .action-cluster button span { font-size: .3rem; } .action-cluster button kbd { font-size: .42rem; }
+  .touch-controls { inset: auto .38rem calc(env(safe-area-inset-bottom) + .35rem) .38rem; } .touch-controls button { width: 2.62rem; height: 2.62rem; font-size: .42rem; } .touch-dpad { grid-template-columns: repeat(3, 2.62rem); grid-template-rows: repeat(2, 2.62rem); gap: .12rem; } .touch-actions { grid-template-columns: repeat(3, 2.62rem); gap: .14rem; }
+  .touch-dpad .touch-run { grid-column: 1; grid-row: 1; font-size: .29rem; } .touch-dpad .touch-up { grid-column: 2; grid-row: 1; } .touch-dpad .touch-left { grid-column: 1; grid-row: 2; } .touch-dpad .touch-down { grid-column: 2; grid-row: 2; } .touch-dpad .touch-right { grid-column: 3; grid-row: 2; } .touch-run.active { border-color: #d8f0b1; background: #3f7957; color: #fff4c9; }
+  .rpg-menu-window { width: min(22rem, calc(100vw - 1rem)); max-height: calc(100dvh - 1rem); padding: .9rem; }
+}
+
+@media (pointer: coarse) and (orientation: portrait) {
+  .minimap { top: 3.15rem; width: 5.2rem; } .minimap-land { height: 3.35rem; }
+  .touch-controls button { width: 2.9rem; height: 2.9rem; } .touch-dpad { grid-template-columns: repeat(3, 2.9rem); grid-template-rows: repeat(2, 2.9rem); } .touch-actions { grid-template-columns: repeat(2, 2.9rem); }
+  .action-cluster { width: 7.6rem; }
+}

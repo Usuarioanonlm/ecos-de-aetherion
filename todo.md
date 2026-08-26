@@ -78,3 +78,4 @@
 - [x] Adicionar remapeamento persistente para movimento, ataque, habilidades, inventário, mapa, interação, esquiva e menu, com restauração do padrão.
 - [x] Corrigir a moldura e a hierarquia da HUD no Chrome móvel, incluindo retrato e paisagem.
 - [x] Fixar o herói visualmente ao chão, com animação de caminhada/corrida e alternador de velocidade persistente.
+- [x] Refazer a HUD e os controles para telefone padrão em paisagem, deixando o centro do mapa livre e removendo atalhos sobrepostos.
