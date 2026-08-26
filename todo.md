@@ -63,3 +63,6 @@
 - [ ] Substituir o minimapa simples por um mapa detalhado no canto superior direito, mostrando terreno, estradas, construções, NPCs, inimigos e posição do jogador.
 - [ ] Criar sprites de NPCs detalhados por função, com vestimenta, arma ou ferramenta, mochila e marcador de diálogo próprios.
 - [ ] Criar sprites de inimigos detalhados por espécie, com anatomia, materiais, olhos, garras ou presas e poses de combate reconhecíveis.
+- [ ] Adicionar regiões exploráveis conectadas por rotas, cada uma com bioma, inimigos, recursos e vila própria.
+- [ ] Criar novas vilas com habitantes, diálogos, missões paralelas, comércio, igreja, baús e pontos de recompensa.
+- [ ] Persistir o avanço de missões, baús abertos, compras, bênçãos e regiões desbloqueadas por personagem.
