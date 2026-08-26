@@ -1,6 +1,20 @@
 # Especificação de Pixel Art
 
-O mundo usa grade-base de **16×16 px**. Personagens e NPCs ocupam **32×48 px**; inimigos pequenos, **32×32 px**; inimigos médios, **48×48 ou 64×64 px**; bosses, **96×96 a 192×192 px**; e dragões, **256×256 px ou mais**. O canvas deve usar escala inteira, `image-rendering: pixelated` e iluminação pós-renderizada por setores.
+## Escala de produção atual
+
+O jogo passa a ter uma cena interna de referência em **960×540 px**, com renderização pixelada e escalonamento inteiro sempre que o dispositivo permitir. A grade-base continua em **16×16 px**, mas sprites e objetos importantes usam as dimensões abaixo para ganhar leitura, materialidade e presença no campo de jogo.
+
+| Elemento | Dimensão-alvo | Regra visual |
+| --- | ---: | --- |
+| Personagem e NPC | 48 px de altura útil | Silhueta de três planos, animação de caminhada e arma independente. |
+| Monstro comum | 48×48 px | Volume, sombra de contato, olhos e detalhes de material. |
+| Boss | 96×96 px | Silhueta única, telegráfos de ataque e efeitos próprios. |
+| Árvore | 64×64 px | Tronco, raízes, copa em camadas e sombra deslocada. |
+| Construção básica | 32×32 px por módulo | Construções avançadas usam somente múltiplos de 32. |
+| Arma | 32 px | Renderização independente do corpo para leitura do ataque. |
+| Efeito de Éter/combate | até 96×96 px | Forma de impacto em pixels, brilho seletivo e dissipação. |
+
+O canvas usa `image-rendering: pixelated` e iluminação pós-renderizada por setores. O desenho deve evitar campos vazios, contornos vetoriais, gradientes suaves e formas arredondadas genéricas. Cada material recebe pelo menos três tons legíveis: base, sombra e luz seletiva.
 
 | Área | Grade | Estratégia |
 | --- | ---: | --- |

@@ -45,3 +45,9 @@
 - [ ] Conectar escolhas de NPCs, construções, dungeon e evolução a passos de missão concretos.
 - [ ] Desbloquear e apresentar os finais do Herói, Rei dos Monstros, Imperador, Senhor do Vazio, Novo Deus e Fragmento da Árvore.
 - [ ] Validar ao menos duas rotas completas, incluindo carregamento do progresso salvo e reinício de campanha.
+- [ ] Reconstruir a cena em uma resolução-base interna de 960×540 px com escala inteira e pixelização preservada.
+- [ ] Redesenhar personagens e monstros em 48 px, bosses em 96 px, árvores em 64 px e armas em 32 px.
+- [ ] Recriar construções em módulos de 32 px e efeitos de combate/Éter em 96 px, com mais volume, sombreamento e animação.
+- [ ] Reprojetar a criação de personagem e HUD para a mesma linguagem de pixel art detalhada e legível no celular.
+- [ ] Usar as três referências de combate enviadas para definir poses e telegráfos de ataque, defesa, dano e morte dos mobs.
+- [ ] Implementar ciclos de animação por estado para monstros de 48 px, incluindo impacto, recuo, defesa e dissipação ao morrer.

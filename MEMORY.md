@@ -1,5 +1,10 @@
 # Memória de Implementação — Ecos de Aetherion
 
+- Atualização visual solicitada: cena interna de 960×540 px; personagem e monstros 48 px; bosses e efeitos 96 px; árvores 64 px; armas 32 px; construções em módulos de 32 px. O usuário identificou o estado visual atual como básico demais, sobretudo em celular.
+- A nova meta é uma floresta mais densa, com materiais em três ou mais tons, silhuetas não geométricas e UI menos dominante sobre a ação.
+- A inspeção visual confirmou que a cena lógica 960×540 forma uma composição 16:9 centralizada, sem o campo vertical vazio que prejudicava a versão móvel anterior. A floresta agora contém árvores modulares de 64 px, construções por módulos de 32 px, personagem de 48 px e iluminação local mais concentrada.
+- As três referências de Pinterest foram consultadas somente como guia de princípios: ataques devem ter antecipação e silhueta estendida; defesa deve ter pose curta e leitura de escudo; mortes devem resolver em uma pose/dissipação clara, sem reproduzir personagens ou sprites externos.
+
 - O pedido é uma experiência 2D jogável no navegador, com futura publicação no GitHub Pages.
 - O documento-base define Aetherion como um continente afetado pela Grande Ruptura e pela liberação do Éter; o primeiro corte escolhe o caminho do slime e a habilidade Absorção.
 - O recorte prioritário é: floresta, luta contra lobos, absorção e proteção da Vila de Musgo. Civilização, diplomacia e mundo aberto completo ficam para expansões.

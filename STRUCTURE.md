@@ -1,5 +1,9 @@
 # Estrutura Técnica — Ecos de Aetherion
 
+## Atualização de renderização em pixel art
+
+O canvas 2D atual preserva as regras de jogo e passa a trabalhar sobre um viewport lógico de **960×540 px**. Terreno continua em tiles de 16 px; entidades ganham sprites procedurais em camadas para heroísmo, monstros, árvores, construções, armas e efeitos. A moldura React permanece para autenticação e menus, mas toda a leitura espacial fica concentrada na cena 16:9 e escalada com pixels nítidos.
+
 ## Princípio de camadas
 
 > **React é a moldura; Babylon é a tela; os módulos em TypeScript são o jogo.**

@@ -1,5 +1,9 @@
 # Plano do Jogo: Ecos de Aetherion — Prólogo da Ruptura
 
+## Atualização visual — pixel art densa
+
+O protótipo passa a usar uma cena lógica de **960×540 px**. A reconstrução troca a aparência simples por sprites com silhuetas e materiais legíveis: herói/NPC e monstros em 48 px, bosses e efeitos em 96 px, árvores em 64 px, armas em 32 px e construções componíveis somente em múltiplos de 32 px. A verificação exige uma cena sem grandes campos vazios, com sombras de contato, detalhes de terreno e escala pixelada preservada em desktop e celular.
+
 ## Recorte da primeira versão
 
 O protótipo acompanha um **slime recém-desperto** na Floresta Primordial. O objetivo é atravessar uma clareira, derrotar lobos primordiais, absorver sua essência e alcançar a Vila de Musgo antes que a patrulha humana chegue. Este corte materializa os pilares de exploração, evolução e decisão do documento de conceito sem prometer ainda o mundo aberto completo, a construção de civilizações ou as oito regiões.
