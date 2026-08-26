@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
 
-const AUTH_REDIRECT_URL = "https://usuarioanonlm.github.io/ecos-de-aetherion/";
+const AUTH_REDIRECT_URL = window.location.origin;
 
 function readableError(raw: string) {
   const message = raw.toLowerCase();
