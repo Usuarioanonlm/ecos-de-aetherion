@@ -56,3 +56,5 @@
 - [ ] Substituir o retrato de blocos grandes da criação por sprites 48 px com contorno, volumes, sombreamento em degraus e armas em 32 px.
 - [ ] Criar silhuetas distintas por raça: humano, anão, elfo, orc, bestial, kobold, lagarto, slime e mestiço, sem reutilizar um mesmo boneco-base.
 - [ ] Refazer os sprites atuais em grade de pixel fina, com contorno de 1 px, anatomia legível e quatro tons por material; remover a aparência de ícone com blocos largos.
+- [ ] Publicar e validar no endereço público a versão com sprites refinados e feedback de combate.
+- [ ] Corrigir e validar a entrega pública dos nove sprites refinados, garantindo que não haja quadros vazios no celular.

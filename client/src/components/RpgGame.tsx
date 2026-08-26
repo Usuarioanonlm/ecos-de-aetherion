@@ -12,15 +12,15 @@ export type CharacterProfile = { raceId: RaceId; classId: ClassId; originId: Ori
 type CharacterSlot = { id: string; slot_index: number; profile: CharacterProfile; world: Record<string, unknown> };
 
 export const raceSpriteArt: Record<RaceId, string> = {
-  human: "/manus-storage/aetherion-human-sprite_bb6cf52e.png",
-  slime: "/manus-storage/aetherion-slime-sprite_7976a35e.png",
-  goblin: "/manus-storage/aetherion-goblin-sprite_e6749710.png",
-  wolfkin: "/manus-storage/aetherion-wolfkin-sprite_9b5678ba.png",
-  kobold: "/manus-storage/aetherion-kobold-sprite_17522acb.png",
-  lizard: "/manus-storage/aetherion-lizard-sprite_176e401c.png",
-  elf: "/manus-storage/aetherion-elf-sprite_44ac2a53.png",
-  dwarf: "/manus-storage/aetherion-dwarf-sprite_16b45723.png",
-  beastfolk: "/manus-storage/aetherion-beastfolk-sprite_7fcc93c8.png",
+  human: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030079711/OzIAyhrrMvJaqkSt.webp",
+  slime: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030079711/mIVsnFxmNHaERiYb.webp",
+  goblin: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030079711/aowZBjbkjftmaPLN.webp",
+  wolfkin: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030079711/ghpgbHbOMJMrlKAh.webp",
+  kobold: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030079711/kboQxkYKxOnVcNil.webp",
+  lizard: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030079711/CMegvshPjXAHGtJh.webp",
+  elf: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030079711/iEJKGMuTmmugheFh.webp",
+  dwarf: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030079711/TWCBFfDqBJvvTXxi.webp",
+  beastfolk: "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030079711/VOhXhYByhLrTnjle.webp",
 };
 
 const emptyStats: Stats = { vitality: 0, power: 0, ether: 0, agility: 0, resolve: 0 };
