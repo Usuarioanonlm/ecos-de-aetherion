@@ -66,3 +66,4 @@
 - [ ] Adicionar regiões exploráveis conectadas por rotas, cada uma com bioma, inimigos, recursos e vila própria.
 - [ ] Criar novas vilas com habitantes, diálogos, missões paralelas, comércio, igreja, baús e pontos de recompensa.
 - [ ] Persistir o avanço de missões, baús abertos, compras, bênçãos e regiões desbloqueadas por personagem.
+- [ ] Impedir seleção de texto, cópia e menu nativo ao manter pressionados os controles e botões do jogo no celular.
