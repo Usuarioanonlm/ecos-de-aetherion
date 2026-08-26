@@ -6,6 +6,7 @@
 - As três referências de Pinterest foram consultadas somente como guia de princípios: ataques devem ter antecipação e silhueta estendida; defesa deve ter pose curta e leitura de escudo; mortes devem resolver em uma pose/dissipação clara, sem reproduzir personagens ou sprites externos.
 - A criação não usa mais um molde humanoide compartilhado: cada raça tem uma silhueta 48 px própria, com elementos reconhecíveis como barba/baixa estatura para anão, orelhas longas para elfo, chifres/cauda para dracônicos e bestiais, crista/escamas para lagarto e volume translúcido para slime.
 - O combate passou a produzir números flutuantes para dano, bloqueio, dano ao herói e recompensa de XP. Os sons curtos são gerados no navegador após a primeira ação do jogador, evitando arquivos de áudio externos e respeitando a política de autoplay.
+- A aparência de ícones geométricos foi substituída por ativos próprios de pixel art refinada. Os nove retratos têm silhuetas e materiais particulares e a mesma biblioteca passa a alimentar a criação, os slots e o desenho de heróis/NPCs no canvas, escalada como sprite lógico de 48 px com suavização desativada.
 
 - O pedido é uma experiência 2D jogável no navegador, com futura publicação no GitHub Pages.
 - O documento-base define Aetherion como um continente afetado pela Grande Ruptura e pela liberação do Éter; o primeiro corte escolhe o caminho do slime e a habilidade Absorção.

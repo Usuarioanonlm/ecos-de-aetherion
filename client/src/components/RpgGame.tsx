@@ -11,6 +11,18 @@ import { supabase } from "../lib/supabase";
 export type CharacterProfile = { raceId: RaceId; classId: ClassId; originId: OriginId; name: string };
 type CharacterSlot = { id: string; slot_index: number; profile: CharacterProfile; world: Record<string, unknown> };
 
+export const raceSpriteArt: Record<RaceId, string> = {
+  human: "/manus-storage/aetherion-human-sprite_bb6cf52e.png",
+  slime: "/manus-storage/aetherion-slime-sprite_7976a35e.png",
+  goblin: "/manus-storage/aetherion-goblin-sprite_e6749710.png",
+  wolfkin: "/manus-storage/aetherion-wolfkin-sprite_9b5678ba.png",
+  kobold: "/manus-storage/aetherion-kobold-sprite_17522acb.png",
+  lizard: "/manus-storage/aetherion-lizard-sprite_176e401c.png",
+  elf: "/manus-storage/aetherion-elf-sprite_44ac2a53.png",
+  dwarf: "/manus-storage/aetherion-dwarf-sprite_16b45723.png",
+  beastfolk: "/manus-storage/aetherion-beastfolk-sprite_7fcc93c8.png",
+};
+
 const emptyStats: Stats = { vitality: 0, power: 0, ether: 0, agility: 0, resolve: 0 };
 
 export function profileStats(profile: CharacterProfile) {
@@ -53,7 +65,7 @@ function SpriteDetails({ raceId, accent, cloak }: { raceId: RaceId; accent: stri
 
 function CharacterPreview({ profile, size = "large" }: { profile: CharacterProfile; size?: "large" | "small" }) {
   const race = races.find((item) => item.id === profile.raceId)!; const playerClass = classes.find((item) => item.id === profile.classId)!;
-  return <div className={`character-preview ${size} race-${race.id}`} aria-label={`Sprite de ${race.name}`}><svg viewBox="0 0 96 112" role="img" aria-hidden="true" shapeRendering="crispEdges"><rect x="8" y="8" width="80" height="88" fill="#071e21"/><rect x="12" y="12" width="72" height="80" fill="#0c3233"/><rect x="12" y="12" width="72" height="4" fill="#214b45"/><rect x="12" y="88" width="72" height="4" fill="#061417"/><path d="M12 80h72v8H12zM16 16h4v4h-4zm12 0h4v4h-4zm48 0h4v4h-4zM16 84h4v4h-4zm56 0h4v4h-4z" fill="rgba(162,208,137,.22)"/><RaceSprite raceId={race.id} skin={race.palette.skin} cloak={race.palette.cloak} accent={race.palette.accent}/><SpriteDetails raceId={race.id} cloak={race.palette.cloak} accent={race.palette.accent}/><PixelWeapon classId={playerClass.id} accent={race.palette.accent}/><rect x="16" y="99" width="64" height="3" fill={race.palette.accent}/><rect x="28" y="103" width="40" height="2" fill="#d6c58c" opacity=".72"/></svg><span className="portrait-rune">{playerClass.icon}</span></div>;
+  return <div className={`character-preview ${size} race-${race.id}`} aria-label={`Sprite de ${race.name}`}><span className="sprite-frame" aria-hidden="true" /><img className="race-sprite-art" src={raceSpriteArt[race.id]} alt="" draggable="false" /><span className="portrait-rune">{playerClass.icon}</span></div>;
 }
 
 function StatLine({ label, value }: { label: string; value: number }) {

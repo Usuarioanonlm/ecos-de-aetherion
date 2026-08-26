@@ -3,10 +3,10 @@
  * Nenhuma imagem de cenário ou marcador geométrico participa do campo de jogo.
  */
 import { useEffect, useMemo, useRef, useState } from "react";
-import { classes, endings, primordialDragons, races, regions, type Stats } from "../game/content";
+import { classes, endings, primordialDragons, races, regions, type RaceId, type Stats } from "../game/content";
 import { TILE_PX, endingRequirements, quests } from "../game/campaign";
 import type { CharacterProfile } from "./RpgGame";
-import { CharacterPreview, profileStats } from "./RpgGame";
+import { CharacterPreview, profileStats, raceSpriteArt } from "./RpgGame";
 
 type EnemyKind = "wolf" | "boar" | "goblin";
 type Enemy = { id: string; x: number; y: number; health: number; maxHealth: number; kind: EnemyKind; alive: boolean; hurt: number; phase: number; attack?: number; guard?: number; death?: number };
@@ -19,6 +19,13 @@ type Hud = { health: number; maxHealth: number; focus: number; maxFocus: number;
 
 const WORLD_W = 42;
 const WORLD_H = 30;
+const worldSpriteCache = new Map<RaceId, HTMLImageElement>();
+const getWorldSprite = (raceId: string) => {
+  if (!(raceId in raceSpriteArt)) return null;
+  const id = raceId as RaceId; let sprite = worldSpriteCache.get(id);
+  if (!sprite) { sprite = new Image(); sprite.src = raceSpriteArt[id]; worldSpriteCache.set(id, sprite); }
+  return sprite;
+};
 const Npcs: Npc[] = [
   { id: "mira", name: "Mira de Musgo", role: "Guardião da vila", x: 28.5, y: 20.1, race: "human", line: "Os lobos foram tocados pela Ruptura. A vila não quer caçadores: quer alguém que entenda o Éter.", quest: "Expulse os Lobos Primordiais da trilha norte." },
   { id: "thalion", name: "Thalion", role: "Emissário élfico", x: 19.7, y: 8.4, race: "elf", line: "A Árvore Primordial ainda sonha. Não confunda silêncio com paz.", quest: "Escute os espíritos da raiz antiga." },
@@ -83,6 +90,8 @@ function drawBuilding(ctx: CanvasRenderingContext2D, x: number, y: number, s: nu
 function drawPerson(ctx: CanvasRenderingContext2D, x: number, y: number, s: number, raceId: string, classAccent: string, moving: number, facing: number) {
   const race = races.find((item) => item.id === raceId) ?? races[0]; const u = s / 48; const dir = facing < 0 ? -1 : 1; const bob = Math.round(Math.sin(moving) * 1.5); const p = (px: number, py: number, w: number, h: number, color: string) => { ctx.fillStyle = color; ctx.fillRect(Math.round(x + px * u * dir), Math.round(y + py * u + bob), Math.ceil(w * u * dir), Math.ceil(h * u)); };
   p(-17 * dir, 20, 34 * dir, 5, "rgba(3,15,17,.48)");
+  const sprite = getWorldSprite(raceId);
+  if (sprite?.complete && sprite.naturalWidth > 0) { const spriteSize = Math.round(s * 1.55); ctx.save(); ctx.imageSmoothingEnabled = false; ctx.drawImage(sprite, Math.round(x - spriteSize / 2), Math.round(y - spriteSize * .82 + bob), spriteSize, spriteSize); ctx.fillStyle = classAccent; ctx.globalAlpha = .55; ctx.fillRect(Math.round(x - 2), Math.round(y + 19 + bob), 4, 4); ctx.restore(); return; }
   if (raceId === "slime") { p(-15 * dir, -5, 30 * dir, 22, "#153d3a"); p(-12 * dir, -10, 24 * dir, 27, race.palette.skin); p(-8 * dir, -14, 16 * dir, 6, "#71ba94"); p(-6 * dir, -2, 4 * dir, 4, "#102727"); p(5 * dir, -2, 4 * dir, 4, "#102727"); p(-2 * dir, -7, 4 * dir, 15, race.palette.accent); p(-6 * dir, 9, 12 * dir, 5, "rgba(209,246,196,.24)"); return; }
   p(-10 * dir, 7, 8 * dir, 15, "#172126"); p(3 * dir, 7, 8 * dir, 15, "#172126"); p(-14 * dir, 0, 28 * dir, 16, "#15232b"); p(-12 * dir, -2, 24 * dir, 18, race.palette.cloak); p(-15 * dir, 2, 5 * dir, 12, "#29443d"); p(10 * dir, 3, 5 * dir, 12, "#1d332f"); p(-10 * dir, -18, 20 * dir, 18, race.palette.skin); p(-12 * dir, -20, 24 * dir, 7, "#1a2a34"); p(-7 * dir, -13, 4 * dir, 3, "#192222"); p(4 * dir, -13, 4 * dir, 3, "#192222");
   if (["elf", "wolfkin", "beastfolk", "kobold", "lizard"].includes(raceId)) { p(-13 * dir, -20, 5 * dir, 9, race.palette.cloak); p(9 * dir, -20, 5 * dir, 9, race.palette.cloak); }
