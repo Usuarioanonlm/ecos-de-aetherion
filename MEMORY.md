@@ -4,6 +4,8 @@
 - A nova meta é uma floresta mais densa, com materiais em três ou mais tons, silhuetas não geométricas e UI menos dominante sobre a ação.
 - A inspeção visual confirmou que a cena lógica 960×540 forma uma composição 16:9 centralizada, sem o campo vertical vazio que prejudicava a versão móvel anterior. A floresta agora contém árvores modulares de 64 px, construções por módulos de 32 px, personagem de 48 px e iluminação local mais concentrada.
 - As três referências de Pinterest foram consultadas somente como guia de princípios: ataques devem ter antecipação e silhueta estendida; defesa deve ter pose curta e leitura de escudo; mortes devem resolver em uma pose/dissipação clara, sem reproduzir personagens ou sprites externos.
+- A criação não usa mais um molde humanoide compartilhado: cada raça tem uma silhueta 48 px própria, com elementos reconhecíveis como barba/baixa estatura para anão, orelhas longas para elfo, chifres/cauda para dracônicos e bestiais, crista/escamas para lagarto e volume translúcido para slime.
+- O combate passou a produzir números flutuantes para dano, bloqueio, dano ao herói e recompensa de XP. Os sons curtos são gerados no navegador após a primeira ação do jogador, evitando arquivos de áudio externos e respeitando a política de autoplay.
 
 - O pedido é uma experiência 2D jogável no navegador, com futura publicação no GitHub Pages.
 - O documento-base define Aetherion como um continente afetado pela Grande Ruptura e pela liberação do Éter; o primeiro corte escolhe o caminho do slime e a habilidade Absorção.

@@ -22,6 +22,7 @@
 | Herói de Éter | Personagem de 48 px com corpo, cabeça, manto e arma de 32 px em camadas | 48 px | Renderização procedural detalhada |
 | Monstro Primordial | Criatura de 48×48 px com silhueta, olhos, patas e sombra de contato | 48×48 px | Renderização procedural detalhada |
 | Guardião da Raiz | Boss com corpo e telegrafia de ataque em camadas | 96×96 px | Renderização procedural detalhada |
+| Arquivo de raças | Sprites de criação em grade 48 px, com silhuetas próprias de humano, slime, goblin, lobo, kobold, lagarto, elfo, anão e meio-fera | 48 px | SVG pixelado procedural |
 
 ## Marca
 

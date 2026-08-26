@@ -51,3 +51,7 @@
 - [ ] Reprojetar a criação de personagem e HUD para a mesma linguagem de pixel art detalhada e legível no celular.
 - [ ] Usar as três referências de combate enviadas para definir poses e telegráfos de ataque, defesa, dano e morte dos mobs.
 - [ ] Implementar ciclos de animação por estado para monstros de 48 px, incluindo impacto, recuo, defesa e dissipação ao morrer.
+- [ ] Criar sons breves sintetizados para impacto, bloqueio, acerto crítico e dissipação de mobs, respeitando o primeiro gesto do jogador para ativar áudio.
+- [ ] Exibir números flutuantes de dano, bloqueio e morte no canvas, com cores, trajetória e duração legíveis em desktop e celular.
+- [ ] Substituir o retrato de blocos grandes da criação por sprites 48 px com contorno, volumes, sombreamento em degraus e armas em 32 px.
+- [ ] Criar silhuetas distintas por raça: humano, anão, elfo, orc, bestial, kobold, lagarto, slime e mestiço, sem reutilizar um mesmo boneco-base.
