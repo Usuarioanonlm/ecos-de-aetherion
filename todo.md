@@ -67,3 +67,7 @@
 - [ ] Criar novas vilas com habitantes, diálogos, missões paralelas, comércio, igreja, baús e pontos de recompensa.
 - [ ] Persistir o avanço de missões, baús abertos, compras, bênçãos e regiões desbloqueadas por personagem.
 - [ ] Impedir seleção de texto, cópia e menu nativo ao manter pressionados os controles e botões do jogo no celular.
+- [ ] Criar configurações persistentes por personagem para volume de efeitos sonoros e música ambiente.
+- [ ] Modelar as 6 vilas, 3 grandes cidades e 2 capitais fornecidas como assentamentos exploráveis e progressivos.
+- [ ] Integrar os 8 biomas, 12 dungeons, 8 bosses, 25 mobs, 5 facções, 3 reinos, 7 dragões e regiões especiais ao atlas do jogo.
+- [ ] Adicionar os 15 pontos de interesse ao mapa e ao codex, incluindo a região final O Vazio de Erebos.
