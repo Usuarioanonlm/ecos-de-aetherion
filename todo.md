@@ -71,3 +71,6 @@
 - [ ] Modelar as 6 vilas, 3 grandes cidades e 2 capitais fornecidas como assentamentos exploráveis e progressivos.
 - [ ] Integrar os 8 biomas, 12 dungeons, 8 bosses, 25 mobs, 5 facções, 3 reinos, 7 dragões e regiões especiais ao atlas do jogo.
 - [ ] Adicionar os 15 pontos de interesse ao mapa e ao codex, incluindo a região final O Vazio de Erebos.
+- [ ] Converter todos os assentamentos do atlas em mapas físicos com NPCs, comércio, capela, baús, missões e rotas.
+- [ ] Converter todos os biomas, dungeons, bosses, mobs e pontos de interesse em áreas físicas exploráveis e interativas.
+- [ ] Implementar compra, venda, inventário de lojas, preços por assentamento e persistência econômica por personagem.
