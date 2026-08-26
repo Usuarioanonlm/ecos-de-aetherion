@@ -58,3 +58,6 @@
 - [ ] Refazer os sprites atuais em grade de pixel fina, com contorno de 1 px, anatomia legível e quatro tons por material; remover a aparência de ícone com blocos largos.
 - [ ] Publicar e validar no endereço público a versão com sprites refinados e feedback de combate.
 - [ ] Corrigir e validar a entrega pública dos nove sprites refinados, garantindo que não haja quadros vazios no celular.
+- [ ] Fazer o herói no mundo usar o mesmo sprite da raça selecionada durante a criação.
+- [ ] Dar silhuetas, equipamentos, animações e identificação visual mais detalhados a NPCs e inimigos.
+- [ ] Substituir o minimapa simples por um mapa detalhado no canto superior direito, mostrando terreno, estradas, construções, NPCs, inimigos e posição do jogador.
