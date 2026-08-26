@@ -10,24 +10,28 @@
 | --- | --- |
 | Criação de personagem | Nove raças, seis classes, origens compatíveis, nome, atributos e talento racial. |
 | Exploração | Mapa 2D em tiles com caminhos, árvores, água, recursos, NPCs, vila, portal e colisões. |
-| Combate | Ataque, técnica de classe, foco de Éter, dano, cura, criaturas hostis e Guardião da Raiz. |
+| Combate | Ataque, técnica de classe, esquiva curta com invulnerabilidade, foco de Éter, dano, cura, criaturas hostis e Guardião da Raiz. |
 | Progressão | Níveis, experiência, essência, evolução racial, itens e poções. |
 | Narrativa | NPCs, diálogos ramificados, reputação de facções, origem pessoal, missões e caminhos de final. |
 | Mundo | Oito regiões, sete Dragões Primordiais, primeira dungeon e codex. |
 | Civilização | Construções, recursos, efeitos de vila e renderização das estruturas na Vila de Musgo. |
-| Persistência | Até cinco personagens por conta; cada slot preserva perfil e progresso separadamente no navegador e no banco online ao trocar de personagem ou sair. |
+| Persistência | Até cinco personagens por conta; cada slot preserva perfil, progresso, áudio e controles separadamente no navegador e no banco online ao trocar de personagem ou sair. |
 
 ## Controles
 
 | Tecla | Ação |
 | --- | --- |
-| `WASD` ou setas | Mover no mundo 2D. |
+| `WASD` | Mover no mundo 2D. |
 | `Espaço` | Ataque normal. |
 | `R` | Técnica da classe, consumindo foco de Éter. |
+| `Shift` | Esquiva curta na direção atual, com uma breve proteção. |
 | `F` | Absorver essência ou coletar recursos próximos. |
 | `H` | Consumir poção de musgo. |
 | `E` | Conversar com NPCs ou entrar na fissura de dungeon. |
+| `Tab` | Abrir ou fechar o menu de configurações. |
 | `C`, `I`, `M`, `Q`, `B`, `J` | Abrir personagem, bolsa, mapa, crônicas, vila e codex. |
+
+O botão **Teclas** abre o painel de remapeamento. Cada Eco pode definir, sem repetir teclas, movimento, ataque, habilidade, inventário, mapa, interação, esquiva e abertura de menu; as preferências acompanham o personagem. **Restaurar controles padrão** retorna ao esquema exibido acima. No celular, os botões de direção, ataque, Éter, interação e esquiva acionam as mesmas ações configuráveis.
 
 ## Conta e personagens
 

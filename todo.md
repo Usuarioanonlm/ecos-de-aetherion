@@ -74,3 +74,5 @@
 - [ ] Converter todos os assentamentos do atlas em mapas físicos com NPCs, comércio, capela, baús, missões e rotas.
 - [ ] Converter todos os biomas, dungeons, bosses, mobs e pontos de interesse em áreas físicas exploráveis e interativas.
 - [ ] Implementar compra, venda, inventário de lojas, preços por assentamento e persistência econômica por personagem.
+- [ ] Publicar e validar no endereço público a expansão de mapas físicos, dungeons e comércio interativo.
+- [x] Adicionar remapeamento persistente para movimento, ataque, habilidades, inventário, mapa, interação, esquiva e menu, com restauração do padrão.
