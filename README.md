@@ -35,6 +35,8 @@ O botão **Teclas** abre o painel de remapeamento. Cada Eco pode definir, sem re
 
 O **minimapa** no canto superior direito é clicável. Ao tocar nele, o jogador abre o **Mapa de Aetherion** ampliado, com os biomas, vilas, cidades, capitais, dungeons, rotas, região atual e progresso daquele Eco. Marcadores dourados indicam a posição atual; rotas seladas são liberadas à medida que os portais e estradas físicas são explorados.
 
+No atlas ampliado, os botões **+** e **−** ajustam o zoom de leitura. Toque em uma região para focalizá-la e consultar seus assentamentos, dungeons e pontos de interesse. Quando um destino físico já estiver desbloqueado, o botão **Viajar para** leva o Eco diretamente para lá. A região atual recebe um marcador de **missão ativa**, e os pontos de interesse usam o símbolo `✧`.
+
 ## Conta e personagens
 
 Após entrar com e-mail e senha, o jogador chega ao **Arquivo de Ecos**. A tela apresenta cinco slots fixos: slots ocupados permitem continuar o respectivo personagem e slots vazios abrem a criação de um novo eco. O banco limita cada conta aos índices de `1` a `5` e aplica uma regra de acesso que permite ao usuário ler e alterar somente os seus próprios personagens.

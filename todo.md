@@ -77,3 +77,4 @@
 - [ ] Publicar e validar no endereço público a expansão de mapas físicos, dungeons e comércio interativo.
 - [x] Adicionar remapeamento persistente para movimento, ataque, habilidades, inventário, mapa, interação, esquiva e menu, com restauração do padrão.
 - [x] Transformar o minimapa em botão e abrir um mapa ampliado com biomas, assentamentos, dungeons, rotas e posição do jogador.
+- [x] Adicionar zoom ao atlas ampliado, viagem direta por destinos desbloqueados e marcadores de missões e pontos de interesse.
