@@ -39,6 +39,8 @@ No atlas ampliado, os botões **+** e **−** ajustam o zoom de leitura. Toque e
 
 Com o atlas ampliado, é possível **arrastar o mapa** usando o dedo ou mouse para navegar pela área em zoom, sem selecionar uma região durante o gesto. A viagem direta apresenta antes uma janela de confirmação com nível de ameaça, tipo da região, inimigos possíveis e boss conhecido, quando houver. Somente o botão **Confirmar viagem** move o Eco para o destino.
 
+A confirmação de viagem também relaciona os **recursos encontrados** e as **recompensas possíveis** do bioma. O jogador escolhe entre gastar **foco de Éter** ou **ouro**; ambos os valores variam conforme o nível do destino. A janela mostra saldo e custo antes da partida, e bloqueia a confirmação quando o recurso escolhido não é suficiente. O débito e o novo local continuam persistentes para aquele Eco.
+
 ## Conta e personagens
 
 Após entrar com e-mail e senha, o jogador chega ao **Arquivo de Ecos**. A tela apresenta cinco slots fixos: slots ocupados permitem continuar o respectivo personagem e slots vazios abrem a criação de um novo eco. O banco limita cada conta aos índices de `1` a `5` e aplica uma regra de acesso que permite ao usuário ler e alterar somente os seus próprios personagens.

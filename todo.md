@@ -79,3 +79,4 @@
 - [x] Transformar o minimapa em botão e abrir um mapa ampliado com biomas, assentamentos, dungeons, rotas e posição do jogador.
 - [x] Adicionar zoom ao atlas ampliado, viagem direta por destinos desbloqueados e marcadores de missões e pontos de interesse.
 - [x] Adicionar confirmação de viagem rápida com ameaças e inimigos possíveis, além de arrasto por dedo ou mouse no atlas com zoom.
+- [x] Exibir recompensas e recursos possíveis por região e cobrar foco de Éter ou ouro na confirmação de viagem rápida.
