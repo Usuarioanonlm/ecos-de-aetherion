@@ -33,6 +33,8 @@
 
 O botão **Teclas** abre o painel de remapeamento. Cada Eco pode definir, sem repetir teclas, movimento, ataque, habilidade, inventário, mapa, interação, esquiva e abertura de menu; as preferências acompanham o personagem. **Restaurar controles padrão** retorna ao esquema exibido acima. No celular, os botões de direção, ataque, Éter, interação e esquiva acionam as mesmas ações configuráveis.
 
+O **minimapa** no canto superior direito é clicável. Ao tocar nele, o jogador abre o **Mapa de Aetherion** ampliado, com os biomas, vilas, cidades, capitais, dungeons, rotas, região atual e progresso daquele Eco. Marcadores dourados indicam a posição atual; rotas seladas são liberadas à medida que os portais e estradas físicas são explorados.
+
 ## Conta e personagens
 
 Após entrar com e-mail e senha, o jogador chega ao **Arquivo de Ecos**. A tela apresenta cinco slots fixos: slots ocupados permitem continuar o respectivo personagem e slots vazios abrem a criação de um novo eco. O banco limita cada conta aos índices de `1` a `5` e aplica uma regra de acesso que permite ao usuário ler e alterar somente os seus próprios personagens.

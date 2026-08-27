@@ -76,3 +76,4 @@
 - [ ] Implementar compra, venda, inventário de lojas, preços por assentamento e persistência econômica por personagem.
 - [ ] Publicar e validar no endereço público a expansão de mapas físicos, dungeons e comércio interativo.
 - [x] Adicionar remapeamento persistente para movimento, ataque, habilidades, inventário, mapa, interação, esquiva e menu, com restauração do padrão.
+- [x] Transformar o minimapa em botão e abrir um mapa ampliado com biomas, assentamentos, dungeons, rotas e posição do jogador.
