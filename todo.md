@@ -76,7 +76,3 @@
 - [ ] Implementar compra, venda, inventário de lojas, preços por assentamento e persistência econômica por personagem.
 - [ ] Publicar e validar no endereço público a expansão de mapas físicos, dungeons e comércio interativo.
 - [x] Adicionar remapeamento persistente para movimento, ataque, habilidades, inventário, mapa, interação, esquiva e menu, com restauração do padrão.
-- [x] Corrigir a moldura e a hierarquia da HUD no Chrome móvel, incluindo retrato e paisagem.
-- [x] Fixar o herói visualmente ao chão, com animação de caminhada/corrida e alternador de velocidade persistente.
-- [x] Refazer a HUD e os controles para telefone padrão em paisagem, deixando o centro do mapa livre e removendo atalhos sobrepostos.
-- [x] Refazer a animação do herói com pernas visíveis, passadas alternadas e pé apoiado no solo durante caminhada e corrida.
