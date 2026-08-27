@@ -37,6 +37,8 @@ O **minimapa** no canto superior direito é clicável. Ao tocar nele, o jogador 
 
 No atlas ampliado, os botões **+** e **−** ajustam o zoom de leitura. Toque em uma região para focalizá-la e consultar seus assentamentos, dungeons e pontos de interesse. Quando um destino físico já estiver desbloqueado, o botão **Viajar para** leva o Eco diretamente para lá. A região atual recebe um marcador de **missão ativa**, e os pontos de interesse usam o símbolo `✧`.
 
+Com o atlas ampliado, é possível **arrastar o mapa** usando o dedo ou mouse para navegar pela área em zoom, sem selecionar uma região durante o gesto. A viagem direta apresenta antes uma janela de confirmação com nível de ameaça, tipo da região, inimigos possíveis e boss conhecido, quando houver. Somente o botão **Confirmar viagem** move o Eco para o destino.
+
 ## Conta e personagens
 
 Após entrar com e-mail e senha, o jogador chega ao **Arquivo de Ecos**. A tela apresenta cinco slots fixos: slots ocupados permitem continuar o respectivo personagem e slots vazios abrem a criação de um novo eco. O banco limita cada conta aos índices de `1` a `5` e aplica uma regra de acesso que permite ao usuário ler e alterar somente os seus próprios personagens.
