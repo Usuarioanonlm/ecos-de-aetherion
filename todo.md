@@ -82,3 +82,6 @@
 - [x] Exibir recompensas e recursos possíveis por região e cobrar foco de Éter ou ouro na confirmação de viagem rápida.
 - [x] Extrair `AreaMapOverlay.tsx` do ZIP e integrar o componente `.tsx` ao fluxo de mapas locais, sem incluir o arquivo compactado.
 - [x] Validar o componente integrado com Vitest, checagem TypeScript e build de produção.
+- [x] Adicionar um modo de visualização QA somente em desenvolvimento, mantendo autenticação no fluxo publicado.
+- [x] Validar no modo QA o mapa-mundo e a transição para Vila Florentia.
+- [x] Confirmar visualmente a planta local da vila com NPCs, comércio, capela, baú e saída.
