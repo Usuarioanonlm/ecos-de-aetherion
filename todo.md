@@ -80,3 +80,5 @@
 - [x] Adicionar zoom ao atlas ampliado, viagem direta por destinos desbloqueados e marcadores de missões e pontos de interesse.
 - [x] Adicionar confirmação de viagem rápida com ameaças e inimigos possíveis, além de arrasto por dedo ou mouse no atlas com zoom.
 - [x] Exibir recompensas e recursos possíveis por região e cobrar foco de Éter ou ouro na confirmação de viagem rápida.
+- [x] Extrair `AreaMapOverlay.tsx` do ZIP e integrar o componente `.tsx` ao fluxo de mapas locais, sem incluir o arquivo compactado.
+- [x] Validar o componente integrado com Vitest, checagem TypeScript e build de produção.

@@ -74,3 +74,7 @@ O workflow de GitHub Pages continua no repositório como alternativa técnica, m
 ## Próxima expansão
 
 O código organiza o conteúdo do mundo em `client/src/game/content.ts`, permitindo ampliar raças, classes, regiões, dungeons, construções, missões e rotas de final sem reescrever o núcleo de interface. A próxima etapa recomendada é expandir as regiões bloqueadas em áreas 2D próprias e dar sprites dedicados a cada raça e criatura.
+
+### Mapa mundo/local integrado
+
+O componente `AreaMapOverlay.tsx` foi extraído do material enviado e integrado como janela de mapa local contextual. Ele recebe a região, NPCs, serviços e posição reais do Eco; o arquivo ZIP não é referenciado nem incluído na aplicação publicada. Em áreas internas, o minimapa abre a planta local; no bioma, continua disponível o atlas mundial.
