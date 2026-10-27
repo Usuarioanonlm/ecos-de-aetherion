@@ -103,4 +103,4 @@ Plano: auditar primeiro; refatorar preservando o jogo; evoluir dados, combate/IA
 - [x] Otimizar distância de atualização, limites de entidades/partículas e menus responsivos.
 - [x] Testar movimento, combate, XP, loot, missões, NPCs, lojas, saves, mapas e controles PC/mobile.
 - [x] Revisar diffs, ausência de ZIP, autenticação Supabase e isolamento de até cinco personagens.
-- [ ] Salvar checkpoint, atualizar GitHub e publicar/validar Netlify no mesmo link.
+- [x] Salvar checkpoint, atualizar GitHub e publicar/validar Netlify no mesmo link.

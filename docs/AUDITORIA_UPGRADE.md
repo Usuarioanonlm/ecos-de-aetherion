@@ -1,8 +1,8 @@
 # Auditoria consolidada do RPG — Ecos de Aetherion
 
-**Data:** 27/10/2026  
-**Projeto auditado:** `/home/ubuntu/ecos-de-aetherion`  
-**Escopo:** arquitetura e responsabilidades do runtime ativo, combate, inimigos, quests/campanha, inventário, HUD/UI, mundo/renderização e persistência.  
+**Data:** 27/10/2026
+**Projeto auditado:** `/home/ubuntu/ecos-de-aetherion`
+**Escopo:** arquitetura e responsabilidades do runtime ativo, combate, inimigos, quests/campanha, inventário, HUD/UI, mundo/renderização e persistência.
 **Restrições:** esta consolidação não fez pesquisa web, não usou browser e não modificou código-fonte, login, backend, Supabase, Netlify ou contratos existentes. Foram consolidados os relatórios `audit/combat.md`, `audit/quests.md`, `audit/render.md`, `audit/ui.md` e `audit/persistence.md`.
 
 ## 1. Resumo executivo

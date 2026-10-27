@@ -1,7 +1,7 @@
 # Upgrade integrado — Ecos de Aetherion
 
-**Data:** 27 de outubro de 2026  
-**Jogo:** https://ecos-de-aetherion-rpg.netlify.app/  
+**Data:** 27 de outubro de 2026
+**Jogo:** https://ecos-de-aetherion-rpg.netlify.app/
 **Código:** https://github.com/Usuarioanonlm/ecos-de-aetherion
 
 ## O que mudou
@@ -49,3 +49,7 @@ O catálogo mantém referências a criaturas e elementos narrativos que podem se
 O build continua emitindo um aviso de tamanho de chunk; ele não bloqueia a publicação. O tamanho reduzido dos sprites, cache do terreno, limites de entidades/vozes e histórico de eventos limitado melhoram o custo operacional, mas a emulação headless não é uma medição de FPS em todos os celulares físicos.
 
 O mapa local veio de código extraído do material do usuário. **Nenhum arquivo ZIP foi incluído no projeto, GitHub ou build público.**
+
+## Publicação confirmada
+
+Netlify confirmou o deploy `6ae0815a41210aa0b766293d` como `ready`, no contexto de produção. O bundle público corresponde byte a byte ao build testado. O login foi aberto em desktop e telefone; os hooks de QA não existem em produção e o formulário não tem overflow horizontal.
