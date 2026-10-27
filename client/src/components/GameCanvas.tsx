@@ -10,9 +10,18 @@ const qaProfile: CharacterProfile = {
 };
 
 export default function GameCanvas() {
-  const qaMap = import.meta.env.DEV && new URLSearchParams(window.location.search).get("qa-map") === "1";
+  const qaMap =
+    import.meta.env.DEV &&
+    new URLSearchParams(window.location.search).get("qa-map") === "1";
   if (qaMap) {
-    return <RpgWorldCanvas profile={qaProfile} slotId="qa-map-preview" onReturnToCreation={() => undefined} onLogout={() => undefined} />;
+    return (
+      <RpgWorldCanvas
+        profile={qaProfile}
+        slotId="qa-map-preview"
+        onReturnToCreation={() => undefined}
+        onLogout={() => undefined}
+      />
+    );
   }
   return <RpgGame />;
 }

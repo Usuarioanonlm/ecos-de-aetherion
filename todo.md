@@ -85,3 +85,22 @@
 - [x] Adicionar um modo de visualização QA somente em desenvolvimento, mantendo autenticação no fluxo publicado.
 - [x] Validar no modo QA o mapa-mundo e a transição para Vila Florentia.
 - [x] Confirmar visualmente a planta local da vila com NPCs, comércio, capela, baú e saída.
+
+## Upgrade completo solicitado em 27/10/2026
+
+Plano: auditar primeiro; refatorar preservando o jogo; evoluir dados, combate/IA, missões e interfaces; melhorar mundo/animação; validar regressões e publicar no mesmo endereço.
+
+- [x] Auditar todos os arquivos próprios, arquitetura, responsabilidades, código comprimido/duplicado e gargalos; registrar relatório com sistemas e caminhos.
+- [x] Registrar baseline de testes, TypeScript e build antes das mudanças.
+- [x] Refatorar módulos de dados e sistemas reutilizáveis, formatando fontes sem remover funcionalidades existentes.
+- [x] Evoluir combate: atributos derivados, dano físico/mágico, defesa, crítico, cooldown, status e feedback.
+- [x] Evoluir mobs: comportamentos, telegráfos, perseguição/retorno, categorias e respawn regional limitado.
+- [x] Evoluir NPCs com movimentação coerente, papéis e interações preservadas.
+- [x] Reestruturar diário de missões com filtros, objetivos, progresso, recompensas e suporte reutilizável a eventos.
+- [x] Melhorar HUD e inventário com equipamentos, categorias, raridade, comparação e uso.
+- [x] Melhorar animações 2D, detalhes coerentes do mundo e feedback de áudio sem substituir a identidade visual.
+- [x] Integrar loot e progressão equilibrada preservando itens e saves anteriores.
+- [x] Otimizar distância de atualização, limites de entidades/partículas e menus responsivos.
+- [x] Testar movimento, combate, XP, loot, missões, NPCs, lojas, saves, mapas e controles PC/mobile.
+- [x] Revisar diffs, ausência de ZIP, autenticação Supabase e isolamento de até cinco personagens.
+- [ ] Salvar checkpoint, atualizar GitHub e publicar/validar Netlify no mesmo link.

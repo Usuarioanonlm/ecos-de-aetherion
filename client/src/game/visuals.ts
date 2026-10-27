@@ -5,7 +5,13 @@ import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial";
 import { Texture } from "@babylonjs/core/Materials/Textures/texture";
 import type { Scene } from "@babylonjs/core/scene";
 
-export function createImagePlane(name: string, scene: Scene, url: string, width: number, height: number) {
+export function createImagePlane(
+  name: string,
+  scene: Scene,
+  url: string,
+  width: number,
+  height: number
+) {
   const mesh = MeshBuilder.CreatePlane(name, { width, height }, scene);
   const material = new StandardMaterial(`${name}-material`, scene);
   const texture = new Texture(url, scene);
@@ -20,7 +26,14 @@ export function createImagePlane(name: string, scene: Scene, url: string, width:
   return mesh;
 }
 
-export function createTintedPlane(name: string, scene: Scene, width: number, height: number, color: Color3, alpha = 1) {
+export function createTintedPlane(
+  name: string,
+  scene: Scene,
+  width: number,
+  height: number,
+  color: Color3,
+  alpha = 1
+) {
   const mesh = MeshBuilder.CreatePlane(name, { width, height }, scene);
   const material = new StandardMaterial(`${name}-material`, scene);
   material.emissiveColor = color;

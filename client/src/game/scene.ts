@@ -11,15 +11,20 @@ export type { GameHandle } from "./types";
 export async function createGameScene(
   engine: Engine,
   _canvas: HTMLCanvasElement,
-  onHudChange: (snapshot: HudSnapshot) => void,
+  onHudChange: (snapshot: HudSnapshot) => void
 ): Promise<GameHandle> {
   const scene = new Scene(engine);
-  const camera = new FreeCamera("aetherion-camera", new Vector3(0, 0, -10), scene);
+  const camera = new FreeCamera(
+    "aetherion-camera",
+    new Vector3(0, 0, -10),
+    scene
+  );
   camera.setTarget(Vector3.Zero());
   camera.mode = Camera.ORTHOGRAPHIC_CAMERA;
 
   const updateOrtho = () => {
-    const aspect = engine.getRenderWidth() / Math.max(1, engine.getRenderHeight());
+    const aspect =
+      engine.getRenderWidth() / Math.max(1, engine.getRenderHeight());
     const halfHeight = 5.15;
     camera.orthoTop = halfHeight;
     camera.orthoBottom = -halfHeight;
@@ -29,6 +34,10 @@ export async function createGameScene(
   updateOrtho();
   scene.onBeforeRenderObservable.add(updateOrtho);
 
-  const world = new GameWorld(scene, new URLSearchParams(window.location.search).has("demo"), onHudChange);
+  const world = new GameWorld(
+    scene,
+    new URLSearchParams(window.location.search).has("demo"),
+    onHudChange
+  );
   return { scene, dispose: () => world.dispose() };
 }

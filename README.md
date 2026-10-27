@@ -1,80 +1,95 @@
 # Ecos de Aetherion — Crônica da Ruptura
 
-**Ecos de Aetherion** é um RPG 2D de fantasia em visão superior. O projeto transforma o conceito narrativo fornecido em uma base jogável: o jogador cria um eco, explora a Floresta Primordial, combate criaturas, faz escolhas de facção e desenvolve a Vila de Musgo.
+**Ecos de Aetherion** é um RPG 2D de fantasia medieval em pixel art, com exploração, combate, NPCs, missões e personagens independentes por conta.
+
+**Jogar:** https://ecos-de-aetherion-rpg.netlify.app/
 
 > “A Ruptura deixou cicatrizes. Você decide o que nasce delas.”
 
-## Sistemas implementados
+## Upgrade de outubro de 2026
 
-| Pilar | O que está no jogo |
-| --- | --- |
-| Criação de personagem | Nove raças, seis classes, origens compatíveis, nome, atributos e talento racial. |
-| Exploração | Mapa 2D em tiles com caminhos, árvores, água, recursos, NPCs, vila, portal e colisões. |
-| Combate | Ataque, técnica de classe, esquiva curta com invulnerabilidade, foco de Éter, dano, cura, criaturas hostis e Guardião da Raiz. |
-| Progressão | Níveis, experiência, essência, evolução racial, itens e poções. |
-| Narrativa | NPCs, diálogos ramificados, reputação de facções, origem pessoal, missões e caminhos de final. |
-| Mundo | Oito regiões, sete Dragões Primordiais, primeira dungeon e codex. |
-| Civilização | Construções, recursos, efeitos de vila e renderização das estruturas na Vila de Musgo. |
-| Persistência | Até cinco personagens por conta; cada slot preserva perfil, progresso, áudio e controles separadamente no navegador e no banco online ao trocar de personagem ou sair. |
+O upgrade evolui o projeto existente; não substitui seu motor Canvas 2D, seus mapas, suas raças ou sua autenticação Supabase.
+
+- **Combate:** dano físico e mágico, defesa, crítico, esquiva, efeitos de status, números flutuantes, cura e recargas independentes de ataque, técnica e esquiva.
+- **Inimigos:** catálogo regional, preparação de ataques, perseguição, retorno, fuga, flanqueamento, magia, veneno, cura, reforços limitados e enfurecimento. O spawn inicial possui três lobos; os mapas respeitam um limite de 12 criaturas ativas. Criaturas comuns podem reaparecer; chefes derrotados não são recriados ao trocar de região.
+- **Chefes físicos:** os oito chefes principais do atlas possuem IDs próprios e encontros nas regiões correspondentes. Kaelgor aparece nos Campos Gélidos de Norvak; a Fortaleza de Ferro contém Mordrak e Seraphyne.
+- **Missões:** diário com filtros Todas, Principais, Secundárias, Diárias e Concluídas; objetivos, progresso, nível recomendado, recompensas, rastreamento, abandono e decisões. Matar, coletar, conversar, explorar, abrir baús e derrotar chefes alimenta o estado das missões.
+- **Inventário:** categorias, quantidades, raridade, descrições, comparação, consumíveis, equipamento e desequipamento. Recursos de construção, loja e bolsa usam a mesma contagem.
+- **Progressão:** XP com múltiplos níveis, atributos derivados e bônus reais de equipamentos. Recompensas e mortes são protegidas contra recebimento duplicado.
+- **Mundo:** NPCs com pequenos movimentos por função, objetos regionais, sprites detalhados e sombras ancoradas ao chão. Criação e exploração compartilham os mesmos modelos de raça.
+- **Interface:** HUD com vida, foco, XP, ouro, status e recarga; painéis adaptados a PC e celular. Menus, diálogos e serviços pausam a simulação para que o personagem não seja atacado durante a leitura.
+- **Persistência:** save versionado por slot, migração de inventário/missões, preservação de progresso e recompensas antigas, backup de payloads inválidos e sincronização remota com revisão e tentativas limitadas.
+
+O catálogo do atlas permanece disponível no codex. Nem toda criatura catalogada possui uma folha de animação exclusiva: algumas variantes compartilham o sprite da espécie-base, com atributos, cores e comportamentos próprios. As animações atuais usam recortes dos sprites existentes e feedback 2D; não são novos spritesheets completos de todas as raças.
 
 ## Controles
 
-| Tecla | Ação |
+| Tecla padrão | Ação |
 | --- | --- |
-| `WASD` | Mover no mundo 2D. |
-| `Espaço` | Ataque normal. |
-| `R` | Técnica da classe, consumindo foco de Éter. |
-| `Shift` | Esquiva curta na direção atual, com uma breve proteção. |
-| `F` | Absorver essência ou coletar recursos próximos. |
-| `H` | Consumir poção de musgo. |
-| `E` | Conversar com NPCs ou entrar na fissura de dungeon. |
-| `Tab` | Abrir ou fechar o menu de configurações. |
-| `C`, `I`, `M`, `Q`, `B`, `J` | Abrir personagem, bolsa, mapa, crônicas, vila e codex. |
+| `WASD` | Mover. |
+| `Espaço` | Atacar. |
+| `R` | Técnica de classe; consome foco e tem recarga. |
+| `Shift` | Esquivar com breve invulnerabilidade. |
+| `F` | Absorver essência ou coletar um recurso próximo. |
+| `H` | Usar poção de musgo quando estiver ferido. |
+| `E` | Conversar, usar serviços, abrir baús ou atravessar uma saída. |
+| `C`, `I`, `M`, `Q`, `B`, `J` | Personagem, inventário, mapa, missões, construções e codex. |
+| `Tab` | Configurações. |
+| `Esc` | Fechar a janela e retomar a exploração. |
 
-O botão **Teclas** abre o painel de remapeamento. Cada Eco pode definir, sem repetir teclas, movimento, ataque, habilidade, inventário, mapa, interação, esquiva e abertura de menu; as preferências acompanham o personagem. **Restaurar controles padrão** retorna ao esquema exibido acima. No celular, os botões de direção, ataque, Éter, interação e esquiva acionam as mesmas ações configuráveis.
+**Teclas** permite remapear movimento, ataque, habilidade, inventário, mapa, interação, esquiva e menu. **Restaurar controles padrão** recupera a configuração acima.
 
-O **minimapa** no canto superior direito é clicável. Ao tocar nele, o jogador abre o **Mapa de Aetherion** ampliado, com os biomas, vilas, cidades, capitais, dungeons, rotas, região atual e progresso daquele Eco. Marcadores dourados indicam a posição atual; rotas seladas são liberadas à medida que os portais e estradas físicas são explorados.
+No celular, mantenha o direcional pressionado para caminhar. Os botões de ataque, Éter, absorção, interação e esquiva acionam os mesmos handlers do teclado. A área de jogo bloqueia seleção de texto e menu nativo de pressão prolongada; os campos de login e criação continuam utilizáveis.
 
-No atlas ampliado, os botões **+** e **−** ajustam o zoom de leitura. Toque em uma região para focalizá-la e consultar seus assentamentos, dungeons e pontos de interesse. Quando um destino físico já estiver desbloqueado, o botão **Viajar para** leva o Eco diretamente para lá. A região atual recebe um marcador de **missão ativa**, e os pontos de interesse usam o símbolo `✧`.
+## Como começar
 
-Com o atlas ampliado, é possível **arrastar o mapa** usando o dedo ou mouse para navegar pela área em zoom, sem selecionar uma região durante o gesto. A viagem direta apresenta antes uma janela de confirmação com nível de ameaça, tipo da região, inimigos possíveis e boss conhecido, quando houver. Somente o botão **Confirmar viagem** move o Eco para o destino.
+1. Entre na conta e escolha um dos cinco slots, ou crie um novo Eco.
+2. Na trilha inicial, converse com a guardiã perto do assentamento e dissipe três lobos.
+3. Abra **Crônicas** para acompanhar objetivos e receber recompensas concluídas.
+4. Use as estradas e portais físicos para descobrir regiões. Nas vilas, procure comércio, capela e baú.
+5. Use **Bolsa** para comparar e equipar itens ou consumir uma poção.
 
-A confirmação de viagem também relaciona os **recursos encontrados** e as **recompensas possíveis** do bioma. O jogador escolhe entre gastar **foco de Éter** ou **ouro**; ambos os valores variam conforme o nível do destino. A janela mostra saldo e custo antes da partida, e bloqueia a confirmação quando o recurso escolhido não é suficiente. O débito e o novo local continuam persistentes para aquele Eco.
+## Mapas e viagem
+
+O minimapa no canto superior direito é clicável. Em assentamentos e áreas internas, ele abre a planta local com NPCs, serviços e posição do personagem. Nos biomas, abre o atlas mundial. A tecla de mapa segue a mesma regra; a janela local permite consultar o mundo.
+
+O atlas oferece zoom e arrasto com mouse ou dedo. A viagem rápida exige destino previamente descoberto e confirmação de ameaça, inimigos, recursos, recompensas possíveis e custo. O jogador escolhe gastar foco de Éter ou ouro; o handler também verifica o desbloqueio e o saldo.
+
+`AreaMapOverlay.tsx` foi extraído do material enviado e integrado como código normal. **Nenhum ZIP é referenciado ou publicado como parte do jogo.**
 
 ## Conta e personagens
 
-Após entrar com e-mail e senha, o jogador chega ao **Arquivo de Ecos**. A tela apresenta cinco slots fixos: slots ocupados permitem continuar o respectivo personagem e slots vazios abrem a criação de um novo eco. O banco limita cada conta aos índices de `1` a `5` e aplica uma regra de acesso que permite ao usuário ler e alterar somente os seus próprios personagens.
+A autenticação continua por e-mail via Supabase. O **Arquivo de Ecos** apresenta até cinco personagens por conta, cada um com perfil, inventário, regiões, missões, áudio e controles separados.
 
-Use **Trocar Eco** durante a partida para voltar ao arquivo sem apagar o personagem atual. Use **Sair** para encerrar a sessão: o mundo ativo é salvo antes do logout e continua disponível no próximo acesso à conta.
+**Trocar Eco** retorna à seleção e **Sair** encerra a sessão. Ambas as ações persistem o mundo e tentam concluir a sincronização antes da transição. Se a conexão estiver indisponível, o save local é preservado; a sincronização online ainda depende de acesso ao Supabase.
 
-## Desenvolvimento local
+## Organização do código
 
-O projeto usa React e Vite para distribuir um RPG 2D estático, compatível com GitHub Pages.
+| Diretório | Responsabilidade |
+| --- | --- |
+| `client/src/components/rpg/` | HUD, atlas, menus, inventário, diário e foco de diálogos. |
+| `client/src/game/combat/` | Resolução de dano, cura, recargas e status. |
+| `client/src/game/enemies/` | Dados, IA, spawn e respawn. |
+| `client/src/game/items/` | Catálogo, loot, inventário e equipamentos. |
+| `client/src/game/quests/` | Catálogo, eventos, campanha, recompensas e migração. |
+| `client/src/game/rendering/` | Sprites, terreno, decoração, movimento de NPCs e áudio. |
+| `client/src/game/systems/` | Movimento, progressão e save codec. |
+| `client/src/game/worldContent.ts` | Regiões físicas, serviços e rotas. |
+| `client/src/components/RpgWorldCanvas.tsx` | Coordenação do loop, input e integração React/Canvas. |
+| `client/src/components/RpgGame.tsx` | Login, slots e sincronização Supabase. |
+
+## Desenvolvimento e validação
 
 ```bash
 pnpm install
 pnpm dev
-```
-
-Para validar o código e gerar a distribuição estática:
-
-```bash
+pnpm test
 pnpm check
 pnpm build
 ```
 
-Durante desenvolvimento, `/?world` abre o mapa 2D diretamente. O fluxo normal sempre inicia na criação de personagem.
+O modo `/?qa-map=1` funciona **somente em desenvolvimento**, com personagem temporário e sem login real. Em produção, esse parâmetro não permite ignorar a autenticação. `qa-reset=1` limpa apenas o slot temporário de QA.
 
-## Publicação
+A validação do upgrade incluiu **65 testes unitários**, checagem TypeScript, build e duas suítes headless de gameplay/interface: movimento, combate, morte, XP, loot, missões, lojas, capela, baús, equipamentos, cooldowns, remapeamento, save/reload e toque prolongado. Os layouts foram medidos em 390×844, 360×740 e 844×390. Essa emulação não substitui testes em todos os aparelhos físicos.
 
-O endereço de compartilhamento principal é **[ecos-de-aetherion-rpg.netlify.app](https://ecos-de-aetherion-rpg.netlify.app/)**. A Netlify recebe a distribuição estática gerada em `dist/public`, enquanto o repositório público no GitHub preserva o código-fonte e o histórico de alterações.
-
-O workflow de GitHub Pages continua no repositório como alternativa técnica, mas não é o canal recomendado enquanto sua propagação não estiver confiável.
-
-## Próxima expansão
-
-O código organiza o conteúdo do mundo em `client/src/game/content.ts`, permitindo ampliar raças, classes, regiões, dungeons, construções, missões e rotas de final sem reescrever o núcleo de interface. A próxima etapa recomendada é expandir as regiões bloqueadas em áreas 2D próprias e dar sprites dedicados a cada raça e criatura.
-
-### Mapa mundo/local integrado
-
-O componente `AreaMapOverlay.tsx` foi extraído do material enviado e integrado como janela de mapa local contextual. Ele recebe a região, NPCs, serviços e posição reais do Eco; o arquivo ZIP não é referenciado nem incluído na aplicação publicada. Em áreas internas, o minimapa abre a planta local; no bioma, continua disponível o atlas mundial.
+O relatório de auditoria e as notas dos assets ficam em `docs/`. A publicação principal usa o build estático de `dist/public` na Netlify; o GitHub preserva o código e o histórico.

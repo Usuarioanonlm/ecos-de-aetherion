@@ -5,75 +5,4002 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-:root { color-scheme: dark; --ink: #071a1b; --deep: #0d2928; --jade: #2c6658; --moss: #4f8a60; --paper: #e8dfbf; --muted: #a6b9a6; --brass: #95805a; --gold: #e7bd58; --line: rgba(149, 128, 90, .42); --danger: #d96863; --panel: rgba(9, 31, 31, .92); }
-.auth-gate { min-height: 100vh; display: grid; place-items: center; padding: 1rem; background: radial-gradient(circle at 50% 35%, #1d5246, #071a1b 70%); }.auth-gate section { display: grid; width: min(25rem,100%); gap: .75rem; padding: 1.5rem; border: 1px solid var(--line); background: rgba(5,25,27,.92); }.auth-gate p { color: var(--gold); font-size: .55rem; letter-spacing: .16em; }.auth-gate h1 { margin: 0; font: 700 1.55rem "Cinzel", Georgia, serif; }.auth-gate span,.auth-gate small { color: var(--muted); font-size: .67rem; line-height: 1.5; }.auth-gate label { display: grid; gap: .3rem; color: var(--paper); font-size: .6rem; }.auth-gate input { padding: .65rem; border: 1px solid var(--line); background: #092527; color: var(--paper); }.auth-gate button { padding: .7rem; border: 1px solid var(--gold); background: #d5ad49; color: #152b2a; font: 800 .62rem "Cinzel", Georgia, serif; }.auth-gate .auth-switch { border: 0; background: transparent; color: var(--gold); font: 500 .58rem "Manrope", sans-serif; }
-* { box-sizing: border-box; }
-html, body, #root { margin: 0; min-height: 100%; background: var(--ink); color: var(--paper); font-family: "Manrope", system-ui, sans-serif; }
-button, input { font: inherit; }
-button { cursor: pointer; }
+:root {
+  color-scheme: dark;
+  --ink: #071a1b;
+  --deep: #0d2928;
+  --jade: #2c6658;
+  --moss: #4f8a60;
+  --paper: #e8dfbf;
+  --muted: #a6b9a6;
+  --brass: #95805a;
+  --gold: #e7bd58;
+  --line: rgba(149, 128, 90, 0.42);
+  --danger: #d96863;
+  --panel: rgba(9, 31, 31, 0.92);
+}
+.auth-gate {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: radial-gradient(circle at 50% 35%, #1d5246, #071a1b 70%);
+}
+.auth-gate section {
+  display: grid;
+  width: min(25rem, 100%);
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  background: rgba(5, 25, 27, 0.92);
+}
+.auth-gate p {
+  color: var(--gold);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+}
+.auth-gate h1 {
+  margin: 0;
+  font:
+    700 1.55rem "Cinzel",
+    Georgia,
+    serif;
+}
+.auth-gate span,
+.auth-gate small {
+  color: var(--muted);
+  font-size: 0.67rem;
+  line-height: 1.5;
+}
+.auth-gate label {
+  display: grid;
+  gap: 0.3rem;
+  color: var(--paper);
+  font-size: 0.6rem;
+}
+.auth-gate input {
+  padding: 0.65rem;
+  border: 1px solid var(--line);
+  background: #092527;
+  color: var(--paper);
+}
+.auth-gate button {
+  padding: 0.7rem;
+  border: 1px solid var(--gold);
+  background: #d5ad49;
+  color: #152b2a;
+  font:
+    800 0.62rem "Cinzel",
+    Georgia,
+    serif;
+}
+.auth-gate .auth-switch {
+  border: 0;
+  background: transparent;
+  color: var(--gold);
+  font:
+    500 0.58rem "Manrope",
+    sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: "Manrope", system-ui, sans-serif;
+}
+button,
+input {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
 
-.creation-shell { position: relative; min-height: 100vh; overflow: hidden; padding: 1.7rem clamp(1rem, 3vw, 3.2rem) 1.1rem; background-color: #07191c; background-image: linear-gradient(135deg, rgba(24,70,58,.54) 25%, transparent 25%), linear-gradient(315deg, rgba(13,41,40,.72) 25%, transparent 25%), repeating-linear-gradient(0deg, rgba(132,177,121,.07) 0 1px, transparent 1px 8px); background-size: 32px 32px, 32px 32px, auto; isolation: isolate; }
-.slot-shell { display: flex; flex-direction: column; align-items: center; justify-content: center; }.slot-grid { display: grid; width: min(70rem, 100%); grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8rem; }.slot-card { min-height: 16rem; padding: .8rem; border: 1px solid var(--line); background: rgba(6,25,27,.82); color: var(--paper); text-align: left; transition: transform .18s ease, border-color .18s ease; }.slot-card:hover { transform: translateY(-.2rem); border-color: var(--gold); }.slot-card.occupied { display: grid; gap: .4rem; justify-items: center; text-align: center; }.slot-card.occupied .character-preview { width: 7rem; margin: 0; }.slot-card div { display: grid; gap: .25rem; justify-items: center; }.slot-card small { color: var(--brass); font-size: .55rem; letter-spacing: .12em; }.slot-card b { color: var(--paper); font: 700 .88rem "Cinzel", Georgia, serif; }.slot-card span { color: var(--muted); font-size: .62rem; }.slot-card em { margin-top: .45rem; color: var(--gold); font: 700 .55rem "Cinzel", Georgia, serif; font-style: normal; }.slot-card.empty { display: grid; place-content: center; gap: .65rem; text-align: center; border-style: dashed; color: var(--brass); }.slot-card.empty > span { color: var(--gold); font-size: 2rem; }.slot-logout { margin-top: 1.2rem; }
-.creation-shell::before { content: ""; position: absolute; inset: 0; z-index: -2; opacity: .75; background: repeating-radial-gradient(ellipse at 50% 47%, transparent 0 2.3rem, rgba(150, 201, 160, .09) 2.35rem 2.42rem, transparent 2.5rem 4.8rem), linear-gradient(105deg, transparent 0 49%, rgba(149,128,90,.12) 49.1% 49.2%, transparent 49.3%); }
-.creation-shell::after { content: ""; position: absolute; inset: 8% 7%; z-index: -1; opacity: .36; pointer-events: none; background: radial-gradient(ellipse at 23% 69%, transparent 0 4.7rem, rgba(142,185,137,.22) 4.75rem 4.82rem, transparent 4.9rem), radial-gradient(ellipse at 77% 22%, transparent 0 7rem, rgba(142,185,137,.18) 7.05rem 7.11rem, transparent 7.2rem), linear-gradient(27deg, transparent 49.6%, rgba(149,128,90,.36) 49.7% 49.85%, transparent 50%), linear-gradient(152deg, transparent 49.6%, rgba(149,128,90,.25) 49.7% 49.82%, transparent 50%); clip-path: polygon(0 6%, 21% 0, 48% 9%, 79% 2%, 100% 17%, 93% 52%, 100% 86%, 72% 100%, 45% 92%, 13% 100%, 0 79%, 8% 46%); }
-.creation-noise { position: absolute; inset: 0; z-index: -1; opacity: .1; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"); }
-.creation-header { position: relative; width: min(100%, 57rem); margin: 0 auto 1.8rem; text-align: center; }
-.creation-header::before, .creation-header::after { content: ""; position: absolute; top: .45rem; width: clamp(3rem, 10vw, 11rem); height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
-.creation-header::before { left: -1rem; } .creation-header::after { right: -1rem; transform: scaleX(-1); }
-.creation-header p, .creation-header > span, .panel-kicker { color: var(--brass); font-size: .63rem; font-weight: 800; letter-spacing: .2em; }
-.brand-symbol { position: relative; display: grid; width: 2.15rem; height: 2.15rem; place-items: center; margin: 0 auto .45rem; border: 1px solid var(--brass); border-radius: 50% 50% 48% 48%; background: #153d37; color: var(--gold); box-shadow: inset 0 0 0 .2rem rgba(3,18,21,.28); }.brand-symbol::before { content: ""; position: absolute; width: .65rem; height: 1.22rem; border: 1px solid var(--gold); border-radius: 70% 20% 70% 20%; transform: rotate(42deg); }.brand-symbol i { position: absolute; width: 2px; height: 1.35rem; background: var(--gold); transform: rotate(28deg); }.brand-symbol span { position: relative; color: var(--gold); font-size: .58rem; }
-.creation-header h1 { margin: .55rem 0 .45rem; color: #f7f0d7; font: 800 clamp(1.65rem, 4vw, 3.2rem)/.92 "Cinzel", Georgia, serif; letter-spacing: .035em; }
-.creation-header h1 em { color: var(--gold); font-style: normal; font-size: .5em; letter-spacing: .12em; }
-.creation-layout { display: grid; grid-template-columns: minmax(13.5rem, 1fr) minmax(17rem, 25rem) minmax(13.5rem, 1fr); gap: clamp(.9rem, 2vw, 2rem); align-items: stretch; max-width: 86rem; margin: auto; }
-.choice-column, .character-altar, .origin-deck { position: relative; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(140deg, rgba(16, 49, 47, .84), rgba(6, 24, 28, .86)); box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, .22), inset 0 0 0 .25rem rgba(149,128,90,.05); clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 1rem, 100% 100%, 1rem 100%, 0 calc(100% - 1rem)); }
-.choice-column, .character-altar, .origin-deck { background-color: #0c292a; background-image: repeating-linear-gradient(0deg, rgba(158,188,116,.045) 0 1px, transparent 1px 6px); box-shadow: 0 0 0 3px rgba(4,17,20,.82), 0 .95rem 0 rgba(2,13,16,.36), inset 0 0 0 .25rem rgba(149,128,90,.08); }
-.choice-column::after, .character-altar::after, .origin-deck::after { content: ""; position: absolute; inset: .38rem; pointer-events: none; opacity: .42; background: repeating-linear-gradient(165deg, transparent 0 11px, rgba(151,126,88,.18) 12px 13px, transparent 14px 27px); clip-path: polygon(0 0, 18% 0, 22% 4%, 91% 4%, 96% 0, 100% 0, 100% 17%, 96% 20%, 96% 86%, 100% 90%, 100% 100%, 83% 100%, 79% 96%, 9% 96%, 4% 100%, 0 100%, 0 83%, 4% 79%, 4% 13%, 0 9%); }
-.choice-column { padding: 1rem; min-height: 35rem; }
-.section-heading { display: flex; gap: .75rem; align-items: center; margin-bottom: 1rem; }
-.section-heading > span { display: grid; width: 1.7rem; height: 1.7rem; place-items: center; border: 1px solid var(--gold); color: var(--gold); font: 800 .68rem "Cinzel", Georgia, serif; transform: rotate(45deg); }
-.section-heading > span::first-letter { transform: rotate(-45deg); }
-.section-heading p { margin: 0 0 .18rem; color: var(--brass); font-size: .54rem; font-weight: 800; letter-spacing: .17em; }
-.section-heading h2 { margin: 0; font: 700 1rem "Cinzel", Georgia, serif; }
-.race-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .45rem; }
-.race-card { position: relative; display: flex; min-height: 6.3rem; flex-direction: column; align-items: flex-start; gap: .3rem; padding: .6rem .45rem; color: var(--paper); border: 1px solid rgba(210,224,186,.13); background: #092528; text-align: left; transition: transform .16s cubic-bezier(.23,1,.32,1), border-color .16s, background .16s; clip-path: polygon(0 0, calc(100% - .55rem) 0, 100% .55rem, 100% 100%, 0 100%); box-shadow: inset 0 -4px 0 rgba(2,14,17,.34); }
-.race-card:hover, .race-card.selected { border-color: var(--gold); background: rgba(59, 97, 73, .52); transform: translateY(-2px); }
-.race-card.selected::after { content: ""; position: absolute; right: .36rem; top: .36rem; width: .42rem; height: .42rem; background: var(--gold); transform: rotate(45deg); }
-.race-card:active, .class-card:active, .origin-card:active, .awaken-button:active { transform: scale(.97); }
-.race-sigil { color: var(--gold); font-size: 1rem; line-height: 1; }.race-card b { font: 700 .7rem "Cinzel", Georgia, serif; }.race-card small { color: var(--muted); font-size: .52rem; line-height: 1.15; }
-.character-altar { position: relative; display: flex; min-height: 35rem; flex-direction: column; align-items: center; padding: 1.1rem 1.1rem 1rem; overflow: hidden; }
-.character-altar::before { content: ""; position: absolute; top: 15%; width: 18rem; height: 18rem; border: 1px solid rgba(231,189,88,.25); box-shadow: 0 0 0 2rem rgba(77,139,101,.06), 0 0 0 4.5rem rgba(77,139,101,.045); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
-.altar-kicker { margin: 0; z-index: 1; }.character-preview { position: relative; z-index: 1; display: grid; width: 15.5rem; aspect-ratio: 1 / 1.12; place-items: center; margin: -.65rem 0 -1.6rem; filter: drop-shadow(0 1rem 1.3rem rgba(0,0,0,.38)); image-rendering: pixelated; }.character-preview.small { width: 10rem; margin: 0 auto -1.1rem; }.sprite-frame { position: absolute; inset: 7% 8%; border: 3px solid #0a1719; outline: 1px solid rgba(231,189,88,.76); background: linear-gradient(135deg, rgba(29,75,69,.82) 0 12.5%, rgba(13,47,48,.9) 12.5% 25%, rgba(20,62,60,.88) 25% 37.5%, rgba(9,36,39,.92) 37.5% 50%, rgba(20,62,60,.88) 50% 62.5%, rgba(13,47,48,.9) 62.5% 75%, rgba(29,75,69,.82) 75%); background-size: 1rem 1rem; box-shadow: inset 0 0 0 .3rem rgba(2,17,18,.64), 0 .45rem 0 rgba(2,13,15,.45); }.race-sprite-art { position: relative; z-index: 1; width: 88%; height: 88%; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(4px 5px 0 rgba(3,16,18,.68)); }.portrait-rune { position: absolute; z-index: 2; right: 13%; top: 48%; display: grid; width: 2rem; height: 2rem; place-items: center; border: 1px solid var(--gold); background: #173e39; color: var(--gold); font-size: 1rem; box-shadow: 0 0 .9rem rgba(231,189,88,.22); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
-.identity-name { z-index: 1; display: grid; width: 100%; gap: .2rem; text-align: center; }.identity-name input { width: 100%; border: 0; border-bottom: 1px solid rgba(231,189,88,.55); outline: 0; background: transparent; color: #f7f0d7; font: 700 1.35rem "Cinzel", Georgia, serif; text-align: center; }.identity-name input:focus { border-color: var(--gold); }.identity-name span { color: var(--muted); font-size: .62rem; }
-.talent-stamp { z-index: 1; display: flex; width: 100%; gap: .6rem; align-items: center; margin-top: .85rem; padding: .55rem .65rem; border: 1px solid rgba(231,189,88,.3); background: rgba(4,22,24,.55); }.talent-stamp > span { display: grid; width: 2rem; height: 2rem; place-items: center; color: var(--gold); border: 1px solid var(--gold); transform: rotate(45deg); }.talent-stamp > span::first-letter { transform: rotate(-45deg); }.talent-stamp small { color: var(--gold); font-size: .48rem; font-weight: 800; letter-spacing: .13em; }.talent-stamp b { display: block; font: 700 .75rem "Cinzel", Georgia, serif; }.talent-stamp p { margin: .1rem 0 0; color: var(--muted); font-size: .56rem; }
-.stats-box { z-index: 1; width: 100%; margin: .65rem 0 .8rem; }.stat-line { display: grid; grid-template-columns: 4.3rem 1fr 1rem; gap: .4rem; align-items: center; margin: .25rem 0; color: var(--muted); font-size: .55rem; }.stat-line > div { height: .23rem; background: rgba(225,244,217,.11); }.stat-line i { display: block; height: 100%; background: linear-gradient(90deg, #72aa76, var(--gold)); }.stat-line b { color: var(--gold); font-size: .62rem; }
-.awaken-button { z-index: 1; width: 100%; margin-top: auto; padding: .72rem .6rem; border: 1px solid var(--gold); background: #d4a942; color: #142a28; font: 800 .64rem "Cinzel", Georgia, serif; letter-spacing: .09em; transition: transform .16s, filter .16s; }.awaken-button:hover { filter: brightness(1.1); }.awaken-button span { padding-left: .25rem; font-size: .9rem; }
-.class-list { display: grid; gap: .42rem; }.class-card { display: grid; grid-template-columns: 1.8rem 1fr .8rem; width: 100%; align-items: center; gap: .5rem; padding: .58rem; border: 1px solid rgba(210,224,186,.13); background: #092528; color: var(--paper); text-align: left; transition: transform .16s, border-color .16s, background .16s; box-shadow: inset 0 -3px 0 rgba(2,14,17,.34); }.class-card:hover, .class-card.selected { border-color: var(--gold); background: #265447; }.class-card > span { color: var(--gold); font-size: 1.1rem; }.class-card b { display: block; font: 700 .73rem "Cinzel", Georgia, serif; }.class-card small { color: var(--muted); font-size: .52rem; }.class-card i { color: var(--gold); font-style: normal; }.class-detail { margin-top: 1rem; padding-top: .8rem; border-top: 1px solid rgba(231,189,88,.25); }.class-detail p { margin: 0 0 .5rem; color: var(--muted); font-size: .64rem; line-height: 1.45; }.class-detail div { display: flex; flex-wrap: wrap; gap: .3rem; }.class-detail span { padding: .26rem .35rem; border: 1px solid rgba(231,189,88,.22); color: #dce8c9; font-size: .5rem; }
-.origin-deck { max-width: 86rem; margin: 1rem auto; padding: .9rem 1rem 1rem; }.origin-deck .section-heading { margin-bottom: .65rem; }.origin-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: .55rem; }.origin-card { min-height: 8.1rem; padding: .6rem; border: 1px solid rgba(210,224,186,.13); background: rgba(8, 28, 30, .62); color: var(--paper); text-align: left; transition: transform .16s, border-color .16s, background .16s; }.origin-card:hover, .origin-card.selected { border-color: var(--gold); background: rgba(50,91,72,.5); transform: translateY(-2px); }.origin-card small { display: block; color: var(--gold); font-size: .48rem; letter-spacing: .1em; }.origin-card b { display: block; margin-top: .3rem; font: 700 .75rem "Cinzel", Georgia, serif; }.origin-card p { margin: .35rem 0; color: var(--muted); font-size: .53rem; line-height: 1.35; }.origin-card span { color: #dfe8c9; font-size: .5rem; }.creation-footer { display: grid; grid-template-columns: 1fr 1fr auto; max-width: 86rem; gap: 1rem; margin: 0 auto; color: var(--muted); font-size: .55rem; }.creation-footer b { color: var(--paper); }
+.creation-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 1.7rem clamp(1rem, 3vw, 3.2rem) 1.1rem;
+  background-color: #07191c;
+  background-image:
+    linear-gradient(135deg, rgba(24, 70, 58, 0.54) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(13, 41, 40, 0.72) 25%, transparent 25%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(132, 177, 121, 0.07) 0 1px,
+      transparent 1px 8px
+    );
+  background-size:
+    32px 32px,
+    32px 32px,
+    auto;
+  isolation: isolate;
+}
+.slot-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.slot-grid {
+  display: grid;
+  width: min(70rem, 100%);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+.slot-card {
+  min-height: 16rem;
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  background: rgba(6, 25, 27, 0.82);
+  color: var(--paper);
+  text-align: left;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease;
+}
+.slot-card:hover {
+  transform: translateY(-0.2rem);
+  border-color: var(--gold);
+}
+.slot-card.occupied {
+  display: grid;
+  gap: 0.4rem;
+  justify-items: center;
+  text-align: center;
+}
+.slot-card.occupied .character-preview {
+  width: 7rem;
+  margin: 0;
+}
+.slot-card div {
+  display: grid;
+  gap: 0.25rem;
+  justify-items: center;
+}
+.slot-card small {
+  color: var(--brass);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+}
+.slot-card b {
+  color: var(--paper);
+  font:
+    700 0.88rem "Cinzel",
+    Georgia,
+    serif;
+}
+.slot-card span {
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+.slot-card em {
+  margin-top: 0.45rem;
+  color: var(--gold);
+  font:
+    700 0.55rem "Cinzel",
+    Georgia,
+    serif;
+  font-style: normal;
+}
+.slot-card.empty {
+  display: grid;
+  place-content: center;
+  gap: 0.65rem;
+  text-align: center;
+  border-style: dashed;
+  color: var(--brass);
+}
+.slot-card.empty > span {
+  color: var(--gold);
+  font-size: 2rem;
+}
+.slot-logout {
+  margin-top: 1.2rem;
+}
+.creation-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.75;
+  background:
+    repeating-radial-gradient(
+      ellipse at 50% 47%,
+      transparent 0 2.3rem,
+      rgba(150, 201, 160, 0.09) 2.35rem 2.42rem,
+      transparent 2.5rem 4.8rem
+    ),
+    linear-gradient(
+      105deg,
+      transparent 0 49%,
+      rgba(149, 128, 90, 0.12) 49.1% 49.2%,
+      transparent 49.3%
+    );
+}
+.creation-shell::after {
+  content: "";
+  position: absolute;
+  inset: 8% 7%;
+  z-index: -1;
+  opacity: 0.36;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 23% 69%,
+      transparent 0 4.7rem,
+      rgba(142, 185, 137, 0.22) 4.75rem 4.82rem,
+      transparent 4.9rem
+    ),
+    radial-gradient(
+      ellipse at 77% 22%,
+      transparent 0 7rem,
+      rgba(142, 185, 137, 0.18) 7.05rem 7.11rem,
+      transparent 7.2rem
+    ),
+    linear-gradient(
+      27deg,
+      transparent 49.6%,
+      rgba(149, 128, 90, 0.36) 49.7% 49.85%,
+      transparent 50%
+    ),
+    linear-gradient(
+      152deg,
+      transparent 49.6%,
+      rgba(149, 128, 90, 0.25) 49.7% 49.82%,
+      transparent 50%
+    );
+  clip-path: polygon(
+    0 6%,
+    21% 0,
+    48% 9%,
+    79% 2%,
+    100% 17%,
+    93% 52%,
+    100% 86%,
+    72% 100%,
+    45% 92%,
+    13% 100%,
+    0 79%,
+    8% 46%
+  );
+}
+.creation-noise {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+.creation-header {
+  position: relative;
+  width: min(100%, 57rem);
+  margin: 0 auto 1.8rem;
+  text-align: center;
+}
+.creation-header::before,
+.creation-header::after {
+  content: "";
+  position: absolute;
+  top: 0.45rem;
+  width: clamp(3rem, 10vw, 11rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.creation-header::before {
+  left: -1rem;
+}
+.creation-header::after {
+  right: -1rem;
+  transform: scaleX(-1);
+}
+.creation-header p,
+.creation-header > span,
+.panel-kicker {
+  color: var(--brass);
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+.brand-symbol {
+  position: relative;
+  display: grid;
+  width: 2.15rem;
+  height: 2.15rem;
+  place-items: center;
+  margin: 0 auto 0.45rem;
+  border: 1px solid var(--brass);
+  border-radius: 50% 50% 48% 48%;
+  background: #153d37;
+  color: var(--gold);
+  box-shadow: inset 0 0 0 0.2rem rgba(3, 18, 21, 0.28);
+}
+.brand-symbol::before {
+  content: "";
+  position: absolute;
+  width: 0.65rem;
+  height: 1.22rem;
+  border: 1px solid var(--gold);
+  border-radius: 70% 20% 70% 20%;
+  transform: rotate(42deg);
+}
+.brand-symbol i {
+  position: absolute;
+  width: 2px;
+  height: 1.35rem;
+  background: var(--gold);
+  transform: rotate(28deg);
+}
+.brand-symbol span {
+  position: relative;
+  color: var(--gold);
+  font-size: 0.58rem;
+}
+.creation-header h1 {
+  margin: 0.55rem 0 0.45rem;
+  color: #f7f0d7;
+  font:
+    800 clamp(1.65rem, 4vw, 3.2rem) / 0.92 "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.035em;
+}
+.creation-header h1 em {
+  color: var(--gold);
+  font-style: normal;
+  font-size: 0.5em;
+  letter-spacing: 0.12em;
+}
+.creation-layout {
+  display: grid;
+  grid-template-columns: minmax(13.5rem, 1fr) minmax(17rem, 25rem) minmax(
+      13.5rem,
+      1fr
+    );
+  gap: clamp(0.9rem, 2vw, 2rem);
+  align-items: stretch;
+  max-width: 86rem;
+  margin: auto;
+}
+.choice-column,
+.character-altar,
+.origin-deck {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: linear-gradient(
+    140deg,
+    rgba(16, 49, 47, 0.84),
+    rgba(6, 24, 28, 0.86)
+  );
+  box-shadow:
+    0 1.5rem 3rem rgba(0, 0, 0, 0.22),
+    inset 0 0 0 0.25rem rgba(149, 128, 90, 0.05);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 1rem) 0,
+    100% 1rem,
+    100% 100%,
+    1rem 100%,
+    0 calc(100% - 1rem)
+  );
+}
+.choice-column,
+.character-altar,
+.origin-deck {
+  background-color: #0c292a;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(158, 188, 116, 0.045) 0 1px,
+    transparent 1px 6px
+  );
+  box-shadow:
+    0 0 0 3px rgba(4, 17, 20, 0.82),
+    0 0.95rem 0 rgba(2, 13, 16, 0.36),
+    inset 0 0 0 0.25rem rgba(149, 128, 90, 0.08);
+}
+.choice-column::after,
+.character-altar::after,
+.origin-deck::after {
+  content: "";
+  position: absolute;
+  inset: 0.38rem;
+  pointer-events: none;
+  opacity: 0.42;
+  background: repeating-linear-gradient(
+    165deg,
+    transparent 0 11px,
+    rgba(151, 126, 88, 0.18) 12px 13px,
+    transparent 14px 27px
+  );
+  clip-path: polygon(
+    0 0,
+    18% 0,
+    22% 4%,
+    91% 4%,
+    96% 0,
+    100% 0,
+    100% 17%,
+    96% 20%,
+    96% 86%,
+    100% 90%,
+    100% 100%,
+    83% 100%,
+    79% 96%,
+    9% 96%,
+    4% 100%,
+    0 100%,
+    0 83%,
+    4% 79%,
+    4% 13%,
+    0 9%
+  );
+}
+.choice-column {
+  padding: 1rem;
+  min-height: 35rem;
+}
+.section-heading {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.section-heading > span {
+  display: grid;
+  width: 1.7rem;
+  height: 1.7rem;
+  place-items: center;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font:
+    800 0.68rem "Cinzel",
+    Georgia,
+    serif;
+  transform: rotate(45deg);
+}
+.section-heading > span::first-letter {
+  transform: rotate(-45deg);
+}
+.section-heading p {
+  margin: 0 0 0.18rem;
+  color: var(--brass);
+  font-size: 0.54rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+}
+.section-heading h2 {
+  margin: 0;
+  font:
+    700 1rem "Cinzel",
+    Georgia,
+    serif;
+}
+.race-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45rem;
+}
+.race-card {
+  position: relative;
+  display: flex;
+  min-height: 6.3rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  padding: 0.6rem 0.45rem;
+  color: var(--paper);
+  border: 1px solid rgba(210, 224, 186, 0.13);
+  background: #092528;
+  text-align: left;
+  transition:
+    transform 0.16s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.16s,
+    background 0.16s;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 0.55rem) 0,
+    100% 0.55rem,
+    100% 100%,
+    0 100%
+  );
+  box-shadow: inset 0 -4px 0 rgba(2, 14, 17, 0.34);
+}
+.race-card:hover,
+.race-card.selected {
+  border-color: var(--gold);
+  background: rgba(59, 97, 73, 0.52);
+  transform: translateY(-2px);
+}
+.race-card.selected::after {
+  content: "";
+  position: absolute;
+  right: 0.36rem;
+  top: 0.36rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+.race-card:active,
+.class-card:active,
+.origin-card:active,
+.awaken-button:active {
+  transform: scale(0.97);
+}
+.race-sigil {
+  color: var(--gold);
+  font-size: 1rem;
+  line-height: 1;
+}
+.race-card b {
+  font:
+    700 0.7rem "Cinzel",
+    Georgia,
+    serif;
+}
+.race-card small {
+  color: var(--muted);
+  font-size: 0.52rem;
+  line-height: 1.15;
+}
+.character-altar {
+  position: relative;
+  display: flex;
+  min-height: 35rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.1rem 1.1rem 1rem;
+  overflow: hidden;
+}
+.character-altar::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  width: 18rem;
+  height: 18rem;
+  border: 1px solid rgba(231, 189, 88, 0.25);
+  box-shadow:
+    0 0 0 2rem rgba(77, 139, 101, 0.06),
+    0 0 0 4.5rem rgba(77, 139, 101, 0.045);
+  clip-path: polygon(
+    50% 0,
+    62% 38%,
+    100% 50%,
+    62% 62%,
+    50% 100%,
+    38% 62%,
+    0 50%,
+    38% 38%
+  );
+}
+.altar-kicker {
+  margin: 0;
+  z-index: 1;
+}
+.character-preview {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 15.5rem;
+  aspect-ratio: 1 / 1.12;
+  place-items: center;
+  margin: -0.65rem 0 -1.6rem;
+  filter: drop-shadow(0 1rem 1.3rem rgba(0, 0, 0, 0.38));
+  image-rendering: pixelated;
+}
+.character-preview.small {
+  width: 10rem;
+  margin: 0 auto -1.1rem;
+}
+.sprite-frame {
+  position: absolute;
+  inset: 7% 8%;
+  border: 3px solid #0a1719;
+  outline: 1px solid rgba(231, 189, 88, 0.76);
+  background: linear-gradient(
+    135deg,
+    rgba(29, 75, 69, 0.82) 0 12.5%,
+    rgba(13, 47, 48, 0.9) 12.5% 25%,
+    rgba(20, 62, 60, 0.88) 25% 37.5%,
+    rgba(9, 36, 39, 0.92) 37.5% 50%,
+    rgba(20, 62, 60, 0.88) 50% 62.5%,
+    rgba(13, 47, 48, 0.9) 62.5% 75%,
+    rgba(29, 75, 69, 0.82) 75%
+  );
+  background-size: 1rem 1rem;
+  box-shadow:
+    inset 0 0 0 0.3rem rgba(2, 17, 18, 0.64),
+    0 0.45rem 0 rgba(2, 13, 15, 0.45);
+}
+.race-sprite-art {
+  position: relative;
+  z-index: 1;
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(4px 5px 0 rgba(3, 16, 18, 0.68));
+}
+.portrait-rune {
+  position: absolute;
+  z-index: 2;
+  right: 13%;
+  top: 48%;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid var(--gold);
+  background: #173e39;
+  color: var(--gold);
+  font-size: 1rem;
+  box-shadow: 0 0 0.9rem rgba(231, 189, 88, 0.22);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+.identity-name {
+  z-index: 1;
+  display: grid;
+  width: 100%;
+  gap: 0.2rem;
+  text-align: center;
+}
+.identity-name input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(231, 189, 88, 0.55);
+  outline: 0;
+  background: transparent;
+  color: #f7f0d7;
+  font:
+    700 1.35rem "Cinzel",
+    Georgia,
+    serif;
+  text-align: center;
+}
+.identity-name input:focus {
+  border-color: var(--gold);
+}
+.identity-name span {
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+.talent-stamp {
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  gap: 0.6rem;
+  align-items: center;
+  margin-top: 0.85rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(231, 189, 88, 0.3);
+  background: rgba(4, 22, 24, 0.55);
+}
+.talent-stamp > span {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  transform: rotate(45deg);
+}
+.talent-stamp > span::first-letter {
+  transform: rotate(-45deg);
+}
+.talent-stamp small {
+  color: var(--gold);
+  font-size: 0.48rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+.talent-stamp b {
+  display: block;
+  font:
+    700 0.75rem "Cinzel",
+    Georgia,
+    serif;
+}
+.talent-stamp p {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.56rem;
+}
+.stats-box {
+  z-index: 1;
+  width: 100%;
+  margin: 0.65rem 0 0.8rem;
+}
+.stat-line {
+  display: grid;
+  grid-template-columns: 4.3rem 1fr 1rem;
+  gap: 0.4rem;
+  align-items: center;
+  margin: 0.25rem 0;
+  color: var(--muted);
+  font-size: 0.55rem;
+}
+.stat-line > div {
+  height: 0.23rem;
+  background: rgba(225, 244, 217, 0.11);
+}
+.stat-line i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #72aa76, var(--gold));
+}
+.stat-line b {
+  color: var(--gold);
+  font-size: 0.62rem;
+}
+.awaken-button {
+  z-index: 1;
+  width: 100%;
+  margin-top: auto;
+  padding: 0.72rem 0.6rem;
+  border: 1px solid var(--gold);
+  background: #d4a942;
+  color: #142a28;
+  font:
+    800 0.64rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.09em;
+  transition:
+    transform 0.16s,
+    filter 0.16s;
+}
+.awaken-button:hover {
+  filter: brightness(1.1);
+}
+.awaken-button span {
+  padding-left: 0.25rem;
+  font-size: 0.9rem;
+}
+.class-list {
+  display: grid;
+  gap: 0.42rem;
+}
+.class-card {
+  display: grid;
+  grid-template-columns: 1.8rem 1fr 0.8rem;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.58rem;
+  border: 1px solid rgba(210, 224, 186, 0.13);
+  background: #092528;
+  color: var(--paper);
+  text-align: left;
+  transition:
+    transform 0.16s,
+    border-color 0.16s,
+    background 0.16s;
+  box-shadow: inset 0 -3px 0 rgba(2, 14, 17, 0.34);
+}
+.class-card:hover,
+.class-card.selected {
+  border-color: var(--gold);
+  background: #265447;
+}
+.class-card > span {
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+.class-card b {
+  display: block;
+  font:
+    700 0.73rem "Cinzel",
+    Georgia,
+    serif;
+}
+.class-card small {
+  color: var(--muted);
+  font-size: 0.52rem;
+}
+.class-card i {
+  color: var(--gold);
+  font-style: normal;
+}
+.class-detail {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(231, 189, 88, 0.25);
+}
+.class-detail p {
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.64rem;
+  line-height: 1.45;
+}
+.class-detail div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.class-detail span {
+  padding: 0.26rem 0.35rem;
+  border: 1px solid rgba(231, 189, 88, 0.22);
+  color: #dce8c9;
+  font-size: 0.5rem;
+}
+.origin-deck {
+  max-width: 86rem;
+  margin: 1rem auto;
+  padding: 0.9rem 1rem 1rem;
+}
+.origin-deck .section-heading {
+  margin-bottom: 0.65rem;
+}
+.origin-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.55rem;
+}
+.origin-card {
+  min-height: 8.1rem;
+  padding: 0.6rem;
+  border: 1px solid rgba(210, 224, 186, 0.13);
+  background: rgba(8, 28, 30, 0.62);
+  color: var(--paper);
+  text-align: left;
+  transition:
+    transform 0.16s,
+    border-color 0.16s,
+    background 0.16s;
+}
+.origin-card:hover,
+.origin-card.selected {
+  border-color: var(--gold);
+  background: rgba(50, 91, 72, 0.5);
+  transform: translateY(-2px);
+}
+.origin-card small {
+  display: block;
+  color: var(--gold);
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+}
+.origin-card b {
+  display: block;
+  margin-top: 0.3rem;
+  font:
+    700 0.75rem "Cinzel",
+    Georgia,
+    serif;
+}
+.origin-card p {
+  margin: 0.35rem 0;
+  color: var(--muted);
+  font-size: 0.53rem;
+  line-height: 1.35;
+}
+.origin-card span {
+  color: #dfe8c9;
+  font-size: 0.5rem;
+}
+.creation-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  max-width: 86rem;
+  gap: 1rem;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 0.55rem;
+}
+.creation-footer b {
+  color: var(--paper);
+}
 
-.rpg-shell { position: fixed; z-index: 20; top: 50%; left: 50%; width: min(100vw, 177.777vh); height: min(100vh, 56.25vw); overflow: hidden; background: #102c27; box-shadow: 0 0 0 100vmax #050e10, 0 1.2rem 4rem rgba(0,0,0,.62); transform: translate(-50%, -50%); -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }.rpg-shell button, .rpg-shell kbd, .rpg-shell span, .rpg-shell b, .rpg-shell small, .rpg-shell p { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }.rpg-shell button { touch-action: manipulation; }.rpg-canvas { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; image-rendering: crisp-edges; touch-action: none; -webkit-user-select: none; user-select: none; }.rpg-shell::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .16; background-image: linear-gradient(rgba(231,189,88,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(231,189,88,.08) 1px, transparent 1px); background-size: 32px 32px; mix-blend-mode: overlay; }
-.rpg-topbar { position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: flex; min-height: 3.35rem; align-items: center; justify-content: space-between; padding: .45rem .8rem; border-bottom: 1px solid rgba(231,189,88,.3); background: #071b1d; box-shadow: inset 0 -3px 0 rgba(61,112,89,.3); }.world-brand { display: flex; gap: .55rem; align-items: center; }.world-brand > span { color: var(--gold); font-size: 1.45rem; }.world-brand small { display: block; color: var(--gold); font: 700 .52rem "Cinzel", Georgia, serif; letter-spacing: .13em; }.world-brand b { font: 700 .82rem "Cinzel", Georgia, serif; }.world-resources { display: flex; gap: .75rem; color: #dce6c6; font-size: .66rem; }.world-resources span::first-letter { color: var(--gold); }.rpg-topbar > button { padding: .4rem .55rem; border: 1px solid rgba(231,189,88,.44); background: #0d2928; color: var(--gold); font: 700 .5rem "Cinzel", Georgia, serif; }
-.player-hud, .quest-hud { position: absolute; z-index: 3; border: 1px solid var(--line); background: rgba(6,26,28,.82); box-shadow: 0 .8rem 1.7rem rgba(0,0,0,.2); backdrop-filter: blur(7px); }.player-hud { top: 5.1rem; left: 1rem; width: 14rem; padding: .7rem; }.hud-name { display: grid; grid-template-columns: auto 1fr; column-gap: .4rem; }.hud-name small { grid-row: span 2; display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid var(--gold); color: var(--gold); font-size: .45rem; }.hud-name b { font: 700 .8rem "Cinzel", Georgia, serif; }.hud-name span { color: var(--muted); font-size: .5rem; }.life-bar { height: .42rem; margin-top: .65rem; background: rgba(255,255,255,.12); }.life-bar i { display: block; height: 100%; background: linear-gradient(90deg, #c75458, #e68568); }.focus-bar { height: .22rem; margin-top: .24rem; background: rgba(255,255,255,.1); }.focus-bar i { display: block; height: 100%; background: linear-gradient(90deg, #74bba8, #bde6d9); }.hud-numbers { display: flex; justify-content: space-between; margin-top: .35rem; color: var(--muted); font-size: .5rem; }.hud-numbers span:last-child { color: var(--gold); }.quest-hud { top: 15.1rem; right: 1rem; width: 13.2rem; padding: .7rem; }.quest-hud small { color: var(--gold); font-size: .48rem; font-weight: 800; letter-spacing: .13em; }.quest-hud b { display: block; margin: .3rem 0; font: 700 .72rem "Cinzel", Georgia, serif; }.quest-hud p { margin: 0; color: var(--muted); font-size: .54rem; line-height: 1.35; }
-.rpg-actions { position: absolute; z-index: 3; bottom: 1.2rem; right: 1rem; display: flex; gap: .25rem; }.rpg-actions button { display: grid; min-width: 3.2rem; gap: .2rem; padding: .38rem .35rem; border: 1px solid rgba(231,189,88,.25); background: rgba(5,24,26,.75); color: #dce6cb; text-align: center; transition: border-color .16s, transform .16s; }.rpg-actions button:hover { border-color: var(--gold); transform: translateY(-2px); }.rpg-actions kbd, .world-controls kbd { color: var(--gold); font: 700 .54rem "Cinzel", Georgia, serif; }.rpg-actions span { font-size: .46rem; }.world-controls { position: absolute; z-index: 3; bottom: 1.2rem; left: 1rem; display: flex; gap: .75rem; color: #e0e7c7; font-size: .54rem; text-shadow: 0 1px #071313; }.world-controls span { padding: .3rem .4rem; background: rgba(4,20,23,.58); }.world-controls kbd { padding-right: .22rem; }
-.rpg-menu-window { position: absolute; z-index: 7; top: 50%; left: 50%; width: min(31rem, calc(100vw - 2rem)); max-height: min(38rem, calc(100vh - 3rem)); overflow: auto; padding: 1.35rem; border: 1px solid var(--gold); background: linear-gradient(145deg, rgba(14,48,46,.97), rgba(5,22,26,.98)); box-shadow: 0 2rem 5rem rgba(0,0,0,.5), inset 0 0 0 .3rem rgba(231,189,88,.04); transform: translate(-50%, -50%); clip-path: polygon(0 0, calc(100% - 1.3rem) 0, 100% 1.3rem, 100% 100%, 1.3rem 100%, 0 calc(100% - 1.3rem)); }.menu-close { position: absolute; right: .7rem; top: .55rem; border: 0; background: transparent; color: var(--gold); font-size: 1.3rem; }.menu-overline { margin: 0; color: var(--gold); font-size: .52rem; font-weight: 800; letter-spacing: .16em; }.rpg-menu-window h2 { margin: .25rem 0 .45rem; font: 700 1.35rem "Cinzel", Georgia, serif; }.rpg-menu-window h3 { margin: 1rem 0 .5rem; color: var(--gold); font: 700 .7rem "Cinzel", Georgia, serif; }.rpg-menu-window > p { color: var(--muted); font-size: .64rem; line-height: 1.45; }.menu-portrait { float: right; width: 8.5rem; margin: -1.5rem 0 -1rem; }.detail-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: .3rem; }.detail-stats span { padding: .35rem; border: 1px solid rgba(231,189,88,.2); text-align: center; }.detail-stats small { display: block; color: var(--muted); font-size: .45rem; }.detail-stats b { color: var(--gold); font-size: .82rem; }.rpg-menu-window ol { padding-left: 1.1rem; color: #d8e5c5; font-size: .64rem; line-height: 1.7; }.item-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }.item-grid span { display: flex; justify-content: space-between; padding: .55rem; border: 1px solid rgba(220,232,203,.15); background: rgba(3,18,21,.42); color: #dce8c9; font-size: .6rem; }.item-grid b { color: var(--gold); }.region-map { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: .55rem; margin-top: .8rem; }.region-map span { min-height: 5.2rem; padding: .5rem; border: 1px solid rgba(220,232,203,.18); background: #17483f; }.region-map span.active { border-color: var(--gold); background: #2e674f; }.region-map span.locked { opacity: .57; filter: grayscale(.4); }.region-map i { color: var(--gold); font-style: normal; font-size: .6rem; }.region-map b { display: block; margin-top: .35rem; font: 700 .6rem "Cinzel", Georgia, serif; }.region-map small { color: var(--muted); font-size: .47rem; }.quest-log { display: grid; gap: .45rem; }.quest-log article { padding: .7rem; border-left: 2px solid var(--gold); background: rgba(4,23,25,.4); }.quest-log small { color: var(--gold); font-size: .47rem; }.quest-log b { display: block; margin: .16rem 0; font: 700 .72rem "Cinzel", Georgia, serif; }.quest-log p { margin: 0; color: var(--muted); font-size: .59rem; line-height: 1.42; }.codex-row { display: flex; flex-wrap: wrap; gap: .4rem; }.codex-row span { padding: .4rem; border: 1px solid rgba(231,189,88,.25); color: #dce8c9; font-size: .58rem; }.build-list { display: grid; gap: .4rem; }.build-list button { display: flex; justify-content: space-between; padding: .65rem; border: 1px solid rgba(231,189,88,.28); background: rgba(6,24,27,.6); color: var(--paper); text-align: left; font: 700 .68rem "Cinzel", Georgia, serif; }.build-list button:hover:not(:disabled) { border-color: var(--gold); }.build-list button:disabled { color: #7c9286; }.build-list small { color: var(--gold); font: 500 .5rem "Manrope", sans-serif; }
-.dialogue-box { position: absolute; z-index: 8; bottom: 6rem; left: 50%; width: min(34rem, calc(100vw - 2rem)); padding: 1rem 1.2rem; border: 1px solid var(--gold); background: rgba(5,28,30,.96); box-shadow: 0 1.5rem 3rem rgba(0,0,0,.4); transform: translateX(-50%); }.dialogue-box button { position: absolute; right: .5rem; top: .35rem; border: 0; background: none; color: var(--gold); font-size: 1.15rem; }.dialogue-box small { color: var(--gold); font-size: .48rem; letter-spacing: .13em; }.dialogue-box h2 { margin: .2rem 0; font: 700 .95rem "Cinzel", Georgia, serif; }.dialogue-box p { margin: .45rem 0; color: #e6e2c8; font: .74rem/1.45 "Cinzel", Georgia, serif; }.dialogue-box div { display: grid; gap: .2rem; padding: .5rem .6rem; border-left: 2px solid var(--gold); background: rgba(231,189,88,.07); }.dialogue-box div b { color: var(--gold); font-size: .5rem; letter-spacing: .1em; }.dialogue-box div span { color: var(--muted); font-size: .58rem; }.dialogue-box em { display: block; margin-top: .55rem; color: var(--muted); font-size: .48rem; font-style: normal; }
-.dialogue-choices { display: grid; gap: .4rem; margin-top: .7rem; }.dialogue-choices button { position: static; display: grid; width: 100%; gap: .18rem; padding: .55rem .65rem; border: 1px solid rgba(231,189,88,.35); background: rgba(4,22,24,.72); color: var(--paper); text-align: left; font-size: inherit; transition: border-color .16s, transform .16s; }.dialogue-choices button:hover { border-color: var(--gold); transform: translateX(3px); }.dialogue-choices b { color: var(--gold); font: 700 .62rem "Cinzel", Georgia, serif; }.dialogue-choices span { color: var(--muted); font-size: .53rem; }
-@media (max-width: 900px) { .creation-layout { grid-template-columns: 1fr 1.08fr; }.class-choice { grid-column: 1 / -1; min-height: unset; }.class-list { grid-template-columns: repeat(3, 1fr); }.class-card { grid-template-columns: 1.3rem 1fr; }.class-card i { display: none; }.origin-list { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 640px) { .creation-shell { padding: 1rem .65rem; overflow: auto; }.creation-header { text-align: left; margin-bottom: 1rem; }.creation-header::before, .creation-header::after { display: none; }.creation-header h1 { font-size: 1.7rem; }.slot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }.slot-card { min-height: 11rem; }.creation-layout { grid-template-columns: 1fr; }.choice-column, .character-altar { min-height: unset; }.race-choice { order: 2; }.character-altar { order: 1; }.class-choice { order: 3; }.race-grid { grid-template-columns: repeat(3, 1fr); }.race-card { min-height: 5.2rem; }.character-preview { width: 13rem; }.class-list { grid-template-columns: repeat(2, 1fr); }.class-card { min-height: 4.2rem; }.origin-list { grid-template-columns: repeat(2, 1fr); }.origin-card { min-height: 7rem; }.creation-footer { grid-template-columns: 1fr; gap: .3rem; margin-bottom: 1rem; }.rpg-topbar { min-height: 3.5rem; }.world-resources { gap: .3rem; font-size: .52rem; }.world-brand b { font-size: .61rem; }.rpg-topbar > button { display: none; }.player-hud { top: 4.25rem; left: .55rem; width: calc(50vw - .8rem); padding: .48rem; }.quest-hud { top: 4.25rem; right: .55rem; width: calc(50vw - .8rem); padding: .48rem; }.hud-name b { font-size: .66rem; }.hud-name span, .quest-hud p { font-size: .43rem; }.quest-hud b { font-size: .57rem; }.rpg-actions { bottom: .55rem; right: .4rem; gap: .1rem; }.rpg-actions button { min-width: 2.55rem; padding: .27rem .18rem; }.rpg-actions span { font-size: .4rem; }.world-controls { bottom: 3.35rem; left: .45rem; gap: .25rem; font-size: .42rem; }.world-controls span { padding: .23rem; }.dialogue-box { bottom: 5.3rem; }.region-map { grid-template-columns: repeat(2, 1fr); } }
-.touch-controls { display: none; } @media (pointer: coarse), (max-width: 768px) { .touch-controls { position: absolute; z-index: 12; inset: auto .8rem calc(env(safe-area-inset-bottom) + .65rem) .8rem; display: flex; align-items: end; justify-content: space-between; pointer-events: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }.touch-controls button { display: grid; width: 3.2rem; height: 3.2rem; place-items: center; border: 1px solid rgba(231,189,88,.72); background: rgba(5,26,28,.82); color: var(--paper); font: 800 .55rem "Cinzel", Georgia, serif; touch-action: none; pointer-events: auto; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }.touch-dpad { display: grid; grid-template-columns: repeat(3, 3.2rem); grid-template-rows: repeat(2, 3.2rem); gap: .14rem; }.touch-dpad button:nth-child(1) { grid-column: 2; }.touch-dpad button:nth-child(2) { grid-column: 1; grid-row: 2; }.touch-dpad button:nth-child(3) { grid-column: 2; grid-row: 2; }.touch-dpad button:nth-child(4) { grid-column: 3; grid-row: 2; }.touch-actions { display: grid; grid-template-columns: repeat(2, 3.2rem); gap: .28rem; }.world-controls { display: none; }.rpg-actions { bottom: 7.4rem; }.rpg-actions button { min-width: 2.7rem; } }
-.dungeon-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: .35rem; margin: .9rem 0; }.dungeon-facts span { padding: .55rem; border: 1px solid rgba(231,189,88,.25); background: rgba(4,22,24,.55); color: #d9e4c7; font-size: .56rem; }.dungeon-facts b { display: block; margin-bottom: .22rem; color: var(--gold); font-size: .45rem; letter-spacing: .1em; }.expedition-button { width: 100%; padding: .8rem; border: 1px solid var(--gold); background: #d5ad49; color: #152b2a; font: 800 .66rem "Cinzel", Georgia, serif; letter-spacing: .1em; }.expedition-button span { padding-left: .35rem; font-size: .9rem; }.dungeon-note { display: block; margin-top: .6rem; color: var(--muted); font-size: .52rem; line-height: 1.4; }
-.audio-settings { display: grid; gap: .9rem; margin-top: 1rem; }.audio-settings label { display: grid; gap: .55rem; padding: .75rem; border: 1px solid rgba(231,189,88,.25); background: rgba(4,22,24,.52); }.audio-settings label > span { display: flex; justify-content: space-between; align-items: baseline; }.audio-settings b { color: #e7edd6; font: 700 .68rem "Cinzel", Georgia, serif; }.audio-settings small { color: var(--gold); font: 800 .58rem "Manrope", sans-serif; }.audio-settings input[type="range"] { width: 100%; accent-color: var(--gold); cursor: pointer; touch-action: pan-x; }
-.controls-window { width: min(36rem, calc(100vw - 2rem)); }.control-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .42rem; margin-top: .95rem; }.control-grid button { display: flex; min-height: 2.85rem; align-items: center; justify-content: space-between; gap: .5rem; padding: .5rem .6rem; border: 1px solid rgba(231,189,88,.28); background: rgba(4,22,24,.58); color: #e5ebd0; text-align: left; font: 700 .58rem "Cinzel", Georgia, serif; transition: border-color .16s, background .16s, transform .16s; }.control-grid button:hover, .control-grid button:focus-visible, .control-grid button.listening { outline: 0; border-color: var(--gold); background: rgba(53,96,72,.7); transform: translateY(-1px); }.control-grid kbd { min-width: 3.2rem; padding: .32rem .36rem; border: 1px solid rgba(231,189,88,.55); background: #102d2d; color: var(--gold); font: 800 .56rem "Cinzel", Georgia, serif; text-align: center; }.control-grid button.listening kbd { animation: control-listen .8s steps(2, end) infinite; }.restore-controls { width: 100%; margin-top: .8rem; padding: .68rem; border: 1px solid rgba(231,189,88,.72); background: transparent; color: var(--gold); font: 800 .58rem "Cinzel", Georgia, serif; letter-spacing: .08em; }.restore-controls:hover, .restore-controls:focus-visible { outline: 0; background: rgba(231,189,88,.12); }.restore-controls:active, .control-grid button:active { transform: scale(.97); } @keyframes control-listen { 50% { color: #142a28; background: var(--gold); } } @media (max-width: 640px) { .controls-window { max-height: calc(100vh - 1.2rem); padding: 1rem; }.control-grid { grid-template-columns: 1fr; }.control-grid button { min-height: 2.4rem; } }
-.auth-gate { overflow: hidden; background: radial-gradient(ellipse at 50% 48%, rgba(40,101,80,.54), transparent 45%), linear-gradient(120deg, #061819 0 48%, #0c2928 48.2% 51%, #061819 51.2%); }.auth-gate::before, .auth-gate::after { content: ""; position: absolute; pointer-events: none; opacity: .36; }.auth-gate::before { width: min(86vw, 62rem); height: min(86vw, 62rem); border: 1px solid rgba(231,189,88,.18); border-radius: 47% 53% 51% 49%; background: repeating-radial-gradient(ellipse at 50% 50%, transparent 0 2.8rem, rgba(167,194,143,.1) 2.86rem 2.92rem, transparent 2.98rem 5.65rem); transform: rotate(-11deg); }.auth-gate::after { inset: 8% 10%; border: 1px solid rgba(231,189,88,.16); clip-path: polygon(5% 13%, 34% 5%, 59% 16%, 92% 8%, 86% 38%, 96% 69%, 67% 94%, 39% 85%, 8% 96%, 16% 62%); background: linear-gradient(142deg, transparent 49.7%, rgba(231,189,88,.2) 50% 50.3%, transparent 50.6%), linear-gradient(18deg, transparent 49.7%, rgba(141,186,139,.16) 50% 50.25%, transparent 50.6%); }.auth-gate section { position: relative; overflow: hidden; width: min(28rem, 100%); padding: 1.6rem; border: 1px solid rgba(231,189,88,.56); background: linear-gradient(145deg, rgba(13,47,45,.96), rgba(4,22,25,.98)); box-shadow: 0 0 0 .28rem rgba(4,20,22,.78), 0 1.5rem 3rem rgba(0,0,0,.48), inset 0 0 0 .12rem rgba(140,166,120,.14); clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 1rem, 100% 100%, 1rem 100%, 0 calc(100% - 1rem)); }.auth-cartography { position: absolute; inset: .45rem; pointer-events: none; opacity: .38; background: repeating-linear-gradient(19deg, transparent 0 13px, rgba(151,126,88,.2) 14px 15px, transparent 16px 30px); clip-path: polygon(0 0, 20% 0, 24% 5%, 91% 5%, 96% 0, 100% 0, 100% 20%, 95% 25%, 95% 84%, 100% 90%, 100% 100%, 81% 100%, 76% 95%, 9% 95%, 4% 100%, 0 100%, 0 81%, 5% 76%, 5% 13%, 0 8%); }.auth-brand { position: relative; z-index: 1; display: flex; gap: .65rem; align-items: center; margin-bottom: .85rem; }.auth-brand p { margin: 0 0 .18rem; }.auth-brand b { color: #f5ecd1; font: 800 .86rem "Cinzel", Georgia, serif; letter-spacing: .09em; }.auth-seal { position: relative; display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border: 1px solid var(--gold); border-radius: 48% 52% 44% 56% / 55% 55% 45% 45%; background: #163e37; box-shadow: inset 0 0 0 .22rem rgba(3,17,19,.4); }.auth-seal::before { content: ""; width: .65rem; height: 1.2rem; border: 1px solid var(--gold); border-radius: 70% 20% 70% 20%; transform: rotate(42deg); }.auth-seal i { position: absolute; width: 2px; height: 1.42rem; background: var(--gold); transform: rotate(27deg); }.auth-gate section > h1, .auth-gate section > span, .auth-gate section > label, .auth-gate section > small, .auth-gate section > button { position: relative; z-index: 1; }.auth-gate section > h1 { margin-top: 0; }.auth-gate section > button:not(.auth-switch) { border-color: var(--gold); background: #d5ad49; }.auth-gate .auth-switch { color: #bdc9a8; }.auth-gate .auth-switch:hover { color: var(--gold); }
-.trade-actions { display: grid; gap: .45rem; }.trade-actions > button:not(.expedition-button) { padding: .62rem; border: 1px solid rgba(231,189,88,.32); background: rgba(10,39,38,.86); color: #e5e8cf; font: 700 .58rem "Cinzel", Georgia, serif; letter-spacing: .06em; }.trade-actions > button:disabled { cursor: not-allowed; opacity: .45; }
-.minimap { position: absolute; z-index: 6; top: 4.7rem; right: 1rem; width: 13.2rem; padding: .45rem; border: 1px solid rgba(231,189,88,.6); background: rgba(4,25,27,.94); box-shadow: 0 .8rem 1.8rem rgba(0,0,0,.34), inset 0 0 0 2px rgba(59,116,88,.26); }.minimap header { display: flex; justify-content: space-between; align-items: baseline; padding: 0 .12rem .3rem; }.minimap header small { color: var(--gold); font-size: .43rem; font-weight: 800; letter-spacing: .12em; }.minimap header b { color: #dce7c6; font: 700 .48rem "Cinzel", Georgia, serif; }.minimap-land { position: relative; display: grid; grid-template-columns: repeat(21, 1fr); grid-template-rows: repeat(15, 1fr); height: 9.3rem; overflow: hidden; border: 1px solid #0a1719; background: #244c40; image-rendering: pixelated; }.map-tile { position: relative; background: #2e5b48; }.map-tile.grass:nth-child(3n) { background: #35654e; }.map-tile.tree::after { content: ""; position: absolute; inset: 18% 12%; background: #174334; box-shadow: 1px 1px 0 #74a867; }.map-tile.water { background: #1f5960; }.map-tile.village { background: #716a52; }.map-tile.path { background: #9c825b; }.map-road { position: absolute; z-index: 1; background: #c2a370; box-shadow: inset 0 1px rgba(255,235,172,.38), 0 0 0 1px rgba(60,52,38,.4); }.map-road-north { left: 41.5%; top: 0; width: 8%; height: 66%; }.map-road-east { left: 41%; top: 65%; width: 44%; height: 9%; }.map-water { position: absolute; z-index: 1; background: rgba(42,129,133,.78); box-shadow: inset 0 1px rgba(159,225,209,.36); }.water-a { left: 5%; top: 13%; width: 13%; height: 26%; }.water-b { right: 5%; top: 23%; width: 15%; height: 24%; }.map-village { position: absolute; z-index: 2; right: 12%; bottom: 11%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; width: 20%; height: 20%; padding: 2px; background: #3d463a; }.map-village i { background: #bf8650; box-shadow: inset 0 2px #e3b875; }.map-dungeon { position: absolute; z-index: 4; left: 47%; top: 8%; width: 8px; height: 8px; background: #e7bd58; box-shadow: 0 0 0 2px rgba(231,189,88,.2); transform: rotate(45deg); }.map-npc,.map-enemy,.map-player { position: absolute; z-index: 5; width: 6px; height: 6px; transform: translate(-50%,-50%); }.map-npc { background: #d3e0c3; box-shadow: 0 0 0 1px #10231f; }.map-npc.emissary { background: #9bdac1; }.map-npc.merchant { background: #e1a05e; }.map-enemy { background: #d96863; box-shadow: 0 0 0 1px #461f28; }.map-enemy.boar { background: #d49b69; }.map-enemy.goblin { background: #a6cf64; }.map-player { z-index: 7; width: 8px; height: 8px; background: #f4de78; box-shadow: 0 0 0 2px #24473f, 0 0 0 3px rgba(244,222,120,.46); transform: translate(-50%,-50%) rotate(45deg); }.minimap footer { display: flex; justify-content: space-between; gap: .25rem; padding: .34rem .08rem 0; color: #b5c8ae; font-size: .36rem; }.minimap footer span::before { content: ""; display: inline-block; width: 4px; height: 4px; margin-right: 2px; background: currentColor; }.legend-you { color: #f4de78; }.legend-npc { color: #bfe0c9; }.legend-enemy { color: #df7568; } @media (max-width: 768px) { .minimap { top: 4.05rem; right: .42rem; width: 7.6rem; padding: .28rem; }.minimap header b { display: none; }.minimap-land { height: 5.2rem; }.minimap footer { display: none; }.map-npc,.map-enemy { width: 4px; height: 4px; }.map-player { width: 6px; height: 6px; }.map-dungeon { width: 5px; height: 5px; }.quest-hud { top: 10rem; right: .55rem; width: 8.4rem; } }
+.rpg-shell {
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  width: min(100vw, 177.777vh);
+  height: min(100vh, 56.25vw);
+  overflow: hidden;
+  background: #102c27;
+  box-shadow:
+    0 0 0 100vmax #050e10,
+    0 1.2rem 4rem rgba(0, 0, 0, 0.62);
+  transform: translate(-50%, -50%);
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.rpg-shell button,
+.rpg-shell kbd,
+.rpg-shell span,
+.rpg-shell b,
+.rpg-shell small,
+.rpg-shell p {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.rpg-shell button {
+  touch-action: manipulation;
+}
+.rpg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.rpg-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(231, 189, 88, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(231, 189, 88, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mix-blend-mode: overlay;
+}
+.rpg-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  min-height: 3.35rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.8rem;
+  border-bottom: 1px solid rgba(231, 189, 88, 0.3);
+  background: #071b1d;
+  box-shadow: inset 0 -3px 0 rgba(61, 112, 89, 0.3);
+}
+.world-brand {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+}
+.world-brand > span {
+  color: var(--gold);
+  font-size: 1.45rem;
+}
+.world-brand small {
+  display: block;
+  color: var(--gold);
+  font:
+    700 0.52rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.13em;
+}
+.world-brand b {
+  font:
+    700 0.82rem "Cinzel",
+    Georgia,
+    serif;
+}
+.world-resources {
+  display: flex;
+  gap: 0.75rem;
+  color: #dce6c6;
+  font-size: 0.66rem;
+}
+.world-resources span::first-letter {
+  color: var(--gold);
+}
+.rpg-topbar > button {
+  padding: 0.4rem 0.55rem;
+  border: 1px solid rgba(231, 189, 88, 0.44);
+  background: #0d2928;
+  color: var(--gold);
+  font:
+    700 0.5rem "Cinzel",
+    Georgia,
+    serif;
+}
+.player-hud,
+.quest-hud {
+  position: absolute;
+  z-index: 3;
+  border: 1px solid var(--line);
+  background: rgba(6, 26, 28, 0.82);
+  box-shadow: 0 0.8rem 1.7rem rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(7px);
+}
+.player-hud {
+  top: 5.1rem;
+  left: 1rem;
+  width: 14rem;
+  padding: 0.7rem;
+}
+.hud-name {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.4rem;
+}
+.hud-name small {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.45rem;
+}
+.hud-name b {
+  font:
+    700 0.8rem "Cinzel",
+    Georgia,
+    serif;
+}
+.hud-name span {
+  color: var(--muted);
+  font-size: 0.5rem;
+}
+.life-bar {
+  height: 0.42rem;
+  margin-top: 0.65rem;
+  background: rgba(255, 255, 255, 0.12);
+}
+.life-bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #c75458, #e68568);
+}
+.focus-bar {
+  height: 0.22rem;
+  margin-top: 0.24rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+.focus-bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #74bba8, #bde6d9);
+}
+.hud-numbers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.5rem;
+}
+.hud-numbers span:last-child {
+  color: var(--gold);
+}
+.quest-hud {
+  top: 15.1rem;
+  right: 1rem;
+  width: 13.2rem;
+  padding: 0.7rem;
+}
+.quest-hud small {
+  color: var(--gold);
+  font-size: 0.48rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+.quest-hud b {
+  display: block;
+  margin: 0.3rem 0;
+  font:
+    700 0.72rem "Cinzel",
+    Georgia,
+    serif;
+}
+.quest-hud p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.54rem;
+  line-height: 1.35;
+}
+.rpg-actions {
+  position: absolute;
+  z-index: 3;
+  bottom: 1.2rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.25rem;
+}
+.rpg-actions button {
+  display: grid;
+  min-width: 3.2rem;
+  gap: 0.2rem;
+  padding: 0.38rem 0.35rem;
+  border: 1px solid rgba(231, 189, 88, 0.25);
+  background: rgba(5, 24, 26, 0.75);
+  color: #dce6cb;
+  text-align: center;
+  transition:
+    border-color 0.16s,
+    transform 0.16s;
+}
+.rpg-actions button:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.rpg-actions kbd,
+.world-controls kbd {
+  color: var(--gold);
+  font:
+    700 0.54rem "Cinzel",
+    Georgia,
+    serif;
+}
+.rpg-actions span {
+  font-size: 0.46rem;
+}
+.world-controls {
+  position: absolute;
+  z-index: 3;
+  bottom: 1.2rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  color: #e0e7c7;
+  font-size: 0.54rem;
+  text-shadow: 0 1px #071313;
+}
+.world-controls span {
+  padding: 0.3rem 0.4rem;
+  background: rgba(4, 20, 23, 0.58);
+}
+.world-controls kbd {
+  padding-right: 0.22rem;
+}
+.rpg-menu-window {
+  position: absolute;
+  z-index: 7;
+  top: 50%;
+  left: 50%;
+  width: min(31rem, calc(100vw - 2rem));
+  max-height: min(38rem, calc(100vh - 3rem));
+  overflow: auto;
+  padding: 1.35rem;
+  border: 1px solid var(--gold);
+  background: linear-gradient(
+    145deg,
+    rgba(14, 48, 46, 0.97),
+    rgba(5, 22, 26, 0.98)
+  );
+  box-shadow:
+    0 2rem 5rem rgba(0, 0, 0, 0.5),
+    inset 0 0 0 0.3rem rgba(231, 189, 88, 0.04);
+  transform: translate(-50%, -50%);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 1.3rem) 0,
+    100% 1.3rem,
+    100% 100%,
+    1.3rem 100%,
+    0 calc(100% - 1.3rem)
+  );
+}
+.menu-close {
+  position: absolute;
+  right: 0.7rem;
+  top: 0.55rem;
+  border: 0;
+  background: transparent;
+  color: var(--gold);
+  font-size: 1.3rem;
+}
+.menu-overline {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+.rpg-menu-window h2 {
+  margin: 0.25rem 0 0.45rem;
+  font:
+    700 1.35rem "Cinzel",
+    Georgia,
+    serif;
+}
+.rpg-menu-window h3 {
+  margin: 1rem 0 0.5rem;
+  color: var(--gold);
+  font:
+    700 0.7rem "Cinzel",
+    Georgia,
+    serif;
+}
+.rpg-menu-window > p {
+  color: var(--muted);
+  font-size: 0.64rem;
+  line-height: 1.45;
+}
+.menu-portrait {
+  float: right;
+  width: 8.5rem;
+  margin: -1.5rem 0 -1rem;
+}
+.detail-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.3rem;
+}
+.detail-stats span {
+  padding: 0.35rem;
+  border: 1px solid rgba(231, 189, 88, 0.2);
+  text-align: center;
+}
+.detail-stats small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.45rem;
+}
+.detail-stats b {
+  color: var(--gold);
+  font-size: 0.82rem;
+}
+.rpg-menu-window ol {
+  padding-left: 1.1rem;
+  color: #d8e5c5;
+  font-size: 0.64rem;
+  line-height: 1.7;
+}
+.item-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+.item-grid span {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.55rem;
+  border: 1px solid rgba(220, 232, 203, 0.15);
+  background: rgba(3, 18, 21, 0.42);
+  color: #dce8c9;
+  font-size: 0.6rem;
+}
+.item-grid b {
+  color: var(--gold);
+}
+.region-map {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+}
+.region-map span {
+  min-height: 5.2rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(220, 232, 203, 0.18);
+  background: #17483f;
+}
+.region-map span.active {
+  border-color: var(--gold);
+  background: #2e674f;
+}
+.region-map span.locked {
+  opacity: 0.57;
+  filter: grayscale(0.4);
+}
+.region-map i {
+  color: var(--gold);
+  font-style: normal;
+  font-size: 0.6rem;
+}
+.region-map b {
+  display: block;
+  margin-top: 0.35rem;
+  font:
+    700 0.6rem "Cinzel",
+    Georgia,
+    serif;
+}
+.region-map small {
+  color: var(--muted);
+  font-size: 0.47rem;
+}
+.quest-log {
+  display: grid;
+  gap: 0.45rem;
+}
+.quest-log article {
+  padding: 0.7rem;
+  border-left: 2px solid var(--gold);
+  background: rgba(4, 23, 25, 0.4);
+}
+.quest-log small {
+  color: var(--gold);
+  font-size: 0.47rem;
+}
+.quest-log b {
+  display: block;
+  margin: 0.16rem 0;
+  font:
+    700 0.72rem "Cinzel",
+    Georgia,
+    serif;
+}
+.quest-log p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.59rem;
+  line-height: 1.42;
+}
+.codex-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.codex-row span {
+  padding: 0.4rem;
+  border: 1px solid rgba(231, 189, 88, 0.25);
+  color: #dce8c9;
+  font-size: 0.58rem;
+}
+.build-list {
+  display: grid;
+  gap: 0.4rem;
+}
+.build-list button {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.65rem;
+  border: 1px solid rgba(231, 189, 88, 0.28);
+  background: rgba(6, 24, 27, 0.6);
+  color: var(--paper);
+  text-align: left;
+  font:
+    700 0.68rem "Cinzel",
+    Georgia,
+    serif;
+}
+.build-list button:hover:not(:disabled) {
+  border-color: var(--gold);
+}
+.build-list button:disabled {
+  color: #7c9286;
+}
+.build-list small {
+  color: var(--gold);
+  font:
+    500 0.5rem "Manrope",
+    sans-serif;
+}
+.dialogue-box {
+  position: absolute;
+  z-index: 8;
+  bottom: 6rem;
+  left: 50%;
+  width: min(34rem, calc(100vw - 2rem));
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--gold);
+  background: rgba(5, 28, 30, 0.96);
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.4);
+  transform: translateX(-50%);
+}
+.dialogue-box button {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.35rem;
+  border: 0;
+  background: none;
+  color: var(--gold);
+  font-size: 1.15rem;
+}
+.dialogue-box small {
+  color: var(--gold);
+  font-size: 0.48rem;
+  letter-spacing: 0.13em;
+}
+.dialogue-box h2 {
+  margin: 0.2rem 0;
+  font:
+    700 0.95rem "Cinzel",
+    Georgia,
+    serif;
+}
+.dialogue-box p {
+  margin: 0.45rem 0;
+  color: #e6e2c8;
+  font:
+    0.74rem/1.45 "Cinzel",
+    Georgia,
+    serif;
+}
+.dialogue-box div {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.5rem 0.6rem;
+  border-left: 2px solid var(--gold);
+  background: rgba(231, 189, 88, 0.07);
+}
+.dialogue-box div b {
+  color: var(--gold);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+}
+.dialogue-box div span {
+  color: var(--muted);
+  font-size: 0.58rem;
+}
+.dialogue-box em {
+  display: block;
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.48rem;
+  font-style: normal;
+}
+.dialogue-choices {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+}
+.dialogue-choices button {
+  position: static;
+  display: grid;
+  width: 100%;
+  gap: 0.18rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(231, 189, 88, 0.35);
+  background: rgba(4, 22, 24, 0.72);
+  color: var(--paper);
+  text-align: left;
+  font-size: inherit;
+  transition:
+    border-color 0.16s,
+    transform 0.16s;
+}
+.dialogue-choices button:hover {
+  border-color: var(--gold);
+  transform: translateX(3px);
+}
+.dialogue-choices b {
+  color: var(--gold);
+  font:
+    700 0.62rem "Cinzel",
+    Georgia,
+    serif;
+}
+.dialogue-choices span {
+  color: var(--muted);
+  font-size: 0.53rem;
+}
+@media (max-width: 900px) {
+  .creation-layout {
+    grid-template-columns: 1fr 1.08fr;
+  }
+  .class-choice {
+    grid-column: 1 / -1;
+    min-height: unset;
+  }
+  .class-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .class-card {
+    grid-template-columns: 1.3rem 1fr;
+  }
+  .class-card i {
+    display: none;
+  }
+  .origin-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .creation-shell {
+    padding: 1rem 0.65rem;
+    overflow: auto;
+  }
+  .creation-header {
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+  .creation-header::before,
+  .creation-header::after {
+    display: none;
+  }
+  .creation-header h1 {
+    font-size: 1.7rem;
+  }
+  .slot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .slot-card {
+    min-height: 11rem;
+  }
+  .creation-layout {
+    grid-template-columns: 1fr;
+  }
+  .choice-column,
+  .character-altar {
+    min-height: unset;
+  }
+  .race-choice {
+    order: 2;
+  }
+  .character-altar {
+    order: 1;
+  }
+  .class-choice {
+    order: 3;
+  }
+  .race-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .race-card {
+    min-height: 5.2rem;
+  }
+  .character-preview {
+    width: 13rem;
+  }
+  .class-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .class-card {
+    min-height: 4.2rem;
+  }
+  .origin-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .origin-card {
+    min-height: 7rem;
+  }
+  .creation-footer {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+  }
+  .rpg-topbar {
+    min-height: 3.5rem;
+  }
+  .world-resources {
+    gap: 0.3rem;
+    font-size: 0.52rem;
+  }
+  .world-brand b {
+    font-size: 0.61rem;
+  }
+  .rpg-topbar > button {
+    display: none;
+  }
+  .player-hud {
+    top: 4.25rem;
+    left: 0.55rem;
+    width: calc(50vw - 0.8rem);
+    padding: 0.48rem;
+  }
+  .quest-hud {
+    top: 4.25rem;
+    right: 0.55rem;
+    width: calc(50vw - 0.8rem);
+    padding: 0.48rem;
+  }
+  .hud-name b {
+    font-size: 0.66rem;
+  }
+  .hud-name span,
+  .quest-hud p {
+    font-size: 0.43rem;
+  }
+  .quest-hud b {
+    font-size: 0.57rem;
+  }
+  .rpg-actions {
+    bottom: 0.55rem;
+    right: 0.4rem;
+    gap: 0.1rem;
+  }
+  .rpg-actions button {
+    min-width: 2.55rem;
+    padding: 0.27rem 0.18rem;
+  }
+  .rpg-actions span {
+    font-size: 0.4rem;
+  }
+  .world-controls {
+    bottom: 3.35rem;
+    left: 0.45rem;
+    gap: 0.25rem;
+    font-size: 0.42rem;
+  }
+  .world-controls span {
+    padding: 0.23rem;
+  }
+  .dialogue-box {
+    bottom: 5.3rem;
+  }
+  .region-map {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.touch-controls {
+  display: none;
+}
+@media (pointer: coarse), (max-width: 768px) {
+  .touch-controls {
+    position: absolute;
+    z-index: 12;
+    inset: auto 0.8rem calc(env(safe-area-inset-bottom) + 0.65rem) 0.8rem;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+  .touch-controls button {
+    display: grid;
+    width: 3.2rem;
+    height: 3.2rem;
+    place-items: center;
+    border: 1px solid rgba(231, 189, 88, 0.72);
+    background: rgba(5, 26, 28, 0.82);
+    color: var(--paper);
+    font:
+      800 0.55rem "Cinzel",
+      Georgia,
+      serif;
+    touch-action: none;
+    pointer-events: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .touch-dpad {
+    display: grid;
+    grid-template-columns: repeat(3, 3.2rem);
+    grid-template-rows: repeat(2, 3.2rem);
+    gap: 0.14rem;
+  }
+  .touch-dpad button:nth-child(1) {
+    grid-column: 2;
+  }
+  .touch-dpad button:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .touch-dpad button:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .touch-dpad button:nth-child(4) {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .touch-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 3.2rem);
+    gap: 0.28rem;
+  }
+  .world-controls {
+    display: none;
+  }
+  .rpg-actions {
+    bottom: 7.4rem;
+  }
+  .rpg-actions button {
+    min-width: 2.7rem;
+  }
+}
+.dungeon-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.35rem;
+  margin: 0.9rem 0;
+}
+.dungeon-facts span {
+  padding: 0.55rem;
+  border: 1px solid rgba(231, 189, 88, 0.25);
+  background: rgba(4, 22, 24, 0.55);
+  color: #d9e4c7;
+  font-size: 0.56rem;
+}
+.dungeon-facts b {
+  display: block;
+  margin-bottom: 0.22rem;
+  color: var(--gold);
+  font-size: 0.45rem;
+  letter-spacing: 0.1em;
+}
+.expedition-button {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--gold);
+  background: #d5ad49;
+  color: #152b2a;
+  font:
+    800 0.66rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.1em;
+}
+.expedition-button span {
+  padding-left: 0.35rem;
+  font-size: 0.9rem;
+}
+.dungeon-note {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.52rem;
+  line-height: 1.4;
+}
+.audio-settings {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+.audio-settings label {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(231, 189, 88, 0.25);
+  background: rgba(4, 22, 24, 0.52);
+}
+.audio-settings label > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.audio-settings b {
+  color: #e7edd6;
+  font:
+    700 0.68rem "Cinzel",
+    Georgia,
+    serif;
+}
+.audio-settings small {
+  color: var(--gold);
+  font:
+    800 0.58rem "Manrope",
+    sans-serif;
+}
+.audio-settings input[type="range"] {
+  width: 100%;
+  accent-color: var(--gold);
+  cursor: pointer;
+  touch-action: pan-x;
+}
+.controls-window {
+  width: min(36rem, calc(100vw - 2rem));
+}
+.control-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.42rem;
+  margin-top: 0.95rem;
+}
+.control-grid button {
+  display: flex;
+  min-height: 2.85rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid rgba(231, 189, 88, 0.28);
+  background: rgba(4, 22, 24, 0.58);
+  color: #e5ebd0;
+  text-align: left;
+  font:
+    700 0.58rem "Cinzel",
+    Georgia,
+    serif;
+  transition:
+    border-color 0.16s,
+    background 0.16s,
+    transform 0.16s;
+}
+.control-grid button:hover,
+.control-grid button:focus-visible,
+.control-grid button.listening {
+  outline: 0;
+  border-color: var(--gold);
+  background: rgba(53, 96, 72, 0.7);
+  transform: translateY(-1px);
+}
+.control-grid kbd {
+  min-width: 3.2rem;
+  padding: 0.32rem 0.36rem;
+  border: 1px solid rgba(231, 189, 88, 0.55);
+  background: #102d2d;
+  color: var(--gold);
+  font:
+    800 0.56rem "Cinzel",
+    Georgia,
+    serif;
+  text-align: center;
+}
+.control-grid button.listening kbd {
+  animation: control-listen 0.8s steps(2, end) infinite;
+}
+.restore-controls {
+  width: 100%;
+  margin-top: 0.8rem;
+  padding: 0.68rem;
+  border: 1px solid rgba(231, 189, 88, 0.72);
+  background: transparent;
+  color: var(--gold);
+  font:
+    800 0.58rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.08em;
+}
+.restore-controls:hover,
+.restore-controls:focus-visible {
+  outline: 0;
+  background: rgba(231, 189, 88, 0.12);
+}
+.restore-controls:active,
+.control-grid button:active {
+  transform: scale(0.97);
+}
+@keyframes control-listen {
+  50% {
+    color: #142a28;
+    background: var(--gold);
+  }
+}
+@media (max-width: 640px) {
+  .controls-window {
+    max-height: calc(100vh - 1.2rem);
+    padding: 1rem;
+  }
+  .control-grid {
+    grid-template-columns: 1fr;
+  }
+  .control-grid button {
+    min-height: 2.4rem;
+  }
+}
+.auth-gate {
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 50% 48%,
+      rgba(40, 101, 80, 0.54),
+      transparent 45%
+    ),
+    linear-gradient(120deg, #061819 0 48%, #0c2928 48.2% 51%, #061819 51.2%);
+}
+.auth-gate::before,
+.auth-gate::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.36;
+}
+.auth-gate::before {
+  width: min(86vw, 62rem);
+  height: min(86vw, 62rem);
+  border: 1px solid rgba(231, 189, 88, 0.18);
+  border-radius: 47% 53% 51% 49%;
+  background: repeating-radial-gradient(
+    ellipse at 50% 50%,
+    transparent 0 2.8rem,
+    rgba(167, 194, 143, 0.1) 2.86rem 2.92rem,
+    transparent 2.98rem 5.65rem
+  );
+  transform: rotate(-11deg);
+}
+.auth-gate::after {
+  inset: 8% 10%;
+  border: 1px solid rgba(231, 189, 88, 0.16);
+  clip-path: polygon(
+    5% 13%,
+    34% 5%,
+    59% 16%,
+    92% 8%,
+    86% 38%,
+    96% 69%,
+    67% 94%,
+    39% 85%,
+    8% 96%,
+    16% 62%
+  );
+  background:
+    linear-gradient(
+      142deg,
+      transparent 49.7%,
+      rgba(231, 189, 88, 0.2) 50% 50.3%,
+      transparent 50.6%
+    ),
+    linear-gradient(
+      18deg,
+      transparent 49.7%,
+      rgba(141, 186, 139, 0.16) 50% 50.25%,
+      transparent 50.6%
+    );
+}
+.auth-gate section {
+  position: relative;
+  overflow: hidden;
+  width: min(28rem, 100%);
+  padding: 1.6rem;
+  border: 1px solid rgba(231, 189, 88, 0.56);
+  background: linear-gradient(
+    145deg,
+    rgba(13, 47, 45, 0.96),
+    rgba(4, 22, 25, 0.98)
+  );
+  box-shadow:
+    0 0 0 0.28rem rgba(4, 20, 22, 0.78),
+    0 1.5rem 3rem rgba(0, 0, 0, 0.48),
+    inset 0 0 0 0.12rem rgba(140, 166, 120, 0.14);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 1rem) 0,
+    100% 1rem,
+    100% 100%,
+    1rem 100%,
+    0 calc(100% - 1rem)
+  );
+}
+.auth-cartography {
+  position: absolute;
+  inset: 0.45rem;
+  pointer-events: none;
+  opacity: 0.38;
+  background: repeating-linear-gradient(
+    19deg,
+    transparent 0 13px,
+    rgba(151, 126, 88, 0.2) 14px 15px,
+    transparent 16px 30px
+  );
+  clip-path: polygon(
+    0 0,
+    20% 0,
+    24% 5%,
+    91% 5%,
+    96% 0,
+    100% 0,
+    100% 20%,
+    95% 25%,
+    95% 84%,
+    100% 90%,
+    100% 100%,
+    81% 100%,
+    76% 95%,
+    9% 95%,
+    4% 100%,
+    0 100%,
+    0 81%,
+    5% 76%,
+    5% 13%,
+    0 8%
+  );
+}
+.auth-brand {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+.auth-brand p {
+  margin: 0 0 0.18rem;
+}
+.auth-brand b {
+  color: #f5ecd1;
+  font:
+    800 0.86rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.09em;
+}
+.auth-seal {
+  position: relative;
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 48% 52% 44% 56% / 55% 55% 45% 45%;
+  background: #163e37;
+  box-shadow: inset 0 0 0 0.22rem rgba(3, 17, 19, 0.4);
+}
+.auth-seal::before {
+  content: "";
+  width: 0.65rem;
+  height: 1.2rem;
+  border: 1px solid var(--gold);
+  border-radius: 70% 20% 70% 20%;
+  transform: rotate(42deg);
+}
+.auth-seal i {
+  position: absolute;
+  width: 2px;
+  height: 1.42rem;
+  background: var(--gold);
+  transform: rotate(27deg);
+}
+.auth-gate section > h1,
+.auth-gate section > span,
+.auth-gate section > label,
+.auth-gate section > small,
+.auth-gate section > button {
+  position: relative;
+  z-index: 1;
+}
+.auth-gate section > h1 {
+  margin-top: 0;
+}
+.auth-gate section > button:not(.auth-switch) {
+  border-color: var(--gold);
+  background: #d5ad49;
+}
+.auth-gate .auth-switch {
+  color: #bdc9a8;
+}
+.auth-gate .auth-switch:hover {
+  color: var(--gold);
+}
+.trade-actions {
+  display: grid;
+  gap: 0.45rem;
+}
+.trade-actions > button:not(.expedition-button) {
+  padding: 0.62rem;
+  border: 1px solid rgba(231, 189, 88, 0.32);
+  background: rgba(10, 39, 38, 0.86);
+  color: #e5e8cf;
+  font:
+    700 0.58rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.06em;
+}
+.trade-actions > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+.minimap {
+  position: absolute;
+  z-index: 6;
+  top: 4.7rem;
+  right: 1rem;
+  width: 13.2rem;
+  padding: 0.45rem;
+  border: 1px solid rgba(231, 189, 88, 0.6);
+  background: rgba(4, 25, 27, 0.94);
+  box-shadow:
+    0 0.8rem 1.8rem rgba(0, 0, 0, 0.34),
+    inset 0 0 0 2px rgba(59, 116, 88, 0.26);
+}
+.minimap header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 0.12rem 0.3rem;
+}
+.minimap header small {
+  color: var(--gold);
+  font-size: 0.43rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+.minimap header b {
+  color: #dce7c6;
+  font:
+    700 0.48rem "Cinzel",
+    Georgia,
+    serif;
+}
+.minimap-land {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  height: 9.3rem;
+  overflow: hidden;
+  border: 1px solid #0a1719;
+  background: #244c40;
+  image-rendering: pixelated;
+}
+.map-tile {
+  position: relative;
+  background: #2e5b48;
+}
+.map-tile.grass:nth-child(3n) {
+  background: #35654e;
+}
+.map-tile.tree::after {
+  content: "";
+  position: absolute;
+  inset: 18% 12%;
+  background: #174334;
+  box-shadow: 1px 1px 0 #74a867;
+}
+.map-tile.water {
+  background: #1f5960;
+}
+.map-tile.village {
+  background: #716a52;
+}
+.map-tile.path {
+  background: #9c825b;
+}
+.map-road {
+  position: absolute;
+  z-index: 1;
+  background: #c2a370;
+  box-shadow:
+    inset 0 1px rgba(255, 235, 172, 0.38),
+    0 0 0 1px rgba(60, 52, 38, 0.4);
+}
+.map-road-north {
+  left: 41.5%;
+  top: 0;
+  width: 8%;
+  height: 66%;
+}
+.map-road-east {
+  left: 41%;
+  top: 65%;
+  width: 44%;
+  height: 9%;
+}
+.map-water {
+  position: absolute;
+  z-index: 1;
+  background: rgba(42, 129, 133, 0.78);
+  box-shadow: inset 0 1px rgba(159, 225, 209, 0.36);
+}
+.water-a {
+  left: 5%;
+  top: 13%;
+  width: 13%;
+  height: 26%;
+}
+.water-b {
+  right: 5%;
+  top: 23%;
+  width: 15%;
+  height: 24%;
+}
+.map-village {
+  position: absolute;
+  z-index: 2;
+  right: 12%;
+  bottom: 11%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  width: 20%;
+  height: 20%;
+  padding: 2px;
+  background: #3d463a;
+}
+.map-village i {
+  background: #bf8650;
+  box-shadow: inset 0 2px #e3b875;
+}
+.map-dungeon {
+  position: absolute;
+  z-index: 4;
+  left: 47%;
+  top: 8%;
+  width: 8px;
+  height: 8px;
+  background: #e7bd58;
+  box-shadow: 0 0 0 2px rgba(231, 189, 88, 0.2);
+  transform: rotate(45deg);
+}
+.map-npc,
+.map-enemy,
+.map-player {
+  position: absolute;
+  z-index: 5;
+  width: 6px;
+  height: 6px;
+  transform: translate(-50%, -50%);
+}
+.map-npc {
+  background: #d3e0c3;
+  box-shadow: 0 0 0 1px #10231f;
+}
+.map-npc.emissary {
+  background: #9bdac1;
+}
+.map-npc.merchant {
+  background: #e1a05e;
+}
+.map-enemy {
+  background: #d96863;
+  box-shadow: 0 0 0 1px #461f28;
+}
+.map-enemy.boar {
+  background: #d49b69;
+}
+.map-enemy.goblin {
+  background: #a6cf64;
+}
+.map-player {
+  z-index: 7;
+  width: 8px;
+  height: 8px;
+  background: #f4de78;
+  box-shadow:
+    0 0 0 2px #24473f,
+    0 0 0 3px rgba(244, 222, 120, 0.46);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.minimap footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.25rem;
+  padding: 0.34rem 0.08rem 0;
+  color: #b5c8ae;
+  font-size: 0.36rem;
+}
+.minimap footer span::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-right: 2px;
+  background: currentColor;
+}
+.legend-you {
+  color: #f4de78;
+}
+.legend-npc {
+  color: #bfe0c9;
+}
+.legend-enemy {
+  color: #df7568;
+}
+@media (max-width: 768px) {
+  .minimap {
+    top: 4.05rem;
+    right: 0.42rem;
+    width: 7.6rem;
+    padding: 0.28rem;
+  }
+  .minimap header b {
+    display: none;
+  }
+  .minimap-land {
+    height: 5.2rem;
+  }
+  .minimap footer {
+    display: none;
+  }
+  .map-npc,
+  .map-enemy {
+    width: 4px;
+    height: 4px;
+  }
+  .map-player {
+    width: 6px;
+    height: 6px;
+  }
+  .map-dungeon {
+    width: 5px;
+    height: 5px;
+  }
+  .quest-hud {
+    top: 10rem;
+    right: 0.55rem;
+    width: 8.4rem;
+  }
+}
 
 /* Atlas de Aetherion: clique no mapa local para expandir a cartografia de exploração do Eco. */
-.minimap.is-clickable { cursor: zoom-in; transition: border-color .16s, transform .16s, box-shadow .16s; }.minimap.is-clickable:hover, .minimap.is-clickable:focus-visible { outline: 0; border-color: #fff0a5; transform: translateY(-2px); box-shadow: 0 1rem 2rem rgba(0,0,0,.42), 0 0 0 2px rgba(231,189,88,.18); }.minimap-open { display: block; margin-top: .25rem; color: var(--gold); font: 800 .36rem "Cinzel", Georgia, serif; letter-spacing: .09em; text-align: center; font-style: normal; }
-.atlas-details { display: grid; gap: .7rem; margin-top: .8rem; }.atlas-map-large { position: relative; height: 23rem; overflow: hidden; border: 1px solid rgba(231,189,88,.72); background-color: #102f2e; background-image: repeating-radial-gradient(ellipse at 35% 65%, transparent 0 2.2rem, rgba(166,201,156,.1) 2.25rem 2.3rem, transparent 2.35rem 4.6rem), linear-gradient(150deg, transparent 0 29%, rgba(231,189,88,.17) 29.2% 29.5%, transparent 29.7%), linear-gradient(36deg, transparent 0 62%, rgba(119,183,151,.18) 62.2% 62.5%, transparent 62.7%), linear-gradient(125deg, #1d4b3e, #183e42 44%, #3d4a3d); box-shadow: inset 0 0 0 .3rem rgba(4,20,22,.42); }.atlas-map-large::before { content: ""; position: absolute; inset: .5rem; opacity: .48; border: 1px dashed rgba(231,189,88,.32); clip-path: polygon(0 12%, 16% 0, 39% 7%, 61% 0, 100% 14%, 92% 49%, 100% 87%, 74% 100%, 42% 93%, 15% 100%, 0 78%, 6% 44%); }.atlas-route { position: absolute; z-index: 1; height: 2px; transform-origin: left center; background: linear-gradient(90deg, #d4b46a 0 30%, transparent 30% 47%, #d4b46a 47% 76%, transparent 76%); opacity: .72; }.route-a { left: 19%; top: 34%; width: 29%; transform: rotate(31deg); }.route-b { left: 38%; top: 55%; width: 25%; transform: rotate(33deg); }.route-c { left: 42%; top: 20%; width: 37%; transform: rotate(13deg); }.route-d { left: 65%; top: 42%; width: 24%; transform: rotate(37deg); }.route-e { left: 27%; top: 78%; width: 24%; transform: rotate(28deg); }.atlas-node { position: absolute; z-index: 2; display: grid; width: 7.3rem; gap: .08rem; padding: .32rem .38rem; border: 1px solid rgba(215,230,195,.25); background: rgba(5,27,29,.78); transform: translate(-50%, -50%); }.atlas-node.known { border-color: rgba(231,189,88,.58); }.atlas-node.unknown { opacity: .46; filter: grayscale(.8); }.atlas-node.current { border-color: #fff0a5; background: rgba(50,100,76,.9); box-shadow: 0 0 0 2px rgba(231,189,88,.22), 0 .35rem .8rem rgba(0,0,0,.34); }.atlas-node-core { color: var(--gold); font-style: normal; font-size: .65rem; }.atlas-node b { color: #f0ebcf; font: 700 .52rem "Cinzel", Georgia, serif; line-height: 1.18; }.atlas-node small { color: #b8c9ae; font-size: .37rem; }.atlas-node span { color: #d9e2c5; font-size: .35rem; line-height: 1.2; }.atlas-settlement { color: #efc978 !important; }.atlas-dungeon { color: #b6dbd2 !important; }.atlas-compass { position: absolute; z-index: 3; top: .7rem; left: .7rem; display: grid; width: 2.3rem; height: 2.3rem; place-items: center; border: 1px solid rgba(231,189,88,.65); color: var(--gold); font-size: 1rem; transform: rotate(45deg); }.atlas-compass small { position: absolute; top: -.7rem; font: 800 .4rem "Cinzel", Georgia, serif; transform: rotate(-45deg); }.atlas-you { position: absolute; z-index: 3; right: .65rem; bottom: .65rem; max-width: 48%; padding: .3rem .4rem; border: 1px solid rgba(231,189,88,.5); background: rgba(5,23,26,.84); color: #f3da80; font: 700 .4rem "Cinzel", Georgia, serif; }.atlas-key { display: flex; flex-wrap: wrap; gap: .32rem .6rem; color: var(--muted); font-size: .46rem; }.atlas-key span { display: inline-flex; gap: .22rem; align-items: center; }.atlas-key i { display: inline-block; width: .45rem; height: .45rem; border: 1px solid currentColor; }.key-you { background: #f4de78; color: #f4de78; transform: rotate(45deg); }.key-known { background: #5a9a70; color: #d6c06d; }.key-unknown { border-radius: 50%; color: #788b82; }.key-settlement { background: #cb9554; color: #cb9554; }.key-dungeon { background: #91c9bc; color: #91c9bc; transform: rotate(45deg); }.atlas-region-card { padding: .65rem; border-left: 2px solid var(--gold); background: rgba(4,22,24,.46); }.atlas-region-card small { display: block; color: var(--gold); font: 800 .43rem "Cinzel", Georgia, serif; letter-spacing: .1em; }.atlas-region-card b { display: block; margin: .16rem 0; color: #f1ead1; font: 700 .74rem "Cinzel", Georgia, serif; }.atlas-region-card p { margin: 0; color: var(--muted); font-size: .55rem; line-height: 1.35; }.atlas-region-card span { display: block; margin-top: .35rem; color: #d3e4c5; font-size: .48rem; }
-@media (max-width: 640px) { .rpg-menu-window:has(.atlas-details) { width: calc(100vw - 1rem); max-height: calc(100vh - 1rem); padding: .9rem; }.atlas-map-large { height: 25rem; }.atlas-node { width: 5.65rem; padding: .22rem .26rem; }.atlas-node b { font-size: .4rem; }.atlas-node small, .atlas-node span { font-size: .29rem; }.atlas-key { gap: .24rem .4rem; font-size: .4rem; }.minimap-open { font-size: .31rem; } }
+.minimap.is-clickable {
+  cursor: zoom-in;
+  transition:
+    border-color 0.16s,
+    transform 0.16s,
+    box-shadow 0.16s;
+}
+.minimap.is-clickable:hover,
+.minimap.is-clickable:focus-visible {
+  outline: 0;
+  border-color: #fff0a5;
+  transform: translateY(-2px);
+  box-shadow:
+    0 1rem 2rem rgba(0, 0, 0, 0.42),
+    0 0 0 2px rgba(231, 189, 88, 0.18);
+}
+.minimap-open {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--gold);
+  font:
+    800 0.36rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.09em;
+  text-align: center;
+  font-style: normal;
+}
+.atlas-details {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+.atlas-map-large {
+  position: relative;
+  height: 23rem;
+  overflow: hidden;
+  border: 1px solid rgba(231, 189, 88, 0.72);
+  background-color: #102f2e;
+  background-image:
+    repeating-radial-gradient(
+      ellipse at 35% 65%,
+      transparent 0 2.2rem,
+      rgba(166, 201, 156, 0.1) 2.25rem 2.3rem,
+      transparent 2.35rem 4.6rem
+    ),
+    linear-gradient(
+      150deg,
+      transparent 0 29%,
+      rgba(231, 189, 88, 0.17) 29.2% 29.5%,
+      transparent 29.7%
+    ),
+    linear-gradient(
+      36deg,
+      transparent 0 62%,
+      rgba(119, 183, 151, 0.18) 62.2% 62.5%,
+      transparent 62.7%
+    ),
+    linear-gradient(125deg, #1d4b3e, #183e42 44%, #3d4a3d);
+  box-shadow: inset 0 0 0 0.3rem rgba(4, 20, 22, 0.42);
+}
+.atlas-map-large::before {
+  content: "";
+  position: absolute;
+  inset: 0.5rem;
+  opacity: 0.48;
+  border: 1px dashed rgba(231, 189, 88, 0.32);
+  clip-path: polygon(
+    0 12%,
+    16% 0,
+    39% 7%,
+    61% 0,
+    100% 14%,
+    92% 49%,
+    100% 87%,
+    74% 100%,
+    42% 93%,
+    15% 100%,
+    0 78%,
+    6% 44%
+  );
+}
+.atlas-route {
+  position: absolute;
+  z-index: 1;
+  height: 2px;
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    #d4b46a 0 30%,
+    transparent 30% 47%,
+    #d4b46a 47% 76%,
+    transparent 76%
+  );
+  opacity: 0.72;
+}
+.route-a {
+  left: 19%;
+  top: 34%;
+  width: 29%;
+  transform: rotate(31deg);
+}
+.route-b {
+  left: 38%;
+  top: 55%;
+  width: 25%;
+  transform: rotate(33deg);
+}
+.route-c {
+  left: 42%;
+  top: 20%;
+  width: 37%;
+  transform: rotate(13deg);
+}
+.route-d {
+  left: 65%;
+  top: 42%;
+  width: 24%;
+  transform: rotate(37deg);
+}
+.route-e {
+  left: 27%;
+  top: 78%;
+  width: 24%;
+  transform: rotate(28deg);
+}
+.atlas-node {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 7.3rem;
+  gap: 0.08rem;
+  padding: 0.32rem 0.38rem;
+  border: 1px solid rgba(215, 230, 195, 0.25);
+  background: rgba(5, 27, 29, 0.78);
+  transform: translate(-50%, -50%);
+}
+.atlas-node.known {
+  border-color: rgba(231, 189, 88, 0.58);
+}
+.atlas-node.unknown {
+  opacity: 0.46;
+  filter: grayscale(0.8);
+}
+.atlas-node.current {
+  border-color: #fff0a5;
+  background: rgba(50, 100, 76, 0.9);
+  box-shadow:
+    0 0 0 2px rgba(231, 189, 88, 0.22),
+    0 0.35rem 0.8rem rgba(0, 0, 0, 0.34);
+}
+.atlas-node-core {
+  color: var(--gold);
+  font-style: normal;
+  font-size: 0.65rem;
+}
+.atlas-node b {
+  color: #f0ebcf;
+  font:
+    700 0.52rem "Cinzel",
+    Georgia,
+    serif;
+  line-height: 1.18;
+}
+.atlas-node small {
+  color: #b8c9ae;
+  font-size: 0.37rem;
+}
+.atlas-node span {
+  color: #d9e2c5;
+  font-size: 0.35rem;
+  line-height: 1.2;
+}
+.atlas-settlement {
+  color: #efc978 !important;
+}
+.atlas-dungeon {
+  color: #b6dbd2 !important;
+}
+.atlas-compass {
+  position: absolute;
+  z-index: 3;
+  top: 0.7rem;
+  left: 0.7rem;
+  display: grid;
+  width: 2.3rem;
+  height: 2.3rem;
+  place-items: center;
+  border: 1px solid rgba(231, 189, 88, 0.65);
+  color: var(--gold);
+  font-size: 1rem;
+  transform: rotate(45deg);
+}
+.atlas-compass small {
+  position: absolute;
+  top: -0.7rem;
+  font:
+    800 0.4rem "Cinzel",
+    Georgia,
+    serif;
+  transform: rotate(-45deg);
+}
+.atlas-you {
+  position: absolute;
+  z-index: 3;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  max-width: 48%;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid rgba(231, 189, 88, 0.5);
+  background: rgba(5, 23, 26, 0.84);
+  color: #f3da80;
+  font:
+    700 0.4rem "Cinzel",
+    Georgia,
+    serif;
+}
+.atlas-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.32rem 0.6rem;
+  color: var(--muted);
+  font-size: 0.46rem;
+}
+.atlas-key span {
+  display: inline-flex;
+  gap: 0.22rem;
+  align-items: center;
+}
+.atlas-key i {
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 1px solid currentColor;
+}
+.key-you {
+  background: #f4de78;
+  color: #f4de78;
+  transform: rotate(45deg);
+}
+.key-known {
+  background: #5a9a70;
+  color: #d6c06d;
+}
+.key-unknown {
+  border-radius: 50%;
+  color: #788b82;
+}
+.key-settlement {
+  background: #cb9554;
+  color: #cb9554;
+}
+.key-dungeon {
+  background: #91c9bc;
+  color: #91c9bc;
+  transform: rotate(45deg);
+}
+.atlas-region-card {
+  padding: 0.65rem;
+  border-left: 2px solid var(--gold);
+  background: rgba(4, 22, 24, 0.46);
+}
+.atlas-region-card small {
+  display: block;
+  color: var(--gold);
+  font:
+    800 0.43rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.1em;
+}
+.atlas-region-card b {
+  display: block;
+  margin: 0.16rem 0;
+  color: #f1ead1;
+  font:
+    700 0.74rem "Cinzel",
+    Georgia,
+    serif;
+}
+.atlas-region-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.55rem;
+  line-height: 1.35;
+}
+.atlas-region-card span {
+  display: block;
+  margin-top: 0.35rem;
+  color: #d3e4c5;
+  font-size: 0.48rem;
+}
+@media (max-width: 640px) {
+  .rpg-menu-window:has(.atlas-details) {
+    width: calc(100vw - 1rem);
+    max-height: calc(100vh - 1rem);
+    padding: 0.9rem;
+  }
+  .atlas-map-large {
+    height: 25rem;
+  }
+  .atlas-node {
+    width: 5.65rem;
+    padding: 0.22rem 0.26rem;
+  }
+  .atlas-node b {
+    font-size: 0.4rem;
+  }
+  .atlas-node small,
+  .atlas-node span {
+    font-size: 0.29rem;
+  }
+  .atlas-key {
+    gap: 0.24rem 0.4rem;
+    font-size: 0.4rem;
+  }
+  .minimap-open {
+    font-size: 0.31rem;
+  }
+}
 
-.atlas-toolbar { display: flex; justify-content: flex-end; gap: .35rem; align-items: center; margin-top: .7rem; }.atlas-toolbar > div { display: flex; gap: .35rem; align-items: baseline; margin-right: auto; color: var(--muted); font-size: .48rem; }.atlas-toolbar b { color: var(--gold); font: 800 .45rem "Cinzel", Georgia, serif; letter-spacing: .1em; }.atlas-toolbar span { color: #e4ebca; font-size: .54rem; }.atlas-toolbar button { display: grid; width: 1.75rem; height: 1.65rem; place-items: center; border: 1px solid rgba(231,189,88,.62); background: #102e2d; color: var(--gold); font: 800 1rem/1 "Cinzel", Georgia, serif; }.atlas-toolbar button:disabled { opacity: .35; }.atlas-map-viewport { height: 23rem; overflow: hidden; border: 1px solid rgba(231,189,88,.2); }.atlas-map-viewport .atlas-map-large { height: 100%; transform-origin: center; transition: transform .22s cubic-bezier(.23,1,.32,1); }.atlas-node { cursor: pointer; text-align: left; font: inherit; }.atlas-node:hover, .atlas-node:focus-visible, .atlas-node.focused { outline: 0; border-color: #fff0a5; box-shadow: 0 0 0 2px rgba(231,189,88,.22); }.atlas-node.focused { background: rgba(32,81,63,.96); }.atlas-mission { margin-top: .12rem; color: #ffe491 !important; font-weight: 800; }.atlas-poi { color: #bce4d4 !important; }.key-mission { background: #f2d477; color: #f2d477; transform: rotate(45deg); }.key-poi { border-radius: 50%; background: #98d9c7; color: #98d9c7; }.atlas-travel-button { display: block; width: 100%; margin-top: .55rem; padding: .58rem; border: 1px solid var(--gold); background: rgba(50,98,72,.84); color: #f7efcf; font: 800 .5rem "Cinzel", Georgia, serif; letter-spacing: .06em; }.atlas-travel-button:hover:not(:disabled), .atlas-travel-button:focus-visible { outline: 0; background: #d4aa48; color: #142a28; }.atlas-travel-button:disabled { border-color: rgba(231,189,88,.3); color: var(--muted); cursor: default; }
-.atlas-map-viewport.can-drag { cursor: grab; touch-action: none; }.atlas-map-viewport.can-drag:active { cursor: grabbing; }.atlas-map-viewport.can-drag .atlas-map-large { transition: none; }.atlas-travel-confirm { position: absolute; z-index: 12; inset: 50% auto auto 50%; width: min(25rem, calc(100vw - 2rem)); padding: 1rem; border: 1px solid var(--gold); background: linear-gradient(145deg, #143b36, #071d21); box-shadow: 0 1.4rem 4rem rgba(0,0,0,.62), inset 0 0 0 .2rem rgba(231,189,88,.06); transform: translate(-50%, -50%); }.atlas-travel-confirm > p { margin: 0; color: var(--gold); font: 800 .45rem "Cinzel", Georgia, serif; letter-spacing: .13em; }.atlas-travel-confirm h3 { margin: .35rem 0 .15rem; color: #f2ebcd; font-size: 1rem; }.atlas-travel-confirm > span { color: #d3c27e; font: 800 .43rem "Cinzel", Georgia, serif; letter-spacing: .07em; }.atlas-travel-confirm > div { display: grid; gap: .25rem; margin: .8rem 0; padding: .6rem; border-left: 2px solid #d96863; background: rgba(61,20,25,.28); }.atlas-travel-confirm > div b { color: #f0b0a4; font: 800 .48rem "Cinzel", Georgia, serif; letter-spacing: .08em; }.atlas-travel-confirm > div small { color: #dee4cf; font-size: .55rem; line-height: 1.35; }.atlas-travel-confirm em { display: block; color: var(--muted); font-size: .52rem; line-height: 1.4; font-style: normal; }.atlas-travel-confirm footer { display: grid; grid-template-columns: 1fr 1.25fr; gap: .45rem; margin-top: .85rem; }.atlas-travel-confirm footer button { padding: .6rem .35rem; border: 1px solid rgba(231,189,88,.55); background: #0b292a; color: #e4ead2; font: 800 .48rem "Cinzel", Georgia, serif; }.atlas-travel-confirm footer button:last-child { border-color: var(--gold); background: #d5ad49; color: #152b2a; }
-.atlas-travel-confirm .travel-prospects { grid-template-columns: 1fr; border-left-color: #7fc6a4; background: rgba(25,84,68,.38); }.atlas-travel-confirm .travel-prospects b { color: #a7e1be; }.atlas-travel-confirm .travel-payment { border-left-color: var(--gold); background: rgba(100,77,29,.24); }.atlas-travel-confirm .travel-payment > b { color: var(--gold); }.atlas-travel-confirm .travel-payment > span { color: #e9e0bc; font-size: .5rem; }.atlas-travel-confirm .travel-payment section { display: grid; grid-template-columns: 1fr 1fr; gap: .35rem; }.atlas-travel-confirm .travel-payment button { padding: .46rem .25rem; border: 1px solid rgba(231,189,88,.38); background: #0b292a; color: #dce6c6; font: 800 .41rem "Cinzel", Georgia, serif; }.atlas-travel-confirm .travel-payment button.selected { border-color: #fff0a5; background: #55713f; color: #fff5c9; }.atlas-travel-confirm .travel-payment em { color: #d9e8c9; font-size: .46rem; }.atlas-travel-confirm .travel-payment em.insufficient { color: #f4ada1; }.atlas-travel-confirm footer button:disabled { cursor: not-allowed; opacity: .42; filter: grayscale(.35); }
-@media (max-width: 640px) { .atlas-map-viewport { height: 25rem; }.atlas-toolbar { margin-top: .5rem; }.atlas-travel-button { padding: .52rem; font-size: .43rem; } }
-@media (max-width: 640px) { .atlas-travel-confirm { width: calc(100vw - 1.7rem); padding: .85rem; }.atlas-travel-confirm h3 { font-size: .84rem; }.atlas-travel-confirm footer button { font-size: .42rem; } }
+.atlas-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  align-items: center;
+  margin-top: 0.7rem;
+}
+.atlas-toolbar > div {
+  display: flex;
+  gap: 0.35rem;
+  align-items: baseline;
+  margin-right: auto;
+  color: var(--muted);
+  font-size: 0.48rem;
+}
+.atlas-toolbar b {
+  color: var(--gold);
+  font:
+    800 0.45rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.1em;
+}
+.atlas-toolbar span {
+  color: #e4ebca;
+  font-size: 0.54rem;
+}
+.atlas-toolbar button {
+  display: grid;
+  width: 1.75rem;
+  height: 1.65rem;
+  place-items: center;
+  border: 1px solid rgba(231, 189, 88, 0.62);
+  background: #102e2d;
+  color: var(--gold);
+  font:
+    800 1rem/1 "Cinzel",
+    Georgia,
+    serif;
+}
+.atlas-toolbar button:disabled {
+  opacity: 0.35;
+}
+.atlas-map-viewport {
+  height: 23rem;
+  overflow: hidden;
+  border: 1px solid rgba(231, 189, 88, 0.2);
+}
+.atlas-map-viewport .atlas-map-large {
+  height: 100%;
+  transform-origin: center;
+  transition: transform 0.22s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.atlas-node {
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+.atlas-node:hover,
+.atlas-node:focus-visible,
+.atlas-node.focused {
+  outline: 0;
+  border-color: #fff0a5;
+  box-shadow: 0 0 0 2px rgba(231, 189, 88, 0.22);
+}
+.atlas-node.focused {
+  background: rgba(32, 81, 63, 0.96);
+}
+.atlas-mission {
+  margin-top: 0.12rem;
+  color: #ffe491 !important;
+  font-weight: 800;
+}
+.atlas-poi {
+  color: #bce4d4 !important;
+}
+.key-mission {
+  background: #f2d477;
+  color: #f2d477;
+  transform: rotate(45deg);
+}
+.key-poi {
+  border-radius: 50%;
+  background: #98d9c7;
+  color: #98d9c7;
+}
+.atlas-travel-button {
+  display: block;
+  width: 100%;
+  margin-top: 0.55rem;
+  padding: 0.58rem;
+  border: 1px solid var(--gold);
+  background: rgba(50, 98, 72, 0.84);
+  color: #f7efcf;
+  font:
+    800 0.5rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.06em;
+}
+.atlas-travel-button:hover:not(:disabled),
+.atlas-travel-button:focus-visible {
+  outline: 0;
+  background: #d4aa48;
+  color: #142a28;
+}
+.atlas-travel-button:disabled {
+  border-color: rgba(231, 189, 88, 0.3);
+  color: var(--muted);
+  cursor: default;
+}
+.atlas-map-viewport.can-drag {
+  cursor: grab;
+  touch-action: none;
+}
+.atlas-map-viewport.can-drag:active {
+  cursor: grabbing;
+}
+.atlas-map-viewport.can-drag .atlas-map-large {
+  transition: none;
+}
+.atlas-travel-confirm {
+  position: absolute;
+  z-index: 12;
+  inset: 50% auto auto 50%;
+  width: min(25rem, calc(100vw - 2rem));
+  padding: 1rem;
+  border: 1px solid var(--gold);
+  background: linear-gradient(145deg, #143b36, #071d21);
+  box-shadow:
+    0 1.4rem 4rem rgba(0, 0, 0, 0.62),
+    inset 0 0 0 0.2rem rgba(231, 189, 88, 0.06);
+  transform: translate(-50%, -50%);
+}
+.atlas-travel-confirm > p {
+  margin: 0;
+  color: var(--gold);
+  font:
+    800 0.45rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.13em;
+}
+.atlas-travel-confirm h3 {
+  margin: 0.35rem 0 0.15rem;
+  color: #f2ebcd;
+  font-size: 1rem;
+}
+.atlas-travel-confirm > span {
+  color: #d3c27e;
+  font:
+    800 0.43rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.07em;
+}
+.atlas-travel-confirm > div {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.8rem 0;
+  padding: 0.6rem;
+  border-left: 2px solid #d96863;
+  background: rgba(61, 20, 25, 0.28);
+}
+.atlas-travel-confirm > div b {
+  color: #f0b0a4;
+  font:
+    800 0.48rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.08em;
+}
+.atlas-travel-confirm > div small {
+  color: #dee4cf;
+  font-size: 0.55rem;
+  line-height: 1.35;
+}
+.atlas-travel-confirm em {
+  display: block;
+  color: var(--muted);
+  font-size: 0.52rem;
+  line-height: 1.4;
+  font-style: normal;
+}
+.atlas-travel-confirm footer {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+.atlas-travel-confirm footer button {
+  padding: 0.6rem 0.35rem;
+  border: 1px solid rgba(231, 189, 88, 0.55);
+  background: #0b292a;
+  color: #e4ead2;
+  font:
+    800 0.48rem "Cinzel",
+    Georgia,
+    serif;
+}
+.atlas-travel-confirm footer button:last-child {
+  border-color: var(--gold);
+  background: #d5ad49;
+  color: #152b2a;
+}
+.atlas-travel-confirm .travel-prospects {
+  grid-template-columns: 1fr;
+  border-left-color: #7fc6a4;
+  background: rgba(25, 84, 68, 0.38);
+}
+.atlas-travel-confirm .travel-prospects b {
+  color: #a7e1be;
+}
+.atlas-travel-confirm .travel-payment {
+  border-left-color: var(--gold);
+  background: rgba(100, 77, 29, 0.24);
+}
+.atlas-travel-confirm .travel-payment > b {
+  color: var(--gold);
+}
+.atlas-travel-confirm .travel-payment > span {
+  color: #e9e0bc;
+  font-size: 0.5rem;
+}
+.atlas-travel-confirm .travel-payment section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
+}
+.atlas-travel-confirm .travel-payment button {
+  padding: 0.46rem 0.25rem;
+  border: 1px solid rgba(231, 189, 88, 0.38);
+  background: #0b292a;
+  color: #dce6c6;
+  font:
+    800 0.41rem "Cinzel",
+    Georgia,
+    serif;
+}
+.atlas-travel-confirm .travel-payment button.selected {
+  border-color: #fff0a5;
+  background: #55713f;
+  color: #fff5c9;
+}
+.atlas-travel-confirm .travel-payment em {
+  color: #d9e8c9;
+  font-size: 0.46rem;
+}
+.atlas-travel-confirm .travel-payment em.insufficient {
+  color: #f4ada1;
+}
+.atlas-travel-confirm footer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+  filter: grayscale(0.35);
+}
+@media (max-width: 640px) {
+  .atlas-map-viewport {
+    height: 25rem;
+  }
+  .atlas-toolbar {
+    margin-top: 0.5rem;
+  }
+  .atlas-travel-button {
+    padding: 0.52rem;
+    font-size: 0.43rem;
+  }
+}
+@media (max-width: 640px) {
+  .atlas-travel-confirm {
+    width: calc(100vw - 1.7rem);
+    padding: 0.85rem;
+  }
+  .atlas-travel-confirm h3 {
+    font-size: 0.84rem;
+  }
+  .atlas-travel-confirm footer button {
+    font-size: 0.42rem;
+  }
+}
+
+/* Componentes extraídos: mapa modal, HUD compacto e projeções de conteúdo. */
+.map-overlay {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding: max(0.55rem, env(safe-area-inset-top))
+    max(0.65rem, env(safe-area-inset-right))
+    max(0.55rem, env(safe-area-inset-bottom))
+    max(0.65rem, env(safe-area-inset-left));
+  background: rgba(5, 19, 20, 0.97);
+  color: var(--paper);
+  font-family: "Manrope", system-ui, sans-serif;
+}
+
+.map-overlay-header {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  min-height: 3rem;
+  padding: 0.35rem 0.2rem 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.map-overlay-header > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.map-overlay-header strong {
+  color: #f5ecd1;
+  font:
+    700 1.15rem "Cinzel",
+    Georgia,
+    serif;
+}
+
+.map-overlay-header > div > span:last-child {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.62rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.map-overlay-header > div > span:nth-child(2) {
+  color: var(--gold);
+}
+
+.map-overlay-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.map-overlay-actions button {
+  min-height: 2.15rem;
+  padding: 0.38rem 0.62rem;
+  border: 1px solid rgba(231, 189, 88, 0.4);
+  background: rgba(9, 41, 40, 0.88);
+  color: var(--paper);
+  font-size: 0.62rem;
+}
+
+.map-overlay-actions button:hover,
+.map-overlay-actions button:focus-visible,
+.map-overlay-actions button.selected {
+  outline: 0;
+  border-color: var(--gold);
+  background: rgba(57, 111, 79, 0.85);
+  color: #fff4c3;
+}
+
+.map-overlay-actions .map-overlay-close {
+  border-color: rgba(217, 104, 99, 0.65);
+  color: #f0b2a5;
+}
+
+.map-overlay-main {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: minmax(0, 1fr) minmax(11rem, 15rem);
+  gap: 0.75rem;
+  min-height: 0;
+  padding-top: 0.75rem;
+}
+
+.map-overlay-canvas {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid rgba(231, 189, 88, 0.45);
+  background:
+    linear-gradient(rgba(231, 189, 88, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(231, 189, 88, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 48% 42%, #3d6547 0, #1b3b31 44%, #0b2021 100%);
+  background-size:
+    5% 5%,
+    5% 5%,
+    auto;
+  box-shadow: inset 0 0 0 0.25rem rgba(4, 20, 22, 0.42);
+}
+
+.map-overlay-canvas.local {
+  background:
+    linear-gradient(rgba(231, 189, 88, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(231, 189, 88, 0.07) 1px, transparent 1px),
+    radial-gradient(circle at 50% 45%, #7c704e 0, #4b4937 46%, #1b2928 100%);
+  background-size:
+    5% 5%,
+    5% 5%,
+    auto;
+}
+
+.map-world-region,
+.map-local-marker {
+  position: absolute;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+.map-world-region {
+  display: grid;
+  gap: 0.12rem;
+  justify-items: center;
+  max-width: 8rem;
+  text-align: center;
+}
+
+.map-world-region > span {
+  display: grid;
+  width: 2.15rem;
+  height: 2.15rem;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: #8d7044;
+  color: #fff9d6;
+  box-shadow: 0 0.35rem 0.9rem rgba(0, 0, 0, 0.35);
+}
+
+.map-world-region b {
+  padding: 0.14rem 0.25rem;
+  background: rgba(0, 0, 0, 0.64);
+  color: #f2e9c9;
+  font-size: 0.55rem;
+  line-height: 1.2;
+}
+
+.map-world-region.current > span {
+  border-color: #fff2a8;
+  background: #4f9569;
+  box-shadow: 0 0 0 0.35rem rgba(231, 189, 88, 0.16);
+}
+
+.map-world-region.locked {
+  opacity: 0.48;
+  filter: grayscale(0.5);
+}
+
+.map-local-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  text-align: center;
+}
+
+.map-local-marker > span {
+  display: grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.84);
+  border-radius: 50%;
+  background: rgba(10, 27, 27, 0.94);
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 0.25rem 0.7rem rgba(0, 0, 0, 0.4);
+}
+
+.map-local-marker.player > span,
+.map-local-marker.quest > span {
+  background: var(--gold);
+  color: #182c29;
+}
+
+.map-local-marker.player > span {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.map-local-marker b {
+  margin-top: 0.2rem;
+  padding: 0.12rem 0.22rem;
+  background: rgba(0, 0, 0, 0.68);
+  color: #f2ead0;
+  font-size: 0.5rem;
+  white-space: nowrap;
+}
+
+.map-overlay-description {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.55rem;
+  left: 0.55rem;
+  margin: 0;
+  padding: 0.38rem 0.5rem;
+  background: rgba(0, 0, 0, 0.66);
+  color: #d4e1c6;
+  font-size: 0.58rem;
+}
+
+.map-overlay-legend {
+  min-height: 0;
+  overflow: auto;
+  padding: 0.65rem;
+  border: 1px solid rgba(231, 189, 88, 0.24);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.map-overlay-legend > strong {
+  color: var(--gold);
+  font:
+    700 0.72rem "Cinzel",
+    Georgia,
+    serif;
+}
+
+.map-legend-list {
+  display: grid;
+  gap: 0.42rem;
+  margin-top: 0.7rem;
+}
+
+.map-legend-list > div {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+  color: #dce8c9;
+  font-size: 0.6rem;
+}
+
+.map-legend-list > div > span:first-child {
+  width: 1.3rem;
+  color: var(--gold);
+  text-align: center;
+}
+
+.map-legend-list p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.55rem;
+  line-height: 1.4;
+}
+
+.map-overlay-empty {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.map-overlay-empty strong {
+  color: #f1e7c7;
+  font:
+    700 0.85rem "Cinzel",
+    Georgia,
+    serif;
+}
+
+.map-overlay-empty p {
+  max-width: 28rem;
+  margin: 0.5rem auto 0;
+  color: var(--muted);
+  font-size: 0.62rem;
+  line-height: 1.5;
+}
+
+.map-overlay-empty code {
+  color: var(--gold);
+}
+
+.rpg-player-hud {
+  width: min(14rem, calc(100vw - 1rem));
+}
+
+.rpg-player-hud .hud-resource,
+.rpg-player-hud .xp-resource {
+  margin-top: 0.34rem;
+}
+
+.hud-resource-track,
+.xp-resource .hud-resource-track {
+  height: 0.27rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hud-resource-track i,
+.xp-resource i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #c75458, #e68568);
+}
+
+.focus-resource .hud-resource-track i {
+  background: linear-gradient(90deg, #74bba8, #bde6d9);
+}
+
+.xp-resource .hud-resource-track {
+  height: 0.2rem;
+}
+
+.xp-resource i {
+  background: linear-gradient(90deg, #8aa95d, var(--gold));
+}
+
+.hud-resource > span,
+.xp-resource > span {
+  display: block;
+  margin-top: 0.16rem;
+  color: var(--muted);
+  font-size: 0.43rem;
+}
+
+.hud-status,
+.quest-recommended,
+.quest-progress,
+.quest-reward,
+.quest-notice {
+  color: var(--muted);
+  font-size: 0.45rem;
+}
+
+.hud-status {
+  color: #dce8c9;
+}
+
+.hud-status.positive,
+.quest-reward {
+  color: #9fd6a7;
+}
+
+.hud-status.warning {
+  color: var(--gold);
+}
+
+.hud-status.danger {
+  color: #f0a39b;
+}
+
+.hud-cooldown {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(231, 189, 88, 0.18);
+  color: var(--muted);
+  font-size: 0.43rem;
+}
+
+.hud-cooldown b {
+  color: var(--gold);
+}
+
+.hud-cooldown > i {
+  position: absolute;
+  right: 0;
+  bottom: -0.12rem;
+  left: 0;
+  height: 0.1rem;
+  background: var(--gold);
+  transform-origin: left;
+}
+
+.rpg-quest-hud {
+  width: min(13.2rem, calc(100vw - 1rem));
+}
+
+.rpg-quest-hud .quest-recommended,
+.rpg-quest-hud .quest-reward,
+.rpg-quest-hud .quest-notice {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.rpg-quest-hud .quest-progress {
+  display: block;
+  margin-top: 0.32rem;
+  color: #e9d47f;
+  font-weight: 800;
+}
+
+.rpg-quest-hud .quest-notice {
+  font-style: normal;
+}
+
+@media (max-width: 640px) {
+  .map-overlay-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .map-overlay-header strong {
+    font-size: 0.95rem;
+  }
+
+  .map-overlay-actions {
+    width: 100%;
+  }
+
+  .map-overlay-actions button {
+    flex: 1 1 auto;
+    min-height: 2rem;
+    padding-inline: 0.38rem;
+    font-size: 0.56rem;
+  }
+
+  .map-overlay-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .map-overlay-legend {
+    max-height: 7.5rem;
+  }
+
+  .map-overlay-legend .map-legend-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 0.5rem;
+  }
+
+  .map-overlay-canvas {
+    min-height: 15rem;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .map-overlay-header {
+    min-height: 2.15rem;
+    padding-bottom: 0.35rem;
+  }
+
+  .map-overlay-header strong {
+    font-size: 0.9rem;
+  }
+
+  .map-overlay-main {
+    padding-top: 0.4rem;
+  }
+
+  .map-overlay-legend {
+    max-width: 12rem;
+  }
+}
+
+/* Upgrade UI RPG — viewport real, recorte 16:9 e controles seguros em mobile. */
+.rpg-shell {
+  width: 100vw;
+  min-width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  min-height: 100dvh;
+  max-height: none;
+  aspect-ratio: auto;
+  inset: 0;
+  transform: none;
+}
+
+.rpg-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.rpg-topbar {
+  min-width: 0;
+  padding-left: max(0.55rem, env(safe-area-inset-left));
+  padding-right: max(0.55rem, env(safe-area-inset-right));
+}
+
+.world-brand,
+.world-brand > div,
+.world-resources,
+.topbar-actions {
+  min-width: 0;
+}
+
+.world-brand > div {
+  overflow: hidden;
+}
+
+.world-brand small,
+.world-brand b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.world-resources {
+  flex: 0 1 auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.topbar-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.topbar-actions button {
+  min-width: 0;
+  padding: 0.38rem 0.5rem;
+  border: 1px solid rgba(231, 189, 88, 0.44);
+  background: #0d2928;
+  color: var(--gold);
+  font:
+    700 0.48rem "Cinzel",
+    Georgia,
+    serif;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.topbar-actions .logout-button {
+  border-color: rgba(217, 104, 99, 0.58);
+  color: #f2b1a3;
+}
+
+.rpg-actions {
+  max-width: calc(100vw - 0.8rem);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.rpg-actions::-webkit-scrollbar {
+  display: none;
+}
+
+.rpg-actions button {
+  flex: 0 0 auto;
+}
+
+.touch-controls {
+  z-index: 4;
+  bottom: max(0.55rem, env(safe-area-inset-bottom));
+}
+
+.rpg-menu-window {
+  z-index: 30;
+  max-height: min(38rem, calc(100dvh - 1rem));
+  overscroll-behavior: contain;
+}
+
+.dialogue-box {
+  z-index: 31;
+  max-height: calc(100dvh - 7rem);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+@media (max-width: 768px) {
+  .rpg-topbar {
+    min-height: 3.15rem;
+    gap: 0.35rem;
+    padding-top: max(0.32rem, env(safe-area-inset-top));
+    padding-bottom: 0.32rem;
+  }
+
+  .world-brand {
+    flex: 1 1 auto;
+    gap: 0.35rem;
+  }
+
+  .world-brand > span {
+    font-size: 1.05rem;
+  }
+
+  .world-brand small {
+    font-size: 0.4rem;
+  }
+
+  .world-brand b {
+    display: block;
+    max-width: 8.5rem;
+    font-size: 0.58rem;
+  }
+
+  .world-resources {
+    display: none;
+  }
+
+  .topbar-actions {
+    gap: 0.18rem;
+  }
+
+  .topbar-actions button {
+    padding: 0.3rem 0.36rem;
+    font-size: 0.39rem;
+  }
+
+  .rpg-actions {
+    right: 0.4rem;
+    bottom: calc(max(6.7rem, env(safe-area-inset-bottom) + 6rem));
+    left: 0.4rem;
+    width: auto;
+    justify-content: flex-start;
+    padding-bottom: 0.15rem;
+  }
+
+  .rpg-actions button {
+    min-width: 2.45rem;
+    min-height: 2.25rem;
+    padding: 0.24rem 0.16rem;
+  }
+
+  .rpg-actions kbd {
+    font-size: 0.43rem;
+  }
+
+  .rpg-actions span {
+    font-size: 0.38rem;
+  }
+
+  .touch-controls {
+    inset-inline: 0.55rem;
+    align-items: end;
+  }
+
+  .touch-controls button,
+  .touch-dpad {
+    width: 2.85rem;
+    height: 2.85rem;
+  }
+
+  .touch-dpad {
+    grid-template-columns: repeat(3, 2.85rem);
+    grid-template-rows: repeat(2, 2.85rem);
+  }
+
+  .touch-actions {
+    grid-template-columns: repeat(2, 2.85rem);
+  }
+
+  .rpg-menu-window {
+    width: min(31rem, calc(100vw - 1rem));
+    max-height: calc(100dvh - 0.7rem);
+    padding: 1rem;
+  }
+
+  .rpg-menu-window:has(.atlas-details) {
+    width: calc(100vw - 0.7rem);
+    max-height: calc(100dvh - 0.35rem);
+  }
+
+  .menu-close {
+    min-width: 2rem;
+    min-height: 2rem;
+  }
+
+  .item-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .player-hud {
+    top: 3.65rem;
+    left: 0.45rem;
+    width: min(11.4rem, calc(100vw - 7rem));
+    padding: 0.42rem;
+  }
+
+  .player-hud .hud-name small {
+    width: 1.55rem;
+    height: 1.55rem;
+    font-size: 0.38rem;
+  }
+
+  .player-hud .hud-name b {
+    font-size: 0.62rem;
+  }
+
+  .player-hud .hud-name span,
+  .player-hud .hud-numbers {
+    font-size: 0.4rem;
+  }
+
+  .player-hud .hud-numbers {
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+
+  .minimap {
+    top: 3.65rem;
+    right: 0.45rem;
+    width: min(6.2rem, calc(100vw - 12rem));
+    padding: 0.28rem;
+  }
+
+  .minimap header {
+    display: block;
+    padding-bottom: 0.18rem;
+  }
+
+  .minimap header small {
+    font-size: 0.35rem;
+  }
+
+  .minimap header b {
+    display: block;
+    overflow: hidden;
+    font-size: 0.36rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .minimap-land {
+    height: 4.45rem;
+  }
+
+  .minimap footer,
+  .minimap-open {
+    display: none;
+  }
+
+  .quest-hud {
+    top: 8.75rem;
+    right: 0.45rem;
+    width: min(12rem, calc(100vw - 0.9rem));
+    padding: 0.42rem;
+  }
+
+  .quest-hud small {
+    font-size: 0.4rem;
+  }
+
+  .quest-hud b {
+    margin: 0.18rem 0;
+    overflow: hidden;
+    font-size: 0.54rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .quest-hud p {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 0.4rem;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .dialogue-box {
+    bottom: calc(max(6rem, env(safe-area-inset-bottom) + 5.5rem));
+    width: calc(100vw - 0.9rem);
+    max-height: calc(100dvh - 12rem);
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .rpg-topbar {
+    min-height: 2.8rem;
+  }
+
+  .player-hud {
+    top: 3.15rem;
+    left: 0.5rem;
+    width: 12rem;
+    padding: 0.42rem;
+  }
+
+  .quest-hud {
+    top: 3.15rem;
+    right: 0.5rem;
+    width: 12rem;
+    padding: 0.42rem;
+  }
+
+  .minimap {
+    top: 7.25rem;
+    right: 0.5rem;
+    width: 8rem;
+    padding: 0.28rem;
+  }
+
+  .minimap-land {
+    height: 4.6rem;
+  }
+
+  .rpg-actions {
+    right: 0.45rem;
+    bottom: 0.5rem;
+    left: auto;
+    max-width: 46vw;
+  }
+
+  .touch-controls {
+    bottom: max(0.45rem, env(safe-area-inset-bottom));
+  }
+
+  .world-controls {
+    bottom: 0.55rem;
+    left: 0.5rem;
+    max-width: 46vw;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-height: 520px) {
+  .rpg-menu-window {
+    max-height: calc(100dvh - 0.4rem);
+    padding: 0.75rem;
+  }
+
+  .rpg-menu-window h2 {
+    margin-top: 0.1rem;
+    font-size: 1rem;
+  }
+
+  .rpg-menu-window h3 {
+    margin-top: 0.55rem;
+  }
+
+  .atlas-map-viewport,
+  .atlas-map-large {
+    height: min(18rem, 55dvh);
+  }
+}
+
+/* O contêiner do direcional tem duas linhas; nunca pode ter a altura de um botão. */
+@media (pointer: coarse), (max-width: 768px) {
+  .touch-dpad {
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+  }
+  .touch-controls {
+    align-items: flex-end;
+    padding-bottom: 0;
+  }
+  .touch-actions {
+    flex: 0 0 auto;
+  }
+  .rpg-actions {
+    bottom: calc(10rem + env(safe-area-inset-bottom));
+  }
+  .rpg-actions button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .rpg-actions span {
+    font-size: 9px;
+  }
+  .topbar-actions button {
+    min-height: 32px;
+    font-size: 9px;
+  }
+  .hud-resource > span,
+  .xp-resource > span,
+  .hud-numbers,
+  .hud-cooldown {
+    font-size: 10px;
+  }
+  .player-hud .hud-name b {
+    font-size: 12px;
+  }
+  .player-hud .hud-name span {
+    font-size: 10px;
+  }
+  .quest-hud small,
+  .quest-recommended,
+  .quest-progress,
+  .quest-reward,
+  .quest-notice {
+    font-size: 10px;
+  }
+  .quest-hud b {
+    font-size: 12px;
+  }
+  .quest-hud p {
+    font-size: 10px;
+  }
+}
+@media (max-width: 768px) and (orientation: portrait) {
+  .rpg-topbar {
+    min-height: 44px;
+  }
+  .world-brand small {
+    font-size: 8px;
+  }
+  .world-brand b {
+    font-size: 10px;
+  }
+  .player-hud {
+    top: 54px;
+    width: 182px;
+  }
+  .minimap {
+    top: 54px;
+  }
+  .quest-hud {
+    top: 210px;
+    width: 200px;
+  }
+  .quest-hud .quest-recommended,
+  .quest-hud .quest-reward {
+    display: none;
+  }
+  .quest-hud .quest-notice {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+@media (max-width: 900px) and (orientation: landscape) and (pointer: coarse) {
+  .rpg-actions {
+    left: 0.45rem;
+    right: auto;
+    bottom: calc(7rem + env(safe-area-inset-bottom));
+    max-width: 48vw;
+  }
+  .player-hud {
+    width: 180px;
+  }
+  .quest-hud {
+    top: 48px;
+    width: 180px;
+    right: 120px;
+  }
+  .quest-hud .quest-recommended,
+  .quest-hud .quest-reward,
+  .quest-hud .quest-notice {
+    display: none;
+  }
+  .minimap {
+    top: 48px;
+    width: 106px;
+  }
+  .touch-controls button {
+    width: 44px;
+    height: 44px;
+  }
+  .touch-dpad {
+    grid-template-columns: repeat(3, 44px);
+    grid-template-rows: repeat(2, 44px);
+  }
+  .touch-actions {
+    grid-template-columns: repeat(2, 44px);
+  }
+}
+
+.rpg-menu-window:has(.progression-panel) {
+  width: min(960px, calc(100vw - 32px));
+  padding: 0;
+  border-color: rgba(224, 192, 119, 0.48);
+  background: #102625;
+}
+.rpg-menu-window:has(.progression-panel) > .menu-overline,
+.rpg-menu-window:has(.progression-panel) > .menu-close {
+  display: none;
+}
+.rpg-menu-window .progression-panel {
+  border: 0;
+  border-radius: 0;
+  max-width: none;
+}
+.rpg-menu-window .progression-panel p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.rpg-menu-window .progression-panel h3 {
+  font-size: 20px;
+}
+.rpg-menu-window .progression-panel .quest-card strong {
+  font-size: 15px;
+}
+.rpg-menu-window .progression-panel button {
+  touch-action: manipulation;
+}
+@media (max-width: 720px) {
+  .rpg-menu-window:has(.progression-panel) {
+    width: calc(100vw - 14px);
+    max-height: calc(100dvh - 14px);
+  }
+  .rpg-menu-window .progression-panel__header {
+    padding: 16px 14px;
+  }
+  .rpg-menu-window .progression-panel__header h2 {
+    font-size: 23px;
+  }
+  .rpg-menu-window .quest-list,
+  .rpg-menu-window .inventory-grid {
+    max-height: 210px;
+  }
+  .rpg-menu-window .quest-detail,
+  .rpg-menu-window .inventory-detail {
+    padding: 18px 14px;
+  }
+  .rpg-menu-window .progression-icon-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .rpg-menu-window .quest-filters button,
+  .rpg-menu-window .inventory-filters button {
+    min-height: 44px;
+  }
+}
+
+.quest-endings {
+  padding: 16px 24px;
+  border-top: 1px solid rgba(224, 192, 119, 0.22);
+  color: #dfc17e;
+  background: #132b29;
+}
+.quest-endings b {
+  font:
+    700 14px Georgia,
+    serif;
+}
+.rpg-menu-window .quest-endings p {
+  color: #b5c4b7;
+  font-size: 13px;
+  line-height: 1.5;
+}
+@media (pointer: coarse), (max-width: 768px) {
+  .player-hud.rpg-player-hud {
+    padding: 7px;
+  }
+  .player-hud.rpg-player-hud .hud-resource > span,
+  .player-hud.rpg-player-hud .xp-resource > span,
+  .player-hud.rpg-player-hud .hud-numbers,
+  .player-hud.rpg-player-hud .hud-cooldown {
+    font-size: 10px;
+  }
+  .player-hud.rpg-player-hud .hud-name span {
+    font-size: 10px;
+  }
+  .player-hud.rpg-player-hud .hud-name b {
+    font-size: 12px;
+  }
+}
+@media (max-width: 768px) and (orientation: portrait) {
+  .player-hud.rpg-player-hud {
+    width: 182px;
+  }
+  .quest-hud.rpg-quest-hud {
+    top: 180px;
+    right: 8px;
+    width: min(180px, calc(100vw - 200px));
+  }
+  .quest-hud.rpg-quest-hud b {
+    font-size: 11px;
+  }
+  .quest-hud.rpg-quest-hud .quest-progress {
+    font-size: 10px;
+  }
+  .quest-hud.rpg-quest-hud .quest-notice {
+    font-size: 10px;
+    -webkit-line-clamp: 2;
+  }
+}
+@media (max-height: 430px) and (orientation: landscape) and (pointer: coarse) {
+  .player-hud.rpg-player-hud {
+    width: 170px;
+  }
+  .player-hud.rpg-player-hud .hud-name {
+    margin-bottom: 2px;
+  }
+  .player-hud.rpg-player-hud .hud-cooldown {
+    display: none;
+  }
+  .quest-hud.rpg-quest-hud {
+    right: 125px;
+    width: 170px;
+  }
+}

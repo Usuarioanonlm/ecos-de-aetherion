@@ -8,10 +8,17 @@ export class Enemy {
   private attackCooldown = 0.9;
   private pulse = 0;
 
-  constructor(readonly mesh: Mesh, readonly label: string) {}
+  constructor(
+    readonly mesh: Mesh,
+    readonly label: string
+  ) {}
 
-  get x() { return this.mesh.position.x; }
-  get y() { return this.mesh.position.y; }
+  get x() {
+    return this.mesh.position.x;
+  }
+  get y() {
+    return this.mesh.position.y;
+  }
 
   update(player: Player, delta: number) {
     if (!this.alive) return 0;

@@ -12,15 +12,36 @@ export class Player {
 
   constructor(readonly mesh: Mesh) {}
 
-  get x() { return this.mesh.position.x; }
-  get y() { return this.mesh.position.y; }
+  get x() {
+    return this.mesh.position.x;
+  }
+  get y() {
+    return this.mesh.position.y;
+  }
 
-  move(x: number, y: number, delta: number, bounds: { left: number; right: number; top: number; bottom: number }) {
+  move(
+    x: number,
+    y: number,
+    delta: number,
+    bounds: { left: number; right: number; top: number; bottom: number }
+  ) {
     const magnitude = Math.hypot(x, y);
     if (magnitude <= 0) return;
     const speed = 3.1;
-    this.mesh.position.x = Math.max(bounds.left, Math.min(bounds.right, this.mesh.position.x + (x / magnitude) * speed * delta));
-    this.mesh.position.y = Math.max(bounds.bottom, Math.min(bounds.top, this.mesh.position.y + (y / magnitude) * speed * delta));
+    this.mesh.position.x = Math.max(
+      bounds.left,
+      Math.min(
+        bounds.right,
+        this.mesh.position.x + (x / magnitude) * speed * delta
+      )
+    );
+    this.mesh.position.y = Math.max(
+      bounds.bottom,
+      Math.min(
+        bounds.top,
+        this.mesh.position.y + (y / magnitude) * speed * delta
+      )
+    );
     this.movePhase += delta * 11;
   }
 

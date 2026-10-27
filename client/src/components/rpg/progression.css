@@ -1,0 +1,499 @@
+.progression-panel {
+  --progression-ink: #f7ecd1;
+  --progression-muted: #a99c85;
+  --progression-line: rgba(224, 192, 119, 0.2);
+  --progression-panel: rgba(19, 28, 32, 0.96);
+  --progression-panel-soft: rgba(36, 51, 53, 0.8);
+  color: var(--progression-ink);
+  background: linear-gradient(
+    135deg,
+    rgba(33, 48, 49, 0.98),
+    var(--progression-panel)
+  );
+  border: 1px solid var(--progression-line);
+  border-radius: 16px;
+  box-shadow:
+    0 18px 48px rgba(5, 10, 12, 0.42),
+    inset 0 1px rgba(255, 245, 211, 0.08);
+  font-family: Georgia, "Times New Roman", serif;
+  max-width: 1040px;
+  overflow: hidden;
+}
+
+.progression-panel__header {
+  align-items: flex-start;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 24px 26px 18px;
+}
+
+.progression-eyebrow {
+  color: #e0bd69;
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 6px;
+}
+
+.progression-panel h2,
+.progression-panel h3,
+.progression-panel p {
+  margin: 0;
+}
+
+.progression-panel h2 {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  letter-spacing: 0.02em;
+}
+
+.progression-panel h3 {
+  font-size: 1.25rem;
+}
+
+.progression-panel__header p {
+  color: var(--progression-muted);
+  font-size: 0.86rem;
+  margin-top: 7px;
+}
+
+.progression-icon-button {
+  background: transparent;
+  border: 1px solid var(--progression-line);
+  border-radius: 50%;
+  color: var(--progression-muted);
+  cursor: pointer;
+  font-size: 1.25rem;
+  height: 32px;
+  line-height: 1;
+  width: 32px;
+}
+
+.progression-icon-button:hover,
+.progression-icon-button:focus-visible {
+  color: var(--progression-ink);
+  border-color: #e0bd69;
+}
+
+.quest-filters,
+.inventory-filters {
+  border-bottom: 1px solid var(--progression-line);
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  padding: 0 18px 12px;
+  scrollbar-width: thin;
+}
+
+.quest-filters button,
+.inventory-filters button {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--progression-muted);
+  cursor: pointer;
+  flex: 0 0 auto;
+  font: inherit;
+  font-size: 0.75rem;
+  padding: 8px 12px;
+  transition:
+    background 160ms ease-out,
+    color 160ms ease-out,
+    border-color 160ms ease-out;
+}
+
+.quest-filters button:hover,
+.inventory-filters button:hover,
+.quest-filters button.is-selected,
+.inventory-filters button.is-selected {
+  background: rgba(224, 189, 105, 0.12);
+  border-color: rgba(224, 189, 105, 0.42);
+  color: #f2d18a;
+}
+
+.quest-journal__layout,
+.inventory-panel__layout {
+  display: grid;
+  gap: 0;
+  grid-template-columns: minmax(220px, 0.75fr) minmax(300px, 1.25fr);
+  min-height: 390px;
+}
+
+.quest-list,
+.inventory-grid {
+  border-right: 1px solid var(--progression-line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 530px;
+  overflow: auto;
+  padding: 16px;
+}
+
+.quest-card {
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--progression-ink);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font: inherit;
+  gap: 5px;
+  padding: 12px;
+  text-align: left;
+  transition:
+    background 160ms ease-out,
+    border-color 160ms ease-out,
+    transform 160ms ease-out;
+}
+
+.quest-card:hover,
+.quest-card.is-selected {
+  background: rgba(224, 189, 105, 0.08);
+  border-color: rgba(224, 189, 105, 0.45);
+  transform: translateX(2px);
+}
+
+.quest-card strong {
+  font-size: 0.96rem;
+}
+
+.quest-card__kind,
+.inventory-rarity {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.quest-card__kind--principal {
+  color: #e0bd69;
+}
+.quest-card__kind--secundaria {
+  color: #8bd5c0;
+}
+.quest-card__kind--diaria {
+  color: #ca9df2;
+}
+
+.quest-card__meta {
+  color: var(--progression-muted);
+  font-size: 0.72rem;
+}
+
+.quest-progress__bar {
+  background: rgba(3, 9, 11, 0.7);
+  border-radius: 999px;
+  display: block;
+  height: 6px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.quest-progress__bar i {
+  background: linear-gradient(90deg, #679e86, #e0bd69);
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+  transition: width 180ms ease-out;
+}
+
+.quest-detail,
+.inventory-detail {
+  padding: 25px 26px;
+}
+
+.quest-detail__heading,
+.quest-detail__row,
+.inventory-detail__title {
+  align-items: flex-start;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+}
+
+.quest-detail__description,
+.inventory-detail > p {
+  color: #d2c7b1;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  margin-top: 14px;
+}
+
+.quest-status,
+.inventory-slot,
+.recommendation {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  display: inline-block;
+  flex: 0 0 auto;
+  font-size: 0.64rem;
+  padding: 5px 8px;
+  text-transform: uppercase;
+}
+
+.is-muted {
+  color: #9a9284;
+}
+.is-available {
+  color: #8bd5c0;
+}
+.is-active {
+  color: #e0bd69;
+}
+.is-complete {
+  color: #9bd9a3;
+}
+
+.quest-detail__level,
+.quest-detail__reward,
+.inventory-modifiers,
+.inventory-comparison {
+  background: var(--progression-panel-soft);
+  border: 1px solid var(--progression-line);
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 17px;
+  padding: 12px;
+}
+
+.quest-detail__level {
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.recommendation--acima {
+  color: #efa37c;
+}
+.recommendation--equilibrado {
+  color: #9bd9a3;
+}
+.recommendation--abaixo {
+  color: #a9c8eb;
+}
+
+.quest-detail__progress {
+  margin-top: 18px;
+}
+
+.quest-detail__progress > .quest-progress__bar {
+  margin: 9px 0 12px;
+}
+
+.quest-detail__progress ul {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.quest-detail__progress li {
+  align-items: center;
+  color: #d2c7b1;
+  display: grid;
+  font-size: 0.82rem;
+  gap: 8px;
+  grid-template-columns: 18px 1fr auto;
+}
+
+.quest-detail__progress li > span {
+  color: #e0bd69;
+}
+.quest-detail__progress li.is-done {
+  color: #9bd9a3;
+  text-decoration: line-through;
+}
+.quest-detail__progress li b {
+  color: var(--progression-muted);
+  font-size: 0.75rem;
+}
+
+.quest-detail__reward > span,
+.quest-choices > span,
+.inventory-modifiers > b,
+.inventory-comparison > b {
+  color: var(--progression-muted);
+  font-size: 0.69rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.quest-detail__reward strong,
+.inventory-modifiers > span,
+.inventory-comparison > span {
+  color: #f2d18a;
+  font-size: 0.84rem;
+}
+
+.quest-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.quest-choices button,
+.progression-button {
+  border: 1px solid var(--progression-line);
+  border-radius: 7px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  padding: 9px 11px;
+  transition:
+    filter 160ms ease-out,
+    transform 160ms ease-out;
+}
+
+.quest-choices button {
+  background: rgba(224, 189, 105, 0.06);
+  color: #e8d6ac;
+  text-align: left;
+}
+
+.quest-choices button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.quest-detail__actions,
+.inventory-detail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 19px;
+}
+
+.progression-button:hover:not(:disabled),
+.quest-choices button:hover:not(:disabled) {
+  filter: brightness(1.13);
+  transform: translateY(-1px);
+}
+
+.progression-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.46;
+}
+.progression-button--primary {
+  background: #b88945;
+  color: #1b2424;
+}
+.progression-button--quiet {
+  background: rgba(139, 213, 192, 0.08);
+  color: #9edbc9;
+}
+.progression-button--danger {
+  background: rgba(229, 130, 113, 0.08);
+  color: #efab98;
+}
+
+.inventory-grid {
+  display: grid;
+  align-content: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.inventory-item {
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: var(--progression-ink);
+  cursor: pointer;
+  display: grid;
+  font: inherit;
+  gap: 3px;
+  grid-template-columns: 25px 1fr auto;
+  min-height: 78px;
+  padding: 9px;
+  text-align: left;
+}
+
+.inventory-item:hover,
+.inventory-item.is-selected {
+  background: rgba(224, 189, 105, 0.08);
+  border-color: rgba(224, 189, 105, 0.45);
+}
+
+.inventory-item__icon {
+  color: #e0bd69;
+  font-size: 1.2rem;
+  grid-row: span 2;
+}
+.inventory-item strong {
+  font-size: 0.77rem;
+  line-height: 1.2;
+}
+.inventory-item__quantity {
+  color: #f2d18a;
+  font-size: 0.75rem;
+}
+.inventory-item small {
+  color: var(--progression-muted);
+  font-size: 0.65rem;
+  grid-column: 2 / span 2;
+}
+.inventory-item--incomum .inventory-item__icon,
+.inventory-rarity--incomum {
+  color: #8bd5c0;
+}
+.inventory-item--raro .inventory-item__icon,
+.inventory-rarity--raro {
+  color: #9fc8f0;
+}
+.inventory-item--epico .inventory-item__icon,
+.inventory-rarity--epico {
+  color: #c79bea;
+}
+.inventory-item--lendario .inventory-item__icon,
+.inventory-rarity--lendario {
+  color: #e0a364;
+}
+.inventory-rarity--comum {
+  color: #b9b4a8;
+}
+
+.progression-empty {
+  color: var(--progression-muted);
+  font-size: 0.85rem;
+  padding: 18px 5px;
+}
+
+@media (max-width: 720px) {
+  .progression-panel__header {
+    padding: 19px 17px 15px;
+  }
+  .quest-journal__layout,
+  .inventory-panel__layout {
+    grid-template-columns: 1fr;
+  }
+  .quest-list,
+  .inventory-grid {
+    border-bottom: 1px solid var(--progression-line);
+    border-right: 0;
+    max-height: 280px;
+  }
+  .quest-detail,
+  .inventory-detail {
+    padding: 20px 17px;
+  }
+  .inventory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progression-panel *,
+  .progression-panel *::before,
+  .progression-panel *::after {
+    transition: none !important;
+  }
+}
